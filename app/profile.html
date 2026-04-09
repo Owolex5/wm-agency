@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+  <title>WME Agency | My Profile</title>
+
+  <!-- ========== All CSS files ========= -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    :root {
+      --primary: #000000;
+      --sidebar-bg: #ffffff;
+      --main-bg: #f8f9fc;
+      --border-color: rgba(0, 0, 0, 0.06);
+      --text-muted: #6c757d;
+      --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar-nav-wrapper { transform: translateX(-100%); }
+      .sidebar-nav-wrapper.mobile-open { transform: translateX(0); box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15); }
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+    .menu-toggle-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.03);
+      transition: all 0.2s;
+    }
+    .menu-toggle-btn:hover { background: rgba(0, 0, 0, 0.08); transform: scale(0.96); }
+    .menu-toggle-btn i { font-size: 1.5rem; color: #1a1a1a; }
+
+    .navbar-logo { padding: 0 10px 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 16px; }
+    .navbar-logo a { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; border-radius: 12px; }
+    .logo-text { font-weight: 800; letter-spacing: -0.5px; font-size: 1.3rem; color: #111; }
+    .logo-text small { display: block; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); }
+
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; font-size: 0.9rem; gap: 12px; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
+    .sidebar-nav ul li a .icon { font-size: 1.2rem; opacity: 0.7; width: 24px; }
+    .status-badge { margin-left: auto; font-size: 9px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+    .badge-green { background: rgba(40, 167, 69, 0.12); color: #2a9d8f; }
+
+    .promo-box { margin-top: auto; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 24px; padding: 24px 20px; color: #fff; text-align: center; margin-top: 24px; }
+    .promo-box i { color: #f9ca24; font-size: 2rem; margin-bottom: 12px; }
+    .upgrade-btn { background: #fff; color: #000; padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-decoration: none; display: inline-block; }
+
+    .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 99; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .profile-box button { background: none; border: none; display: flex; align-items: center; gap: 12px; }
+    .profile-img-wrapper img { width: 42px; height: 42px; border-radius: 14px; object-fit: cover; border: 2px solid #fff; }
+    .dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; border: 2px solid #fff; }
+
+    .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
+    @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
+    .footer { background: transparent; border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 20px 0; margin-top: 32px; }
+
+    /* Profile specific styles */
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 60px;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .stat-card { transition: all 0.2s; }
+    .stat-card:hover { transform: translateY(-3px); background: #fff; }
+    .setting-item { border-bottom: 1px solid rgba(0,0,0,0.05); transition: background 0.2s; cursor: pointer; }
+    .setting-item:hover { background: rgba(0,0,0,0.02); }
+    .badge-tier { background: linear-gradient(135deg, #f5af19 0%, #f12711 100%); }
+    
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-slide-up { animation: fadeSlideUp 0.5s ease-out forwards; }
+
+    .modal-backdrop-custom { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1100; display: flex; align-items: center; justify-content: center; }
+    .edit-modal { max-width: 500px; width: 90%; background: white; border-radius: 32px; overflow: hidden; animation: fadeSlideUp 0.3s ease; }
+  </style>
+</head>
+<body>
+
+<div id="preloader"><div class="spinner"></div></div>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<!-- ========== SIDEBAR ========== -->
+<aside id="mainSidebar" class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html">
+      <div class="logo-icon-bg">W</div>
+      <span class="logo-text">WME <small>AGENCY</small></span>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-label">Main Menu</li>
+      <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
+      <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
+      <li class="nav-item"><a href="behind-the-scenes.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-item"><a href="group-chat.html"><span class="icon"><i class="lni lni-message"></i></span><span class="text">Group Chat</span></a></li>
+      <li class="nav-item"><a href="newsroom.html"><span class="icon"><i class="lni lni-bullhorn"></i></span><span class="text">Newsroom</span></a></li>
+      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
+      <li class="nav-item"><a href="profile.html" class="active"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span><span class="status-badge badge-green">Edit</span></a></li>
+    </ul>
+  </nav>
+  <div class="promo-box">
+    <i class="lni lni-star-filled"></i>
+    <h3>Premium Access</h3>
+    <p>Get exclusive talent rates.</p>
+    <a href="#" class="upgrade-btn">Upgrade</a>
+  </div>
+</aside>
+
+<!-- ========== MAIN WRAPPER ========== -->
+<main class="main-wrapper">
+  <header class="header">
+    <div class="container-fluid">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="burgerMenuBtn" class="menu-toggle-btn"><i class="lni lni-menu"></i></button>
+        </div>
+        <div class="header-right">
+          <div class="header-icon-btn me-3 position-relative">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
+          </div>
+          <div class="profile-box">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown">
+              <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
+              <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Profile Content -->
+  <div class="container-fluid px-4 py-4">
+    <div class="mb-4">
+      <h1 class="display-6 fw-bold mb-1">My Profile</h1>
+      <p class="text-muted">Manage your account information and preferences</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Profile Card Column -->
+      <div class="col-lg-4">
+        <div class="card-style text-center fade-slide-up">
+          <div class="position-relative d-inline-block">
+            <img id="profileAvatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" alt="Profile" class="profile-avatar">
+            <button class="btn btn-sm btn-dark rounded-circle position-absolute bottom-0 end-0" style="width: 32px; height: 32px;" onclick="openEditAvatar()">
+              <i class="lni lni-camera" style="font-size: 14px;"></i>
+            </button>
+          </div>
+          <h3 class="fw-bold mt-3 mb-1" id="profileName">Alex Rivera</h3>
+          <p class="text-muted small" id="profileRole">Talent Booker • Premium Member</p>
+          <div class="d-flex justify-content-center gap-2 mb-3">
+            <span class="badge bg-dark rounded-pill px-3 py-1"><i class="lni lni-trophy"></i> Rank #12</span>
+            <span class="badge badge-tier rounded-pill px-3 py-1" style="background: linear-gradient(135deg, #f5af19, #f12711);">✨ Premium</span>
+          </div>
+          <div class="row g-2 mt-2">
+            <div class="col-6">
+              <div class="bg-light rounded-3 p-2">
+                <small class="text-muted">Points</small>
+                <h5 class="mb-0 fw-bold" id="profilePoints">24,500</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="bg-light rounded-3 p-2">
+                <small class="text-muted">Bookings</small>
+                <h5 class="mb-0 fw-bold" id="profileBookings">8</h5>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-dark w-100 mt-3 rounded-pill" onclick="openEditProfile()">
+            <i class="lni lni-pencil"></i> Edit Profile
+          </button>
+        </div>
+
+        <!-- Membership Card -->
+        <div class="card-style mt-4 bg-dark text-white text-center fade-slide-up" style="animation-delay: 0.05s">
+          <i class="lni lni-star-filled fs-1 text-warning mb-2"></i>
+          <h5 class="fw-bold">Premium Member</h5>
+          <p class="small text-white-50">Valid until Dec 31, 2025</p>
+          <div class="progress bg-white-20 rounded-pill" style="height: 8px;">
+            <div class="progress-bar bg-warning" style="width: 65%;"></div>
+          </div>
+          <p class="small mt-2 text-white-50">65% to Platinum Tier</p>
+          <button class="btn btn-outline-light btn-sm mt-2 rounded-pill" onclick="showToast('Upgrade options coming soon!', 'info')">Upgrade Membership</button>
+        </div>
+      </div>
+
+      <!-- Main Info Column -->
+      <div class="col-lg-8">
+        <!-- Personal Information -->
+        <div class="card-style fade-slide-up" style="animation-delay: 0.1s">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0"><i class="lni lni-user me-2"></i> Personal Information</h5>
+            <button class="btn btn-sm btn-light rounded-pill" onclick="openEditProfile()">Edit</button>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="small text-muted">Full Name</label>
+              <p class="fw-semibold mb-0" id="infoName">Alex Rivera</p>
+            </div>
+            <div class="col-md-6">
+              <label class="small text-muted">Email Address</label>
+              <p class="fw-semibold mb-0" id="infoEmail">alex.rivera@wmeagency.com</p>
+            </div>
+            <div class="col-md-6">
+              <label class="small text-muted">Phone Number</label>
+              <p class="fw-semibold mb-0" id="infoPhone">+1 (555) 123-4567</p>
+            </div>
+            <div class="col-md-6">
+              <label class="small text-muted">Member Since</label>
+              <p class="fw-semibold mb-0">January 15, 2024</p>
+            </div>
+            <div class="col-12">
+              <label class="small text-muted">Bio</label>
+              <p class="mb-0" id="infoBio">Passionate talent booker with 5+ years in entertainment. Love discovering new talent and creating unforgettable experiences.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="row g-3 mt-1">
+          <div class="col-md-4">
+            <div class="stat-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.15s">
+              <i class="lni lni-calendar fs-2"></i>
+              <h3 class="fw-bold mb-0" id="statBookings">8</h3>
+              <small class="text-muted">Total Bookings</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.2s">
+              <i class="lni lni-trophy fs-2 text-warning"></i>
+              <h3 class="fw-bold mb-0" id="statPoints">24,500</h3>
+              <small class="text-muted">Points Earned</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.25s">
+              <i class="lni lni-users fs-2"></i>
+              <h3 class="fw-bold mb-0" id="statReferrals">3</h3>
+              <small class="text-muted">Referrals</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="card-style mt-3 fade-slide-up" style="animation-delay: 0.3s">
+          <h5 class="fw-bold mb-3"><i class="lni lni-cog me-2"></i> Account Settings</h5>
+          <div class="setting-item d-flex justify-content-between align-items-center py-3" onclick="toggleSetting('notifications')">
+            <div>
+              <i class="lni lni-bell me-2"></i>
+              <span>Push Notifications</span>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="notifToggle" checked onchange="saveSetting('notifications', this.checked)">
+            </div>
+          </div>
+          <div class="setting-item d-flex justify-content-between align-items-center py-3" onclick="toggleSetting('email')">
+            <div>
+              <i class="lni lni-envelope me-2"></i>
+              <span>Email Updates</span>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="emailToggle" checked onchange="saveSetting('email', this.checked)">
+            </div>
+          </div>
+          <div class="setting-item d-flex justify-content-between align-items-center py-3" onclick="toggleSetting('dark')">
+            <div>
+              <i class="lni lni-night me-2"></i>
+              <span>Dark Mode</span>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="darkToggle" onchange="toggleDarkMode(this.checked)">
+            </div>
+          </div>
+          <div class="setting-item d-flex justify-content-between align-items-center py-3 border-bottom-0" onclick="changePassword()">
+            <div>
+              <i class="lni lni-lock me-2"></i>
+              <span>Change Password</span>
+            </div>
+            <i class="lni lni-arrow-right text-muted"></i>
+          </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="card-style mt-3 border border-danger bg-danger bg-opacity-10 fade-slide-up" style="animation-delay: 0.35s">
+          <h5 class="fw-bold mb-2 text-danger"><i class="lni lni-warning me-2"></i> Danger Zone</h5>
+          <p class="small text-muted mb-3">Permanently delete your account and all associated data.</p>
+          <button class="btn btn-outline-danger btn-sm rounded-pill" onclick="confirmDelete()">Delete Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container-fluid"><div class="row"><div class="col-md-6"><div class="copyright"><p class="text-sm">Designed by <a href="https://wmeagency.com">WME</a></p></div></div></div></div></footer>
+</main>
+
+<!-- Edit Profile Modal -->
+<div id="editModal" style="display: none; position: fixed; inset: 0; z-index: 1200;"></div>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // ========== USER PROFILE DATA ==========
+  let userProfile = {
+    name: "Alex Rivera",
+    email: "alex.rivera@wmeagency.com",
+    phone: "+1 (555) 123-4567",
+    bio: "Passionate talent booker with 5+ years in entertainment. Love discovering new talent and creating unforgettable experiences.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop",
+    points: 24500,
+    bookings: 8,
+    referrals: 3,
+    rank: 12,
+    memberSince: "January 15, 2024"
+  };
+
+  // Load saved data from localStorage
+  function loadProfile() {
+    const saved = localStorage.getItem('wme_profile');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        Object.assign(userProfile, parsed);
+      } catch(e) {}
+    }
+    updateProfileUI();
+  }
+
+  function saveProfile() {
+    localStorage.setItem('wme_profile', JSON.stringify(userProfile));
+  }
+
+  function updateProfileUI() {
+    document.getElementById('profileName').innerText = userProfile.name;
+    document.getElementById('profileAvatar').src = userProfile.avatar;
+    document.getElementById('profilePoints').innerText = userProfile.points.toLocaleString();
+    document.getElementById('profileBookings').innerText = userProfile.bookings;
+    document.getElementById('infoName').innerText = userProfile.name;
+    document.getElementById('infoEmail').innerText = userProfile.email;
+    document.getElementById('infoPhone').innerText = userProfile.phone;
+    document.getElementById('infoBio').innerText = userProfile.bio;
+    document.getElementById('statBookings').innerText = userProfile.bookings;
+    document.getElementById('statPoints').innerText = userProfile.points.toLocaleString();
+    document.getElementById('statReferrals').innerText = userProfile.referrals;
+    document.getElementById('headerUsername').innerText = userProfile.name.split(' ')[0];
+  }
+
+  // Edit Profile Modal
+  window.openEditProfile = function() {
+    const modalDiv = document.getElementById('editModal');
+    modalDiv.innerHTML = `
+      <div class="modal-backdrop-custom" onclick="closeEditModal(event)">
+        <div class="edit-modal" onclick="event.stopPropagation()">
+          <div class="p-4 border-bottom d-flex justify-content-between align-items-center bg-white">
+            <h5 class="fw-bold mb-0">Edit Profile</h5>
+            <button class="btn-close" onclick="closeEditModal()"></button>
+          </div>
+          <div class="p-4">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Full Name</label>
+              <input type="text" id="editName" class="form-control" value="${userProfile.name}">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email Address</label>
+              <input type="email" id="editEmail" class="form-control" value="${userProfile.email}">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Phone Number</label>
+              <input type="tel" id="editPhone" class="form-control" value="${userProfile.phone}">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Bio</label>
+              <textarea id="editBio" class="form-control" rows="3">${userProfile.bio}</textarea>
+            </div>
+            <button class="btn btn-dark w-100 rounded-pill py-2" onclick="saveProfileChanges()">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    `;
+    modalDiv.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.saveProfileChanges = function() {
+    const newName = document.getElementById('editName')?.value.trim();
+    const newEmail = document.getElementById('editEmail')?.value.trim();
+    const newPhone = document.getElementById('editPhone')?.value.trim();
+    const newBio = document.getElementById('editBio')?.value.trim();
+    
+    if (newName) userProfile.name = newName;
+    if (newEmail) userProfile.email = newEmail;
+    if (newPhone) userProfile.phone = newPhone;
+    if (newBio) userProfile.bio = newBio;
+    
+    saveProfile();
+    updateProfileUI();
+    closeEditModal();
+    showToast('Profile updated successfully!', 'success');
+  };
+
+  window.openEditAvatar = function() {
+    const avatarUrl = prompt('Enter image URL for your avatar:', userProfile.avatar);
+    if (avatarUrl && avatarUrl.startsWith('http')) {
+      userProfile.avatar = avatarUrl;
+      saveProfile();
+      updateProfileUI();
+      showToast('Avatar updated!', 'success');
+    } else if (avatarUrl) {
+      showToast('Please enter a valid image URL', 'error');
+    }
+  };
+
+  window.closeEditModal = function(e) {
+    const modal = document.getElementById('editModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  // Settings handlers
+  window.toggleSetting = function(setting) {
+    const toggle = document.getElementById(`${setting}Toggle`);
+    if (toggle) toggle.checked = !toggle.checked;
+    saveSetting(setting, toggle.checked);
+  };
+
+  window.saveSetting = function(setting, value) {
+    localStorage.setItem(`wme_setting_${setting}`, value);
+    showToast(`${setting === 'notifications' ? 'Notifications' : setting === 'email' ? 'Email updates' : 'Setting'} ${value ? 'enabled' : 'disabled'}`, 'info');
+  };
+
+  function loadSettings() {
+    const notif = localStorage.getItem('wme_setting_notifications');
+    const email = localStorage.getItem('wme_setting_email');
+    const dark = localStorage.getItem('wme_setting_dark');
+    if (notif !== null) document.getElementById('notifToggle').checked = notif === 'true';
+    if (email !== null) document.getElementById('emailToggle').checked = email === 'true';
+    if (dark !== null && dark === 'true') toggleDarkMode(true);
+  }
+
+  window.toggleDarkMode = function(enabled) {
+    if (enabled) {
+      document.body.style.background = '#1a1a2e';
+      document.querySelectorAll('.card-style, .icon-card, .stat-card').forEach(el => {
+        el.style.background = '#16213e';
+        el.style.color = '#fff';
+        el.style.borderColor = 'rgba(255,255,255,0.1)';
+      });
+      localStorage.setItem('wme_setting_dark', 'true');
+    } else {
+      document.body.style.background = '#f8f9fc';
+      document.querySelectorAll('.card-style, .icon-card, .stat-card').forEach(el => {
+        el.style.background = '#fff';
+        el.style.color = '#000';
+        el.style.borderColor = 'rgba(0,0,0,0.06)';
+      });
+      localStorage.setItem('wme_setting_dark', 'false');
+    }
+  };
+
+  window.changePassword = function() {
+    const newPass = prompt('Enter new password:', '');
+    if (newPass && newPass.length >= 6) {
+      showToast('Password changed successfully!', 'success');
+    } else if (newPass) {
+      showToast('Password must be at least 6 characters', 'error');
+    }
+  };
+
+  window.confirmDelete = function() {
+    if (confirm('⚠️ WARNING: This will permanently delete your account. This action cannot be undone. Are you sure?')) {
+      if (confirm('Type "DELETE" to confirm:')) {
+        showToast('Account deletion requested. Please contact support.', 'error');
+      }
+    }
+  };
+
+  function showToast(msg, type = 'success') {
+    const toastDiv = document.createElement('div');
+    toastDiv.className = 'position-fixed bottom-0 end-0 p-3';
+    toastDiv.style.zIndex = '1300';
+    toastDiv.innerHTML = `<div class="toast show" role="alert"><div class="toast-header ${type === 'success' ? 'bg-dark text-white' : 'bg-danger text-white'}"><i class="lni lni-information me-2"></i><strong>Profile</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button></div><div class="toast-body">${msg}</div></div>`;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 3000);
+  }
+
+  // Burger menu
+  function setupBurgerMenu() {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const sidebar = document.getElementById('mainSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    if (!burgerBtn || !sidebar || !overlay) return;
+    function openSidebar() { sidebar.classList.add('mobile-open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeSidebar() { sidebar.classList.remove('mobile-open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar(); });
+    overlay.addEventListener('click', closeSidebar);
+    window.addEventListener('resize', () => { if (window.innerWidth > 991) closeSidebar(); });
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    loadProfile();
+    loadSettings();
+    setupBurgerMenu();
+    
+    // Add dark mode listener for existing preference
+    const darkPref = localStorage.getItem('wme_setting_dark');
+    if (darkPref === 'true') toggleDarkMode(true);
+  });
+</script>
+</body>
+</html>

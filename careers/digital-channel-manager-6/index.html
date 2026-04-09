@@ -1,0 +1,709 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+<script type="text/javascript">
+/* <![CDATA[ */
+var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
+/* ]]> */
+</script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="WMA is a full service digital agency based in London, New York and LA and has over 20 years of experience working alongside some of the world's biggest brands and recording artists.">
+
+    <meta name="author" content="WMA Studios">
+    
+    <meta property="og:title" content="WMA Agency">
+	<meta property="og:url" content="https://wma.agency">
+	<meta property="og:image" content="https://wma.agency/wp-content/themes/wma/images/og-image.png">
+	
+	<link rel="icon" type="image/png" href="../../wp-content/themes/wma/images/favicon.png">
+
+    <title>WMA | Full Service Digital Agency</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="../../wp-content/themes/wma/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../wp-content/themes/wma/css/styles.css" rel="stylesheet">
+    <link href="../../wp-content/themes/wma/css/slick.min.css" rel="stylesheet">
+    <link href="../../wp-content/themes/wma/css/slick-theme.min.css" rel="stylesheet">
+    <link href="../../wp-content/themes/wma/css/animations.min.css" rel="stylesheet">
+    <link href="../../wp-content/themes/wma/css/custom.css" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <link href='https://wma.agency/wp-content/themes/wma/css/animations-ie-fix.min.css' rel='stylesheet'>
+    <![endif]-->
+    
+    <!-- Google Analytics -->
+	
+	<!-- End Google Analytics -->
+	
+	<!-- Facebook Pixel Code -->
+	
+	<noscript>
+		<img alt="fb-pixel" height="1" width="1" src="../../tr?id=1400560896731848&ev=PageView&noscript=1">
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+    
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top fixed-static">
+<div class="container-fluid">
+<div class="navbar-header">
+<button id="menuLink" type="button" class="navbar-toggle collapsed">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../index.html"></a>
+</div>
+<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav menu-link navbar-right">
+					<li><a href="../../about/index.html">About</a></li>
+					<li><a href="../../clients/index.html">Clients</a></li>
+					<li><a href="../../talent/index.html">Talent Partnerships</a></li>
+					<li><a href="../../index.html#services">Services</a></li>
+					<li><a href="../index.html">Careers</a></li>
+					<li><a href="../..//app/register">Sign up</a></li>
+					<li><a href="../../contact/index.html">Contact</a></li>
+				</ul>
+				</div>
+<div class="fullscreen-menu" style="margin-top: -110vh;">
+<a href="#" class="close"></a>
+				<ul>
+					<li><a href="../../about/index.html">About</a></li>
+					<li><a href="../../clients/index.html">Clients</a></li>
+					<li><a href="../../talent/index.html">Talent Partnerships</a></li>
+					<li><a href="../../index.html#services">Services</a></li>
+					<li><a href="../index.html">Careers</a></li>
+					<li><a href="../..//app/register">Sign up</a></li>
+					<li><a href="../../contact/index.html">Contact</a></li>
+				</ul>
+				</div>
+				</div>
+			</nav>
+
+
+	
+
+<section class="careers-section">
+  	<div class="row banner-row">
+  		<div class="col-md-12">
+  			<img src="../../wp-content/themes/wma/images/careers.jpg">
+  		</div>
+  	</div>
+  	
+  	  	
+  				
+		<div class="row">
+  			<div class="col-md-12 text-center">
+  				<h1>Digital Channel Manager (new-york)</h1>
+  			</div>
+  		</div>
+		
+		<div class="row job">
+			<div class="col-md-6 col-md-offset-3">
+ 				<p><strong>ABOUT WMA<br>
+</strong>WMA partners with industry-leading clients, including Universal Music, Sony Music, Live Nation, Disney, Netflix and Amazon, to create impactful and cohesive digital campaigns. We drive genuine engagement by connecting brands, artists and their audiences across music, entertainment, lifestyle, and technology. WMA’s global team is highly experienced and collaborative with bases in London, New York, LA, Nashville and Singapore.<br>
+<strong><br>
+THE ROLE</strong><br>
+Join WMA as a Digital Channel Manager and drive the social media strategy for some of the biggest names in music and entertainment. You will be responsible for developing and executing best-in-class social media campaigns, managing client relationships and driving measurable results.</p>
+<hr>
+<p><strong>KEY RESPONSIBILITIES</strong></p>
+<p>&#8211; Manage and execute innovative social media campaigns across a range of client accounts, including high-profile artists, emerging talent, and music-focused brands.</p>
+<p>&#8211; Develop and implement data-driven social media strategies across multiple platforms, optimizing content and channel performance to maximize engagement and deliver measurable results in order to achieve client marketing objectives.</p>
+<p>&#8211; Create and manage detailed content calendars and schedules across key platforms, including TikTok, Instagram, Facebook, X, Snapchat, Threads, and YouTube.</p>
+<p>&#8211; Build strong client partnerships, leading on all aspects of account management including day to day communication.</p>
+<p>&#8211; Liaise with social media platform representatives to stay informed on best practices and emerging trends.</p>
+<p>&#8211; Utilise social media analytics tools to track campaign performance, generate actionable insights, and deliver clear, concise reports to clients.</p>
+<p>&#8211; Craft engaging and platform-specific copy for social media posts, official websites, and e-newsletters.</p>
+<p>&#8211; Conduct social listening sweeps and construct thorough sentiment reports based on f indings.</p>
+<p>&#8211; Create, manage, and optimize paid social media advertising campaigns.</p>
+<p>&#8211; Produce low-lift social edits on static assets and short-form videos.</p>
+<p>&#8211; Lead content capture days at live shows, video shoots, and studio sessions.</p>
+<p>&#8211; Collaborate with WMA&#8217;s other specialist teams to provide integrated solutions and amplify campaign impact.</p>
+<p>&#8211; Contribute to the development of innovative new business pitches.</p>
+<p>&#8211; Mentor and support junior team members.</p>
+<p><strong>SKILLSET</strong></p>
+<p>&#8211; Passionate and knowledgeable about current social media and music /entertainment trends, with a genuine interest in all things social.</p>
+<p>&#8211; Proven experience strategising, executing, and analysing social media campaigns, showcasing measurable results.</p>
+<p>&#8211; Proficient in social media analytics platforms (e.g., Meta Business Suite, X Analytics, TikTok Analytics), with the ability to translate data into actionable insights.</p>
+<p>&#8211; Excellent at building strong, long-term relationships with artists, their management teams and labels, fostering trust and collaboration.</p>
+<p>&#8211; Confidence in leading all aspects of client communication, including strategic planning, weekly calls, agenda preparation, and performance reporting.</p>
+<p>&#8211; Exceptional verbal and written communication skills.</p>
+<p>&#8211; A collaborative approach driving effective team work in cross-functional teams.</p>
+<p>&#8211; A proactive attitude and proven experience identifying and resolving problems.</p>
+<p>&#8211; Ability to manage time well, to respond promptly to clients and team members, prioritising effectively and ensuring clear and timely communication and delivery.</p>
+<p>&#8211; Understanding of evolving digital technologies and the ability to research, evaluate, and implement new opportunities to enhance campaign performance.</p>
+<p>&#8211; Highly creative mindset with a strong attention to detail, ensuring the delivery of high-quality and engaging content.</p>
+<p>&#8211; Strong desire to build and nurture industry relationships, actively expanding your music industry network.</p>
+<p><strong>EDUCATION &amp; EXPERIENCE</strong></p>
+<p>&#8211; Bachelor’s degree in Marketing, Music, or related field preferred.</p>
+<p>&#8211; Proven experience in social media and digital channel management within the music industry.</p>
+<p>&#8211; Proven experience delivering social media campaigns for high-profile artists.</p>
+<p>&#8211; Proven experience independently managing multiple campaigns and social accounts.</p>
+<p>&#8211; Proven experience delivering social media campaigns based on audience insights.</p>
+<p>&#8211; Proven experience analysing and utilising data to provide strategic insights.</p>
+<hr>
+<p><strong>WHO WILL YOU BE WORKING WITH?</strong></p>
+<p>&#8211; WMA’s US and global social team</p>
+<p>&#8211; Clients &#8211; brands, talent, labels, talent management</p>
+<p>&#8211; WMA’s social creative teams</p>
+<p>&#8211; Artists/bands (major to unsigned)</p>
+<hr>
+<p><strong>Start Date</strong><br>
+ASAP</p>
+<p><strong>Salary &amp; Benefits</strong></p>
+<p>Competitive salary, dependent on experience.</p>
+<hr>
+<p><strong>Diversity &amp; Inclusion</strong><br>
+At WMA culture is vital to us. We are committed to continuing our efforts to grow a diverse and inclusive team. As an equal opportunities employer, WMA does not discriminate on the grounds of race, colour, religion, sexual orientation, age, marital status, gender identity, national origin, disability or any other applicable legally protected characteristics in the location in which the candidate is applying. If you want to work with a talented team of people who are passionate about what they do, we’d love to hear from you.</p>
+<script type="text/javascript">
+/* <![CDATA[ */
+
+/* ]]&gt; */
+</script>
+
+                <div class='gf_browser_unknown gform_wrapper gform-theme gform-theme--foundation gform-theme--framework gform-theme--orbital' data-form-theme='orbital' data-form-index='0' id='gform_wrapper_5'><style>#gform_wrapper_5[data-form-index="0"].gform-theme,[data-parent-form="5_0"]{--gf-color-primary: #204ce5;--gf-color-primary-rgb: 32, 76, 229;--gf-color-primary-contrast: #fff;--gf-color-primary-contrast-rgb: 255, 255, 255;--gf-color-primary-darker: #001AB3;--gf-color-primary-lighter: #527EFF;--gf-color-secondary: #fff;--gf-color-secondary-rgb: 255, 255, 255;--gf-color-secondary-contrast: #112337;--gf-color-secondary-contrast-rgb: 17, 35, 55;--gf-color-secondary-darker: #F5F5F5;--gf-color-secondary-lighter: #FFFFFF;--gf-color-out-ctrl-light: rgba(17, 35, 55, 0.1);--gf-color-out-ctrl-light-rgb: 17, 35, 55;--gf-color-out-ctrl-light-darker: rgba(104, 110, 119, 0.35);--gf-color-out-ctrl-light-lighter: #F5F5F5;--gf-color-out-ctrl-dark: #585e6a;--gf-color-out-ctrl-dark-rgb: 88, 94, 106;--gf-color-out-ctrl-dark-darker: #112337;--gf-color-out-ctrl-dark-lighter: rgba(17, 35, 55, 0.65);--gf-color-in-ctrl: #fff;--gf-color-in-ctrl-rgb: 255, 255, 255;--gf-color-in-ctrl-contrast: #112337;--gf-color-in-ctrl-contrast-rgb: 17, 35, 55;--gf-color-in-ctrl-darker: #F5F5F5;--gf-color-in-ctrl-lighter: #FFFFFF;--gf-color-in-ctrl-primary: #204ce5;--gf-color-in-ctrl-primary-rgb: 32, 76, 229;--gf-color-in-ctrl-primary-contrast: #fff;--gf-color-in-ctrl-primary-contrast-rgb: 255, 255, 255;--gf-color-in-ctrl-primary-darker: #001AB3;--gf-color-in-ctrl-primary-lighter: #527EFF;--gf-color-in-ctrl-light: rgba(17, 35, 55, 0.1);--gf-color-in-ctrl-light-rgb: 17, 35, 55;--gf-color-in-ctrl-light-darker: rgba(104, 110, 119, 0.35);--gf-color-in-ctrl-light-lighter: #F5F5F5;--gf-color-in-ctrl-dark: #585e6a;--gf-color-in-ctrl-dark-rgb: 88, 94, 106;--gf-color-in-ctrl-dark-darker: #112337;--gf-color-in-ctrl-dark-lighter: rgba(17, 35, 55, 0.65);--gf-radius: 3px;--gf-font-size-secondary: 14px;--gf-font-size-tertiary: 13px;--gf-icon-ctrl-number: url("data:image/svg+xml,%3Csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 0C4.26522 5.96046e-08 4.51957 0.105357 4.70711 0.292893L7.70711 3.29289C8.09763 3.68342 8.09763 4.31658 7.70711 4.70711C7.31658 5.09763 6.68342 5.09763 6.29289 4.70711L4 2.41421L1.70711 4.70711C1.31658 5.09763 0.683417 5.09763 0.292893 4.70711C-0.0976311 4.31658 -0.097631 3.68342 0.292893 3.29289L3.29289 0.292893C3.48043 0.105357 3.73478 0 4 0ZM0.292893 9.29289C0.683417 8.90237 1.31658 8.90237 1.70711 9.29289L4 11.5858L6.29289 9.29289C6.68342 8.90237 7.31658 8.90237 7.70711 9.29289C8.09763 9.68342 8.09763 10.3166 7.70711 10.7071L4.70711 13.7071C4.31658 14.0976 3.68342 14.0976 3.29289 13.7071L0.292893 10.7071C-0.0976311 10.3166 -0.0976311 9.68342 0.292893 9.29289Z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gf-icon-ctrl-select: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.292893C0.683417 -0.097631 1.31658 -0.097631 1.70711 0.292893L5 3.58579L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L5.70711 5.70711C5.31658 6.09763 4.68342 6.09763 4.29289 5.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gf-icon-ctrl-search: url("data:image/svg+xml,%3Csvg width='640' height='640' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M256 128c-70.692 0-128 57.308-128 128 0 70.691 57.308 128 128 128 70.691 0 128-57.309 128-128 0-70.692-57.309-128-128-128zM64 256c0-106.039 85.961-192 192-192s192 85.961 192 192c0 41.466-13.146 79.863-35.498 111.248l154.125 154.125c12.496 12.496 12.496 32.758 0 45.254s-32.758 12.496-45.254 0L367.248 412.502C335.862 434.854 297.467 448 256 448c-106.039 0-192-85.962-192-192z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gf-label-space-y-secondary: var(--gf-label-space-y-md-secondary);--gf-ctrl-border-color: #686e77;--gf-ctrl-size: var(--gf-ctrl-size-md);--gf-ctrl-label-color-primary: #112337;--gf-ctrl-label-color-secondary: #112337;--gf-ctrl-choice-size: var(--gf-ctrl-choice-size-md);--gf-ctrl-checkbox-check-size: var(--gf-ctrl-checkbox-check-size-md);--gf-ctrl-radio-check-size: var(--gf-ctrl-radio-check-size-md);--gf-ctrl-btn-font-size: var(--gf-ctrl-btn-font-size-md);--gf-ctrl-btn-padding-x: var(--gf-ctrl-btn-padding-x-md);--gf-ctrl-btn-size: var(--gf-ctrl-btn-size-md);--gf-ctrl-btn-border-color-secondary: #686e77;--gf-ctrl-file-btn-bg-color-hover: #EBEBEB;--gf-field-img-choice-size: var(--gf-field-img-choice-size-md);--gf-field-img-choice-card-space: var(--gf-field-img-choice-card-space-md);--gf-field-img-choice-check-ind-size: var(--gf-field-img-choice-check-ind-size-md);--gf-field-img-choice-check-ind-icon-size: var(--gf-field-img-choice-check-ind-icon-size-md);--gf-field-pg-steps-number-color: rgba(17, 35, 55, 0.8);}</style>
+                        <div class='gform_heading'>
+                            <h2 class="gform_title">Digital Channel Manager - NY</h2>
+                            <p class='gform_description'></p>
+                        </div><form method='post' enctype='multipart/form-data' id='gform_5' action='/careers/digital-channel-manager-6/' data-formid='5' novalidate="">
+                        <div class='gform-body gform_body'><div id='gform_fields_5' class='gform_fields top_label form_sublabel_above description_above validation_below'><div id="field_5_8" class="gfield gfield--type-section gfield--input-type-section gsection field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><h3 class="gsection_title">Your Personal Information</h3></div><fieldset id="field_5_1" class="gfield gfield--type-name gfield--input-type-name gfield_contains_required field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><legend class='gfield_label gform-field-label gfield_label_before_complex'>Your Name<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend><div class='ginput_complex ginput_container ginput_container--name no_prefix has_first_name no_middle_name has_last_name no_suffix gf_name_has_2 ginput_container_name gform-grid-row' id='input_5_1'>
+                            
+                            <span id='input_5_1_3_container' class='name_first gform-grid-col gform-grid-col--size-auto'>
+                                                    <label for='input_5_1_3' class='gform-field-label gform-field-label--type-sub '>First</label>
+                                                    <input type='text' name='input_1.3' id='input_5_1_3' value='' aria-required='true' autocomplete="given-name">
+                                                </span>
+                            
+                            <span id='input_5_1_6_container' class='name_last gform-grid-col gform-grid-col--size-auto'>
+                                                            <label for='input_5_1_6' class='gform-field-label gform-field-label--type-sub '>Last</label>
+                                                            <input type='text' name='input_1.6' id='input_5_1_6' value='' aria-required='true' autocomplete="family-name">
+                                                        </span>
+                            
+                        </div></fieldset><fieldset id="field_5_2" class="gfield gfield--type-email gfield--input-type-email gfield_contains_required field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><legend class='gfield_label gform-field-label gfield_label_before_complex'>Your Email Address<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend><div class='ginput_complex ginput_container ginput_container_email gform-grid-row' id='input_5_2_container'>
+                                <span id='input_5_2_1_container' class='ginput_left gform-grid-col gform-grid-col--size-auto'>
+                                    <label for='input_5_2' class='gform-field-label gform-field-label--type-sub '>Enter Email</label>
+                                    <input class='' type='email' name='input_2' id='input_5_2' value='' aria-required="true" aria-invalid="false" autocomplete="email">
+                                </span>
+                                <span id='input_5_2_2_container' class='ginput_right gform-grid-col gform-grid-col--size-auto'>
+                                    <label for='input_5_2_2' class='gform-field-label gform-field-label--type-sub '>Confirm Email</label>
+                                    <input class='' type='email' name='input_2_2' id='input_5_2_2' value='' aria-required="true" aria-invalid="false" autocomplete="email">
+                                </span>
+                                <div class='gf_clear gf_clear_complex'></div>
+                            </div></fieldset><div id="field_5_10" class="gfield gfield--type-phone gfield--input-type-phone gfield_contains_required field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><label class='gfield_label gform-field-label' for='input_5_10'>Your Phone<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class='ginput_container ginput_container_phone'><input name='input_10' id='input_5_10' type='tel' value='' class='medium' aria-required="true" aria-invalid="false" autocomplete="tel"></div></div><div id="field_5_6" class="gfield gfield--type-section gfield--input-type-section gsection field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><h3 class="gsection_title">Previous Employment</h3></div><fieldset id="field_5_5" class="gfield gfield--type-list gfield--input-type-list field_sublabel_above gfield--has-description field_description_above field_validation_below gfield_visibility_visible"><legend class='gfield_label gform-field-label gfield_label_before_complex'>Your Previous Employers</legend><div class='gfield_description' id='gfield_description_5_5'>Please list your previous employers, the dates you worked and the position you held</div><div class='ginput_container ginput_container_list ginput_list ginput_container_list--columns'><div class='gfield_list gfield_list_container'><div class="gfield_list_header gform-grid-row"><div class="gform-field-label gfield_header_item gform-grid-col">Employer</div><div class="gform-field-label gfield_header_item gform-grid-col">Dates</div><div class="gform-field-label gfield_header_item gform-grid-col">Position</div><div class="gform-field-label gfield_header_item gform-grid-col">Phone</div><div class="gfield_header_item gfield_header_item--icons gform-grid-col">&nbsp;</div></div><div class="gfield_list_groups"><div class='gfield_list_row_odd gfield_list_group gform-grid-row'><div class='gfield_list_group_item gfield_list_cell gfield_list_5_cell1 gform-grid-col' data-label='Employer'><input aria-invalid='false' aria-describedby="gfield_description_5_5" aria-label='Employer, Row 1' data-aria-label-template='Employer, Row {0}' type='text' name='input_5[]' value=''></div><div class='gfield_list_group_item gfield_list_cell gfield_list_5_cell2 gform-grid-col' data-label='Dates'><input aria-invalid='false' aria-describedby="gfield_description_5_5" aria-label='Dates, Row 1' data-aria-label-template='Dates, Row {0}' type='text' name='input_5[]' value=''></div><div class='gfield_list_group_item gfield_list_cell gfield_list_5_cell3 gform-grid-col' data-label='Position'><input aria-invalid='false' aria-describedby="gfield_description_5_5" aria-label='Position, Row 1' data-aria-label-template='Position, Row {0}' type='text' name='input_5[]' value=''></div><div class='gfield_list_group_item gfield_list_cell gfield_list_5_cell4 gform-grid-col' data-label='Phone'><input aria-invalid='false' aria-describedby="gfield_description_5_5" aria-label='Phone, Row 1' data-aria-label-template='Phone, Row {0}' type='text' name='input_5[]' value=''></div><div class='gfield_list_icons gform-grid-col'>   <button type='button' class='add_list_item ' aria-label='Add another row' onclick='gformAddListItem(this, 10)'>Add</button>   <button type='button' class='delete_list_item' aria-label='Remove row 1' data-aria-label-template='Remove row {0}' onclick='gformDeleteListItem(this, 10)' style="visibility:hidden;">Remove</button></div></div></div></div></div></fieldset><div id="field_5_11" class="gfield gfield--type-section gfield--input-type-section gsection field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><h3 class="gsection_title">More About You</h3></div><div id="field_5_12" class="gfield gfield--type-textarea gfield--input-type-textarea gfield_contains_required field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><label class='gfield_label gform-field-label' for='input_5_12'>Tell Us About Yourself<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class='ginput_container ginput_container_textarea'><textarea name='input_12' id='input_5_12' class='textarea medium' aria-required="true" aria-invalid="false" rows='10' cols='50'></textarea></div></div><div id="field_5_24" class="gfield gfield--type-textarea gfield--input-type-textarea gfield--width-full gfield_contains_required field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><label class='gfield_label gform-field-label' for='input_5_24'>What’s a recent artist or label social campaign you thought worked and why?<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class='ginput_container ginput_container_textarea'><textarea name='input_24' id='input_5_24' class='textarea medium' aria-required="true" aria-invalid="false" rows='10' cols='50'></textarea></div></div><div id="field_5_25" class="gfield gfield--type-text gfield--input-type-text gfield--width-full gfield_contains_required field_sublabel_above gfield--no-description field_description_above field_validation_below gfield_visibility_visible"><label class='gfield_label gform-field-label' for='input_5_25'>What is your current notice period?<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class='ginput_container ginput_container_text'><input name='input_25' id='input_5_25' type='text' value='' class='large' aria-required="true" aria-invalid="false"></div></div><div id="field_5_13" class="gfield gfield--type-fileupload gfield--input-type-fileupload gfield_contains_required field_sublabel_above gfield--has-description field_description_above field_validation_below gfield_visibility_visible"><label class='gfield_label gform-field-label' for='input_5_13'>Upload Your Resume<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class='gfield_description' id='gfield_description_5_13'>Upload your resume in .pdf, .doc or .docx format</div><div class='ginput_container ginput_container_fileupload'><input type='hidden' name='MAX_FILE_SIZE' value='26214400'><input name='input_13' id='input_5_13' type='file' class='medium' aria-describedby="gfield_upload_rules_5_13 gfield_description_5_13" onchange='javascript:gformValidateFileSize( this, 26214400 );'><span class='gfield_description gform_fileupload_rules' id='gfield_upload_rules_5_13'>Accepted file types: pdf, doc, docx, Max. file size: 25 MB.</span><div class='gfield_description validation_message gfield_validation_message validation_message--hidden-on-empty' id='live_validation_message_5_13'></div> </div></div><fieldset id="field_5_22" class="gfield gfield--type-consent gfield--type-choice gfield--input-type-consent gfield--width-full gfield_contains_required field_sublabel_above gfield--has-description field_description_above field_validation_below gfield_visibility_visible"><legend class='gfield_label gform-field-label gfield_label_before_complex'>Terms and Conditions<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend><div class='gfield_description gfield_consent_description' id='gfield_consent_description_5_22' tabindex='0'>Privacy Notice Terms and Conditions<br>
+<br>
+Walts media Agency Ltd is the data controller for the purposes of data protection law.<br>
+<br>
+We process personal data relating to individuals who apply for job vacancies with us or who send speculative job applications to us. We do this for employment purposes, to assist us in the selection of candidates for employment, and to assist in the running of the business.<br>
+<br>
+The personal data we process may include identifiers such as name and contact details, date of birth, personal characteristics such as gender, qualifications, and previous employment history.<br>
+<br>
+Our lawful basis for processing this information is our legitimate interest in recruiting and selecting staff and, where applicable, compliance with legal obligations.<br>
+<br>
+The personal data provided during the application process will be retained for a period of up to six months following the conclusion of the recruitment process or, if required by law, for as long as is necessary.<br>
+<br>
+This privacy notice does not form part of an employment offer or contract between us. If we make an employment offer to you, we will provide further information about our handling of your personal information in an employment context separately.<br>
+<br>
+You have the right to request access to the personal data we hold about you, to request correction or deletion of your data, to object to or restrict our processing of your data, and to request data portability where applicable.<br>
+<br>
+If you would like to find out more about our data retention policy, how we use your personal data, wish to see a copy of the information we hold about you, or have any questions or concerns regarding data protection, please email us with the subject line “Data Protection Request”.<br>
+<br>
+You also have the right to lodge a complaint with the Information Commissioner’s Office (ICO), the UK supervisory authority for data protection.<br>
+<br>
+<br>
+Declaration<br>
+<br>
+The information I have provided as part of my application is true and accurate. I understand that any job offer made on the basis of untrue or misleading information may be withdrawn or my employment terminated.</div><div class='ginput_container ginput_container_consent'><input name='input_22.1' id='input_5_22_1' type='checkbox' value='1' aria-describedby="gfield_consent_description_5_22" aria-required="true" aria-invalid="false"> <label class="gform-field-label gform-field-label--type-inline gfield_consent_label" for='input_5_22_1'><strong>I agree to the terms and conditions.</strong></label><input type='hidden' name='input_22.2' value='&lt;strong&gt;I agree to the terms and conditions.&lt;/strong&gt;' class='gform_hidden'><input type='hidden' name='input_22.3' value='14' class='gform_hidden'></div></fieldset></div></div>
+        <div class='gform-footer gform_footer top_label'> <input type='submit' id='gform_submit_button_5' class='gform_button button' onclick='gform.submission.handleButtonClick(this);' data-submission-type='submit' value='Submit Application'> 
+            <input type='hidden' class='gform_hidden' name='gform_submission_method' data-js='gform_submission_method_5' value='postback'>
+            <input type='hidden' class='gform_hidden' name='gform_theme' data-js='gform_theme_5' id='gform_theme_5' value='orbital'>
+            <input type='hidden' class='gform_hidden' name='gform_style_settings' data-js='gform_style_settings_5' id='gform_style_settings_5' value='[]'>
+            <input type='hidden' class='gform_hidden' name='is_submit_5' value='1'>
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='5'>
+            
+            <input type='hidden' class='gform_hidden' name='gform_currency' data-currency='USD' value='GNk3Hq2AsVrFNIwLk6qSeuqLX5z/kI/oUH6NxVG9PkQ5F9ZmgCZFQ/s1uNJUY8NwyIxOx4D1yK/dYPYkeMixmS1CxeT/6SxSR23xg1LJROWojEg='>
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value=''>
+            <input type='hidden' class='gform_hidden' name='state_5' value='WyJ7XCIyMi4xXCI6XCJkMWMzOTU3YzhkOTM1NzU4OGY0YjU0ZTcwMzljYTRlY1wiLFwiMjIuMlwiOlwiY2ViYmUwNDgzY2IwZjFmZWVmYzY3YTA1NTE5MjU3YjRcIixcIjIyLjNcIjpcIjEzYTM3M2I4MjA1NGQ2MjYzMDFiNDY2NWUxODQwMzgwXCJ9IiwiMDIwMmZkZTJiYjMzNGU0YzE0YzRmMjI2YmEzM2VkN2YiXQ=='>
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_target_page_number_5' id='gform_target_page_number_5' value='0'>
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_source_page_number_5' id='gform_source_page_number_5' value='1'>
+            <input type='hidden' name='gform_field_values' value=''>
+            
+        </div>
+                        </form>
+                        </div><script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {gformInitSpinner( 5, 'https://wma.agency/wp-content/plugins/gravityforms/images/spinner.svg', false );jQuery('#gform_ajax_frame_5').on('load',function(){var contents = jQuery(this).contents().find('*').htmll();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_5');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_5').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_5').htmll(form_content.htmll());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_5').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_5').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */  }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_5').val();gformInitSpinner( 5, 'https://wma.agency/wp-content/plugins/gravityforms/images/spinner.svg', false );jQuery(document).trigger('gform_page_loaded', [5, current_page]);window['gf_submitting_5'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').htmll();if(!confirmation_content){confirmation_content = contents;}jQuery('#gform_wrapper_5').replaceWith(confirmation_content);jQuery(document).trigger('gform_confirmation_loaded', [5]);window['gf_submitting_5'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_5').text());}else{jQuery('#gform_5').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger("gform_pre_post_render", [{ formId: "5", currentPage: "current_page", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_5" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_5";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_5" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 5, current_page );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );} ); 
+/* ]]&gt; */
+</script>
+
+ 						&nbsp;
+ 						&nbsp;
+ 						&nbsp;
+ 								
+					&nbsp;
+					
+				<p>Please note no recruitment agencies will be considered.</p>	
+				
+ 			</div>
+ 		</div>
+ 				
+ 	  	  	
+</section>
+
+	<div class="row office-row">
+	<div class="col-xs-12 col-sm-2 col-md-2 col-sm-offset-1 ocl-md-offset-1 office">
+		<svg id="london-clock" width="80" height="80" viewbox="0 0 200 200">
+			<filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        		<fegaussianblur in="SourceGraphic" stddeviation="3" result="blur"></fegaussianblur>
+        		<feoffset in="blur" dx="2.5" dy="2.5"></feoffset>
+    		</filter>
+			<g>
+        		<circle id="circle" cx="100" cy="100" r="80"></circle>
+			</g>
+			<g>
+				<line x1="100" y1="100" x2="100" y2="55" transform="rotate(80 100 100)" id="london_hourhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="43200s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="40" id="london_minutehand">
+					<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="3600s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="30" id="london_secondhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="60s" repeatcount="indefinite"></animatetransform>
+        		</line>
+    		</g>
+    		<circle id="center" cx="100" cy="100" r="1"></circle>
+		</svg>
+		<div class="digital-clock london-clock-hover"></div>
+		<h5>Londo<span>n</span></h5>
+		<div class="address">
+			<p>The Old Treacle Factory</p>
+			<p>24-40 Goodwin Road</p>
+			<p>London</p>
+			<p>W12 9JW</p>
+		</div>
+		<p>&nbsp;</p>
+		
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 office">
+		<svg id="ny-clock" width="80" height="80" viewbox="0 0 200 200">
+			<filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        		<fegaussianblur in="SourceGraphic" stddeviation="3" result="blur"></fegaussianblur>
+        		<feoffset in="blur" dx="2.5" dy="2.5"></feoffset>
+    		</filter>
+			<g>
+        		<circle id="circle" cx="100" cy="100" r="80"></circle>
+			</g>
+			<g>
+				<line x1="100" y1="100" x2="100" y2="55" transform="rotate(80 100 100)" id="ny_hourhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="43200s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="40" id="ny_minutehand">
+					<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="3600s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="30" id="ny_secondhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="60s" repeatcount="indefinite"></animatetransform>
+        		</line>
+    		</g>
+    		<circle id="center" cx="100" cy="100" r="1"></circle>
+		</svg>
+		<div class="digital-clock ny-clock-hover"></div>
+		<h5>New Yor<span>k</span></h5>
+		<div class="address">
+			<p>134N 4th St</p>
+			<p>Brooklyn</p>
+			<p>NY 11249</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+		
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 office">
+		<svg id="la-clock" width="80" height="80" viewbox="0 0 200 200">
+			<filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        		<fegaussianblur in="SourceGraphic" stddeviation="3" result="blur"></fegaussianblur>
+        		<feoffset in="blur" dx="2.5" dy="2.5"></feoffset>
+    		</filter>
+			<g>
+        		<circle id="circle" cx="100" cy="100" r="80"></circle>
+			</g>
+			<g>
+				<line x1="100" y1="100" x2="100" y2="55" transform="rotate(80 100 100)" id="la_hourhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="43200s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="40" id="la_minutehand">
+					<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="3600s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="30" id="la_secondhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="60s" repeatcount="indefinite"></animatetransform>
+        		</line>
+    		</g>
+    		<circle id="center" cx="100" cy="100" r="1"></circle>
+		</svg>
+		<div class="digital-clock la-clock-hover"></div>
+		<h5>Los Angele<span>s</span></h5>
+		<div class="address">
+			<p>1370 N. St. Andrews Place</p>
+			<p>Los Angeles</p>
+			<p>CA 90028</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+		
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 office">
+		<svg id="nashville-clock" width="80" height="80" viewbox="0 0 200 200">
+			<filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        		<fegaussianblur in="SourceGraphic" stddeviation="3" result="blur"></fegaussianblur>
+        		<feoffset in="blur" dx="2.5" dy="2.5"></feoffset>
+    		</filter>
+			<g>
+        		<circle id="circle" cx="100" cy="100" r="80"></circle>
+			</g>
+			<g>
+				<line x1="100" y1="100" x2="100" y2="55" transform="rotate(80 100 100)" id="nashville_hourhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="43200s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="40" id="nashville_minutehand">
+					<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="3600s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="30" id="nashville_secondhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="60s" repeatcount="indefinite"></animatetransform>
+        		</line>
+    		</g>
+    		<circle id="center" cx="100" cy="100" r="1"></circle>
+		</svg>
+		<div class="digital-clock nashville-clock-hover"></div>
+		<h5>Nashvill<span>e</span></h5>
+		<div class="address">
+			<p>901 Woodland St</p>
+			<p>Nashville</p>
+			<p>TN 37206</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+		
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 office">
+		<svg id="melbourne-clock" width="80" height="80" viewbox="0 0 200 200">
+			<filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        		<fegaussianblur in="SourceGraphic" stddeviation="3" result="blur"></fegaussianblur>
+        		<feoffset in="blur" dx="2.5" dy="2.5"></feoffset>
+    		</filter>
+			<g>
+        		<circle id="circle" cx="100" cy="100" r="80"></circle>
+			</g>
+			<g>
+				<line x1="100" y1="100" x2="100" y2="55" transform="rotate(80 100 100)" id="melbourne_hourhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="43200s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="40" id="melbourne_minutehand">
+					<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="3600s" repeatcount="indefinite"></animatetransform>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="30" id="melbourne_secondhand">
+            		<animatetransform attributename="transform" attributetype="XML" type="rotate" dur="60s" repeatcount="indefinite"></animatetransform>
+        		</line>
+    		</g>
+    		<circle id="center" cx="100" cy="100" r="1"></circle>
+		</svg>
+		<div class="digital-clock melbourne-clock-hover"></div>
+		<h5>Singapor<span>e</span></h5>
+		<div class="address">
+			<p>9 Battery Road</p>
+			<p>Singapore</p>
+			<p>049910</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+	</div>	
+</div>
+<!-- <div class="row office-row-2">
+	<div class="col-xs-12 col-sm-2 col-md-2 office">
+		<svg id="berlin-clock" width="80" height="80" viewBox="0 0 200 200">
+			<filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        		<feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+        		<feOffset in="blur" dx="2.5" dy="2.5"/>
+    		</filter>
+			<g>
+        		<circle id="circle" cx="100" cy="100" r="80"></circle>
+			</g>
+			<g>
+				<line x1="100" y1="100" x2="100" y2="55" transform="rotate(80 100 100)" id="berlin_hourhand">
+            		<animatetransform attributeName="transform" attributeType="XML" type="rotate" dur="43200s" repeatCount="indefinite"/>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="40" id="berlin_minutehand">
+					<animatetransform attributeName="transform" attributeType="XML" type="rotate" dur="3600s" repeatCount="indefinite"/>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="30" id="berlin_secondhand">
+            		<animatetransform attributeName="transform" attributeType="XML" type="rotate" dur="60s" repeatCount="indefinite"/>
+        		</line>
+    		</g>
+    		<circle id="center" cx="100" cy="100" r="1"></circle>
+		</svg>
+		<div class="digital-clock berlin-clock-hover"></div>
+		<h5>Berli<span>n</span></h5>
+		<div class="address">
+			<p>Neue Schônhauserstraße 3-5</p>
+			<p>10178</p>
+			<p>Berlin</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-2 col-md-2 office">
+		<svg id="stockholm-clock" width="80" height="80" viewBox="0 0 200 200">
+			<filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        		<feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+        		<feOffset in="blur" dx="2.5" dy="2.5"/>
+    		</filter>
+			<g>
+        		<circle id="circle" cx="100" cy="100" r="80"></circle>
+			</g>
+			<g>
+				<line x1="100" y1="100" x2="100" y2="55" transform="rotate(80 100 100)" id="stockholm_hourhand">
+            		<animatetransform attributeName="transform" attributeType="XML" type="rotate" dur="43200s" repeatCount="indefinite"/>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="40" id="stockholm_minutehand">
+					<animatetransform attributeName="transform" attributeType="XML" type="rotate" dur="3600s" repeatCount="indefinite"/>
+        		</line>
+        		<line x1="100" y1="100" x2="100" y2="30" id="stockholm_secondhand">
+            		<animatetransform attributeName="transform" attributeType="XML" type="rotate" dur="60s" repeatCount="indefinite"/>
+        		</line>
+    		</g>
+    		<circle id="center" cx="100" cy="100" r="1"></circle>
+		</svg>
+		<div class="digital-clock stockholm-clock-hover"></div>
+		<h5>Stockhol<span>m</span></h5>
+		<div class="address">
+			<p>Regeringsgatan 29</p>
+			<p>Stockholm</p>
+			<p>111 51</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+	    </div>
+	</div> -->
+	
+	<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/wma\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<link rel='stylesheet' id='dashicons-css' href='../../wp-includes/css/dashicons.min.css?ver=6.8.5' type='text/css' media='all'>
+<link rel='stylesheet' id='gravity_forms_theme_reset-css' href='../../wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-reset.min.css?ver=2.9.31' type='text/css' media='all'>
+<link rel='stylesheet' id='gravity_forms_theme_foundation-css' href='../../wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-foundation.min.css?ver=2.9.31' type='text/css' media='all'>
+<link rel='stylesheet' id='gravity_forms_theme_framework-css' href='../../wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-framework.min.css?ver=2.9.31' type='text/css' media='all'>
+<link rel='stylesheet' id='gravity_forms_orbital_theme-css' href='../../wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-orbital-theme.min.css?ver=2.9.31' type='text/css' media='all'>
+<script type="text/javascript" src="../../wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="../../wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="../../embed.min.js?ver=5.5" id="__tagembed__embbedJs-js"></script>
+<script type="text/javascript" src="../../wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script type="text/javascript" src="../../wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="../../wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" id="wp-a11y-js-translations">
+/* <![CDATA[ */
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2025-11-13 00:57:08+0000","generator":"GlotPress\/4.0.3","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"en_GB"},"Notifications":["Notifications"]}},"comment":{"reference":"wp-includes\/js\/dist\/a11y.js"}} );
+/* ]]> */
+</script>
+<script type="text/javascript" src="../../wp-includes/js/dist/a11y.min.js?ver=3156534cc54473497e14" id="wp-a11y-js"></script>
+<script type="text/javascript" defer='defer' src="../../wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.9.31" id="gform_json-js"></script>
+<script type="text/javascript" id="gform_gravityforms-js-extra">
+/* <![CDATA[ */
+var gf_legacy = {"is_legacy":""};
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https:\/\/wma.agency\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/wma.agency\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","version_hash":"17308d48732ee3f7884d8c2f52104600","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+/* ]]> */
+</script>
+<script type="text/javascript" defer='defer' src="../../wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.9.31" id="gform_gravityforms-js"></script>
+<script type="text/javascript" defer='defer' src="../../wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=3f278756f0a3032bed328ff6a9f6c01d" id="gform_gravityforms_utils-js"></script>
+<script type="text/javascript" defer='defer' src="../../wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4f8b3915c1c1e1a6800825abd64b03cb" id="gform_gravityforms_theme_vendors-js"></script>
+<script type="text/javascript" defer='defer' src="../../wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=a1e4be6ab14e0f896212221fc6ec8edd" id="gform_gravityforms_theme-js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 5) {} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } ); 
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "5", currentPage: "1", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_5" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_5";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_5" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 5, 1 );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } ); 
+/* ]]> */
+</script>
+ 
+
+		<div class="row footer">
+		<div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0 col-md-2 col-md-offset-1  menu-links">
+			<h5>WMA.agency</h5>
+			<ul class="footer-menu">
+        		<!-- <li><a href="/team">Team</a></li> -->
+        		<li><a href="../../clients/index.html">Clients</a></li>
+				<li><a href="../../talent/index.html">Talent</a></li>
+	    		<li><a href="#services">Services</a></li>
+<!--     		<li><a href="#">News</a></li> -->
+				<li><a href="../index.html">Careers</a></li>
+        		<li><a href="../../contact/index.html">Contact</a></li>
+      		</ul>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-2 menu-links">
+			<h5>Follow WMA</h5>
+			<ul class="footer-menu">
+        		<li><a href="https://www.facebook.com/wmaglobal/" target="_blank">Facebook</a></li>
+    	    	<li><a href="https://twitter.com/wma" target="_blank">X</a></li>
+				<li><a href="https://www.instagram.com/wma/" target="_blank">Instagram</a></li>
+    			<!-- <li><a href="https://open.spotify.com/user/wmaglobal" target="_blank">Spotify</a></li> -->
+    			<li><a href="https://www.youtube.com/channel/UCUqSoEgWvV3fHI9L_UxL_1Q" target="_blank">Youtube</a></li>
+    	  	</ul>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-2 copyright">
+			<h5>&copy; 2026 WMA Ltd</h5>
+			<ul class="footer-menu">
+				<li><a href="../../privacy-policy/index.html">Cookie Policy</a></li>
+	        	<li><a href="../../terms/index.html">Terms of Use</a></li>
+        		<li><a href="../../privacy-policy/index.html">Privacy Policy</a></li>
+      		</ul>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-3 newsletter">
+			<h5>Signup to WMA Newsletter</h5>
+		
+			<!-- Begin MailChimp Signup Form -->
+			<div id="mc_embed_signup">
+				<form action="//agency.us8.list-manage.com/subscribe/post?u=98eed02a2e74f84688ebe1b19&amp;id=075c5ca523" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    				<div id="mc_embed_signup_scroll">
+	
+						<div class="mc-field-group">
+							<input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="First Name">
+						</div>
+						
+						<div class="mc-field-group">
+							<input type="text" value="" name="LNAME" class="" id="mce-LNAME" placeholder="Last Name">
+						</div>
+					
+						<div class="mc-field-group">
+							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+						</div>
+					
+						<input type="hidden" value="Website" name="MMERGE6" class="" id="mce-MMERGE6">
+						
+						<div id="mce-responses" class="clear">
+							<div class="response" id="mce-error-response"></div>
+							<div class="response" id="mce-success-response"></div>
+						</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					
+    					<div id="b_98eed02a2e74f84688ebe1b19_8b2c3a9c08" aria-hidden="true">
+    						<input type="text" name="b_98eed02a2e74f84688ebe1b19_8b2c3a9c08" tabindex="-1" value="">
+    					</div>
+    						
+	    				<div class="clear">
+    						<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+    					</div>
+    				</div>
+				</form>
+			</div>
+			<script type='text/javascript' src='../../downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+			<!--End mc_embed_signup-->
+			
+		</div>
+	</div>
+
+	<!-- Signup Modal -->
+	<div class="modal" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h2>Newsletter Signup</h2>
+					<button type="button" class="close signup" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body signup">
+					<!-- Begin Mailchimp Signup Form -->
+					<style type="text/css">
+						#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }<br />	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.<br />	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */<br /></style> <style type="text/css">
+						#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}<br />	#mergeRow-gdpr {margin-top: 20px;}<br />	#mergeRow-gdpr fieldset label {font-weight: normal;}<br />	#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}<br /></style>
+					<div id="mc_embed_signup"><form id="mc-embedded-subscribe-form" class="validate" action="https://agency.us8.list-manage.com/subscribe/post?u=98eed02a2e74f84688ebe1b19&amp;id=075c5ca523" method="post" name="mc-embedded-subscribe-form" novalidate="" target="_blank">
+					<div id="mc_embed_signup_scroll">
+					<div class="mc-field-group"><label for="mce-EMAIL">Email Address</label>
+					<input id="mce-EMAIL" class="required email" name="EMAIL" type="email" value=""></div>
+					<div class="mc-field-group"><label for="mce-FNAME">First Name </label>
+					<input id="mce-FNAME" class="" name="FNAME" type="text" value=""></div>
+					<div class="mc-field-group"><label for="mce-LNAME">Last Name </label>
+					<input id="mce-LNAME" class="" name="LNAME" type="text" value=""></div>
+					<div class="mc-field-group"><label for="mce-MMERGE6">Company </label>
+					<input id="mce-MMERGE6" class="" name="MMERGE6" type="text" value=""></div>
+					<div class="mc-field-group"><label for="mce-MMERGE7">City </label>
+					<input id="mce-MMERGE7" class="" name="MMERGE7" type="text" value=""></div>
+					<div class="mc-field-group"><label for="mce-MMERGE8">Country </label>
+					<input id="mce-MMERGE8" class="" name="MMERGE8" type="text" value=""></div>
+
+					<h2>Marketing Permissions</h2>
+					<p>WMA will use the information you provide on this form to be in touch with you and to provide updates and marketing. Please let us know all the ways you would like to hear from us:</p>
+
+					<div class="mc-field-group input-group"><input id="mce-MMERGE12-0" name="MMERGE12" type="checkbox" value="Yes"><label for="mce-MMERGE12-0">WMA Newsletter</label></div>
+
+					<div class="mc-field-group input-group"><input id="mce-MMERGE13-0" name="MMERGE13" type="checkbox" value="Yes"><label for="mce-MMERGE13-0">Creative + WMA Studios</label></div>
+
+					<div class="mc-field-group input-group"><input id="mce-MMERGE14-0" name="MMERGE14" type="checkbox" value="Yes"><label for="mce-MMERGE14-0">Digital News</label></div>
+
+					<div class="mc-field-group input-group"><input id="mce-MMERGE15-0" name="MMERGE15" type="checkbox" value="Yes"><label for="mce-MMERGE15-0">PR</label></div>
+
+					<div class="mc-field-group input-group"><input id="mce-MMERGE16-0" name="MMERGE16" type="checkbox" value="Yes"><label for="mce-MMERGE16-0">Marketing</label></div>
+
+					<div class="mc-field-group input-group"><input id="mce-MMERGE17-0" name="MMERGE17" type="checkbox" value="Yes"><label for="mce-MMERGE17-0">Social</label></div>
+
+					<div class="mc-field-group input-group"><input id="mce-MMERGE18-0" name="MMERGE18" type="checkbox" value="Yes"><label for="mce-MMERGE18-0">Partnerships</label></div>
+
+					<div id="mce-responses" class="clear">
+					<div id="mce-error-response" class="response" style="display: none;"></div>
+					<div id="mce-success-response" class="response" style="display: none;"></div>
+					</div>
+					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					<div style="position: absolute; left: -5000px;" aria-hidden="true"><input tabindex="-1" name="b_98eed02a2e74f84688ebe1b19_075c5ca523" type="text" value=""></div>
+					<div class="clear"><input id="mc-embedded-subscribe" class="button" name="subscribe" type="submit" value="Subscribe"></div>
+					</div>
+					</form></div>
+					<script type='text/javascript' src='../../downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='MMERGE5';ftypes[5]='text';fnames[6]='MMERGE6';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='text';fnames[8]='MMERGE8';ftypes[8]='text';fnames[9]='MMERGE9';ftypes[9]='text';fnames[10]='MMERGE10';ftypes[10]='text';fnames[11]='MMERGE11';ftypes[11]='text';fnames[12]='MMERGE12';ftypes[12]='radio';fnames[13]='MMERGE13';ftypes[13]='radio';fnames[14]='MMERGE14';ftypes[14]='radio';fnames[15]='MMERGE15';ftypes[15]='radio';fnames[16]='MMERGE16';ftypes[16]='radio';fnames[17]='MMERGE17';ftypes[17]='radio';fnames[18]='MMERGE18';ftypes[18]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+					<!--End mc_embed_signup-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal END -->
+	
+	<!-- jQuery -->
+	<script src="../../wp-content/themes/wma/js/jquery.min.js"></script>
+	<script src="../../wp-content/themes/wma/js/instafeed.min.js"></script>
+	<script type="text/javascript" src="../../jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../../jquery.slick/1.6.0/slick.min.js"></script>
+	<script type="text/javascript" src="../../wp-content/themes/wma/js/css3-animate-it.min.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../../wp-content/themes/wma/js/bootstrap.min.js"></script>
+	<script src="../../ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+	<script src="../../npm/js-cookie%40beta/dist/js.cookie.min.js"></script>
+	<script src="../../wp-content/themes/wma/js/main.js"></script>
+	<script src="../../wp-content/themes/wma/js/cookie-banner.min.js"></script>
+
+  </body>
+</html>
+
+
+<!-- Page supported by LiteSpeed Cache 6.2.0.1 on 2026-04-06 11:11:56 -->
+<!-- Dynamic page generated in 0.351 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2026-04-06 11:11:56 -->
+
+<!-- super cache -->

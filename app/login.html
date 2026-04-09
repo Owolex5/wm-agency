@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In | WME Agency</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+body{font-family:'Inter',sans-serif;background:#FAF9F6}
+.toast-message{position:fixed;bottom:20px;right:20px;z-index:1000}
+.spinner{animation:spin 1s linear infinite}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+</style>
+</head>
+
+<body class="antialiased text-black">
+
+<div class="min-h-screen flex items-center justify-center px-6 py-12">
+<div class="w-full max-w-md">
+
+<div class="mb-8 text-center">
+<a href="#" class="inline-flex items-center gap-2 font-bold text-xl tracking-tight">
+<div class="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+<span class="text-white text-[10px] font-black">WME</span>
+</div>
+WME AGENCY
+</a>
+</div>
+
+<div class="text-center mb-10">
+<h1 class="text-3xl font-bold uppercase tracking-tight mb-3">Sign In</h1>
+<p class="text-black/60 text-sm">Welcome back! Sign in to access your dashboard.</p>
+</div>
+
+<form id="loginForm" class="space-y-5">
+
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-black/50">Email Address</label>
+<div class="relative">
+<i class="fa-regular fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-black/30"></i>
+<input type="email" id="loginEmail" required placeholder="you@example.com"
+class="w-full pl-11 pr-4 py-3.5 bg-white border border-black/10 rounded-xl">
+</div>
+</div>
+
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-black/50">Password</label>
+<div class="relative">
+<i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-black/30"></i>
+<input type="password" id="loginPassword" required placeholder="••••••••"
+class="w-full pl-11 pr-4 py-3.5 bg-white border border-black/10 rounded-xl">
+</div>
+</div>
+
+<button type="submit"
+class="w-full bg-black text-white py-4 rounded-xl text-xs font-bold uppercase tracking-[0.2em]">
+
+Sign In
+
+</button>
+
+</form>
+
+<p class="mt-8 text-center text-sm text-black/60">
+Don't have an account?
+<a href="signup.html" class="text-black font-bold hover:underline">Create one</a>
+</p>
+
+</div>
+</div>
+
+<div id="toastContainer"></div>
+
+<script>
+
+const SUPABASE_URL='https://becpujqyjjlezgibmdfk.supabase.co'
+const SUPABASE_ANON_KEY='sb_publishable_MA-ivarGoHmTWsVgoodPvA_bKq0Wihs'
+
+const supabase=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY)
+
+function showToast(msg){
+alert(msg)
+}
+
+document.getElementById("loginForm").addEventListener("submit",async(e)=>{
+
+e.preventDefault()
+
+const email=document.getElementById("loginEmail").value
+const password=document.getElementById("loginPassword").value
+
+const {data,error}=await supabase.auth.signInWithPassword({
+email:email,
+password:password
+})
+
+if(error){
+showToast(error.message)
+return
+}
+
+localStorage.setItem("wme_current_user",JSON.stringify(data.user))
+
+window.location.href="index.html"
+
+})
+
+</script>
+
+</body>
+</html>

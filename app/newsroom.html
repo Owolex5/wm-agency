@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+  <title>WME Agency | Newsroom</title>
+
+  <!-- ========== All CSS files ========= -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    :root {
+      --primary: #000000;
+      --sidebar-bg: #ffffff;
+      --main-bg: #f8f9fc;
+      --border-color: rgba(0, 0, 0, 0.06);
+      --text-muted: #6c757d;
+      --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar-nav-wrapper { transform: translateX(-100%); }
+      .sidebar-nav-wrapper.mobile-open { transform: translateX(0); box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15); }
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+    .menu-toggle-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.03);
+      transition: all 0.2s;
+    }
+    .menu-toggle-btn:hover { background: rgba(0, 0, 0, 0.08); transform: scale(0.96); }
+    .menu-toggle-btn i { font-size: 1.5rem; color: #1a1a1a; }
+
+    .navbar-logo { padding: 0 10px 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 16px; }
+    .navbar-logo a { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; border-radius: 12px; }
+    .logo-text { font-weight: 800; letter-spacing: -0.5px; font-size: 1.3rem; color: #111; }
+    .logo-text small { display: block; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); }
+
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; font-size: 0.9rem; gap: 12px; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
+    .sidebar-nav ul li a .icon { font-size: 1.2rem; opacity: 0.7; width: 24px; }
+    .status-badge { margin-left: auto; font-size: 9px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+    .badge-green { background: rgba(40, 167, 69, 0.12); color: #2a9d8f; }
+    .badge-blue { background: rgba(0, 122, 255, 0.1); color: #007aff; }
+    .badge-orange { background: rgba(255, 149, 0, 0.1); color: #ff9500; }
+
+    .promo-box { margin-top: auto; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 24px; padding: 24px 20px; color: #fff; text-align: center; margin-top: 24px; }
+    .promo-box i { color: #f9ca24; font-size: 2rem; margin-bottom: 12px; }
+    .upgrade-btn { background: #fff; color: #000; padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-decoration: none; display: inline-block; }
+
+    .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 99; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .header-search { background: rgba(0, 0, 0, 0.03); border-radius: 40px; padding: 8px 18px; display: flex; align-items: center; gap: 10px; width: 280px; }
+    .header-search input { background: none; border: none; outline: none; font-size: 0.85rem; width: 100%; }
+    .profile-box button { background: none; border: none; display: flex; align-items: center; gap: 12px; }
+    .profile-img-wrapper img { width: 42px; height: 42px; border-radius: 14px; object-fit: cover; border: 2px solid #fff; }
+    .dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; border: 2px solid #fff; }
+
+    .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
+    @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
+    .footer { background: transparent; border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 20px 0; margin-top: 32px; }
+
+    .news-card { transition: all 0.3s ease; cursor: pointer; }
+    .news-card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1); }
+    .category-chip { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+    .category-announcement { background: #e8f5e9; color: #2e7d32; }
+    .category-celebrity { background: #fce4ec; color: #c2185b; }
+    .category-industry { background: #e3f2fd; color: #1565c0; }
+    .category-community { background: #fff3e0; color: #ef6c00; }
+
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-slide-up { animation: fadeSlideUp 0.5s ease-out forwards; }
+
+    .modal-backdrop-custom { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1100; display: flex; align-items: center; justify-content: center; }
+    .news-modal { max-width: 800px; width: 90%; background: white; border-radius: 32px; overflow: hidden; animation: fadeSlideUp 0.3s ease; max-height: 90vh; overflow-y: auto; }
+  </style>
+</head>
+<body>
+
+<div id="preloader"><div class="spinner"></div></div>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<!-- ========== SIDEBAR ========== -->
+<aside id="mainSidebar" class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html">
+      <div class="logo-icon-bg">W</div>
+      <span class="logo-text">WME <small>AGENCY</small></span>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-label">Main Menu</li>
+      <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
+      <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
+      <li class="nav-item"><a href="behind-the-scenes.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-item"><a href="group-chat.html"><span class="icon"><i class="lni lni-message"></i></span><span class="text">Group Chat</span></a></li>
+      <li class="nav-item"><a href="newsroom.html" class="active"><span class="icon"><i class="lni lni-bullhorn"></i></span><span class="text">Newsroom</span><span class="status-badge badge-green">New</span></a></li>
+      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
+      <li class="nav-label">Management</li>
+      <li class="nav-item nav-item-has-children">
+        <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_profile"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a>
+        <ul id="ddmenu_profile" class="collapse dropdown-nav">
+          <li><a href="dashboard/rankings.html">Rankings</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="promo-box">
+    <i class="lni lni-star-filled"></i>
+    <h3>Premium Access</h3>
+    <p>Get exclusive talent rates.</p>
+    <a href="#" class="upgrade-btn">Upgrade</a>
+  </div>
+</aside>
+
+<!-- ========== MAIN WRAPPER ========== -->
+<main class="main-wrapper">
+  <header class="header">
+    <div class="container-fluid">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="burgerMenuBtn" class="menu-toggle-btn"><i class="lni lni-menu"></i></button>
+          <div class="header-search">
+            <i class="lni lni-search-alt"></i>
+            <input type="text" id="searchNews" placeholder="Search news articles...">
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-icon-btn me-3 position-relative">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
+          </div>
+          <div class="profile-box">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown">
+              <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
+              <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Newsroom Content -->
+  <div class="container-fluid px-4 py-4">
+    <div class="mb-4">
+      <h1 class="display-6 fw-bold mb-1">Newsroom</h1>
+      <p class="text-muted">Latest updates, celebrity announcements, and industry news</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="d-flex flex-wrap gap-2 mb-4 pb-2 overflow-auto">
+      <button class="filter-cat btn btn-sm rounded-pill px-3 active-cat" data-cat="all" style="background: #000; color: #fff;">All News</button>
+      <button class="filter-cat btn btn-sm rounded-pill px-3" data-cat="announcement" style="background: #e8f5e9; color: #2e7d32;">📢 Announcements</button>
+      <button class="filter-cat btn btn-sm rounded-pill px-3" data-cat="celebrity" style="background: #fce4ec; color: #c2185b;">⭐ Celebrity News</button>
+      <button class="filter-cat btn btn-sm rounded-pill px-3" data-cat="industry" style="background: #e3f2fd; color: #1565c0;">🏢 Industry</button>
+      <button class="filter-cat btn btn-sm rounded-pill px-3" data-cat="community" style="background: #fff3e0; color: #ef6c00;">💬 Community</button>
+    </div>
+
+    <!-- Featured Story -->
+    <div class="card-style mb-4 p-0 overflow-hidden fade-slide-up" id="featuredStory">
+      <!-- JS populated -->
+    </div>
+
+    <!-- News Grid -->
+    <div class="row g-4" id="newsGrid">
+      <!-- JS populated -->
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="card-style mt-4 text-center bg-dark text-white">
+      <i class="lni lni-envelope fs-1 mb-3"></i>
+      <h5 class="fw-bold">Stay Updated</h5>
+      <p class="text-white-50 small">Get the latest news delivered to your inbox</p>
+      <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <input type="email" id="newsletterEmail" class="form-control w-auto" placeholder="Your email" style="min-width: 250px;">
+        <button class="btn btn-light" onclick="subscribeNewsletter()">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container-fluid"><div class="row"><div class="col-md-6"><div class="copyright"><p class="text-sm">Designed by <a href="https://wmeagency.com">WME</a></p></div></div></div></div></footer>
+</main>
+
+<!-- News Modal -->
+<div id="newsModal" style="display: none; position: fixed; inset: 0; z-index: 1200;"></div>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // ========== NEWS DATA ==========
+  const newsArticles = [
+    {
+      id: 1,
+      title: "WME Agency Launches Premium Membership Program",
+      excerpt: "Get exclusive access to celebrity bookings, priority support, and special perks with our new premium tier.",
+      content: "We're excited to announce the launch of our Premium Membership program. Premium members get priority booking requests, exclusive behind-the-scenes content, 2x points on all purchases, and direct access to our talent relations team. Upgrade today to unlock these amazing benefits!",
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop",
+      category: "announcement",
+      date: "2025-04-08",
+      readTime: "3 min read",
+      author: "WME Team",
+      authorAvatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop"
+    },
+    {
+      id: 2,
+      title: "Zendaya Signs Exclusive Representation Deal",
+      excerpt: "Emmy-winning actress extends partnership with WME for global representation across film, TV, and brand partnerships.",
+      content: "Zendaya has signed an exclusive representation deal with WME Agency. The multi-year agreement covers all areas including film, television, endorsements, and philanthropic initiatives. 'I'm thrilled to continue this journey with the WME team,' said Zendaya. 'They've been incredible partners in bringing my creative vision to life.'",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=500&fit=crop",
+      category: "celebrity",
+      date: "2025-04-05",
+      readTime: "4 min read",
+      author: "Entertainment Desk",
+      authorAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop"
+    },
+    {
+      id: 3,
+      title: "Summer Festival Season: Record Bookings for 2025",
+      excerpt: "Major festivals across North America report 40% increase in talent bookings through WME platform.",
+      content: "With summer festival season approaching, WME has facilitated record-breaking talent bookings for major events including Coachella, Lollapalooza, and Governors Ball. 'The demand for live entertainment has never been higher,' says Sarah Johnson, VP of Events. 'We're seeing unprecedented interest in both headlining acts and emerging artists.'",
+      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=500&fit=crop",
+      category: "industry",
+      date: "2025-04-03",
+      readTime: "5 min read",
+      author: "Industry Insider",
+      authorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop"
+    },
+    {
+      id: 4,
+      title: "Top 10 Most Booked Celebrities of Q1 2025",
+      excerpt: "See which stars dominated the booking charts in the first quarter of the year.",
+      content: "The first quarter of 2025 saw record-breaking booking activity across the platform. Topping the charts: Zendaya, Dwayne Johnson, Taylor Swift, Bad Bunny, and Ryan Reynolds. Corporate events and private performances drove the majority of bookings, with brand partnerships showing significant growth year-over-year.",
+      image: "https://images.unsplash.com/photo-1581809518520-2b4b0ea3f1c7?w=800&h=500&fit=crop",
+      category: "industry",
+      date: "2025-04-01",
+      readTime: "3 min read",
+      author: "Data Analytics Team",
+      authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
+    },
+    {
+      id: 5,
+      title: "New Feature: Group Chat Communities Now Live!",
+      excerpt: "Connect with fellow fans and discuss your favorite celebrities in real-time.",
+      content: "We're thrilled to announce the launch of Group Chat Communities! Now you can join dedicated chat rooms for your favorite celebrities, connect with other fans, share excitement about upcoming events, and earn points for active participation. Start chatting today and climb the community leaderboards!",
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=500&fit=crop",
+      category: "announcement",
+      date: "2025-03-28",
+      readTime: "2 min read",
+      author: "Product Team",
+      authorAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop"
+    },
+    {
+      id: 6,
+      title: "Behind the Scenes: The Weeknd's Studio Session",
+      excerpt: "Exclusive footage from the recording sessions of his upcoming album.",
+      content: "Go behind the scenes with The Weeknd as he puts the finishing touches on his highly anticipated album. Watch exclusive clips from the studio, hear insights about his creative process, and get a sneak peek of what's coming next. Premium members get full access to all BTS content.",
+      image: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=800&h=500&fit=crop",
+      category: "celebrity",
+      date: "2025-03-25",
+      readTime: "4 min read",
+      author: "Content Team",
+      authorAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop"
+    },
+    {
+      id: 7,
+      title: "Community Challenge: Reach 10K Points This Month",
+      excerpt: "Compete with other fans and win exclusive merchandise and meet-and-greet opportunities.",
+      content: "Join our monthly points challenge! The top 10 users with the most points earned this month will win exclusive merchandise, signed memorabilia, and a chance to attend a virtual meet-and-greet with a surprise celebrity guest. Start earning points by booking, referring friends, and engaging with content!",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop",
+      category: "community",
+      date: "2025-03-22",
+      readTime: "3 min read",
+      author: "Community Manager",
+      authorAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop"
+    },
+    {
+      id: 8,
+      title: "WME Expands to European Markets",
+      excerpt: "New offices in London and Paris to serve growing international client base.",
+      content: "WME Agency is proud to announce the opening of new offices in London and Paris. This expansion allows us to better serve our European clients and talent, with dedicated teams for international bookings, event planning, and brand partnerships. 'Europe has always been a priority market for us,' says CEO Michael Roberts.",
+      image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=500&fit=crop",
+      category: "announcement",
+      date: "2025-03-20",
+      readTime: "4 min read",
+      author: "International Team",
+      authorAvatar: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=80&h=80&fit=crop"
+    }
+  ];
+
+  let currentCategory = 'all';
+  let searchQuery = '';
+
+  function formatDate(dateStr) {
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    return new Date(dateStr).toLocaleDateString('en-US', options);
+  }
+
+  function getCategoryClass(category) {
+    const classes = {
+      announcement: 'category-announcement',
+      celebrity: 'category-celebrity',
+      industry: 'category-industry',
+      community: 'category-community'
+    };
+    return classes[category] || 'category-announcement';
+  }
+
+  function getCategoryIcon(category) {
+    const icons = {
+      announcement: '📢',
+      celebrity: '⭐',
+      industry: '🏢',
+      community: '💬'
+    };
+    return icons[category] || '📰';
+  }
+
+  // Render featured story (latest announcement or most recent)
+  function renderFeatured() {
+    const featured = newsArticles[0];
+    const container = document.getElementById('featuredStory');
+    container.innerHTML = `
+      <div class="row g-0">
+        <div class="col-md-6">
+          <img src="${featured.image}" class="w-100 h-100 object-fit-cover" style="height: 300px; object-fit: cover;" alt="${featured.title}">
+        </div>
+        <div class="col-md-6 p-4 d-flex flex-column justify-content-center">
+          <span class="category-chip ${getCategoryClass(featured.category)} mb-2 align-self-start">${getCategoryIcon(featured.category)} ${featured.category.charAt(0).toUpperCase() + featured.category.slice(1)}</span>
+          <h3 class="fw-bold mb-2">${featured.title}</h3>
+          <p class="text-muted small mb-2">${formatDate(featured.date)} • ${featured.readTime}</p>
+          <p class="mb-3">${featured.excerpt}</p>
+          <button class="btn btn-dark w-auto rounded-pill px-4" onclick="openNewsModal(${featured.id})">Read Full Story →</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderNewsGrid() {
+    const container = document.getElementById('newsGrid');
+    let filtered = newsArticles.slice(1); // exclude featured
+    
+    if (currentCategory !== 'all') {
+      filtered = filtered.filter(article => article.category === currentCategory);
+    }
+    if (searchQuery) {
+      filtered = filtered.filter(article => 
+        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        article.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    
+    if (filtered.length === 0) {
+      container.innerHTML = `<div class="col-12"><div class="card-style text-center py-5"><i class="lni lni-search fs-1 text-muted"></i><h5 class="mt-3">No articles found</h5><p class="text-muted">Try a different search or category</p></div></div>`;
+      return;
+    }
+    
+    container.innerHTML = filtered.map((article, idx) => `
+      <div class="col-md-6 col-lg-4 fade-slide-up" style="animation-delay: ${idx * 0.05}s">
+        <div class="news-card card-style p-0 overflow-hidden h-100" onclick="openNewsModal(${article.id})">
+          <img src="${article.image}" class="w-100" style="height: 200px; object-fit: cover;" alt="${article.title}">
+          <div class="p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="category-chip ${getCategoryClass(article.category)}">${getCategoryIcon(article.category)} ${article.category.charAt(0).toUpperCase() + article.category.slice(1)}</span>
+              <small class="text-muted">${formatDate(article.date)}</small>
+            </div>
+            <h5 class="fw-bold mb-2 line-clamp-2" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${article.title}</h5>
+            <p class="small text-muted mb-3 line-clamp-2" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${article.excerpt}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <img src="${article.authorAvatar}" class="rounded-circle" style="width: 28px; height: 28px; object-fit: cover;">
+                <small class="text-muted">${article.author}</small>
+              </div>
+              <small class="text-muted">${article.readTime}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Open news modal
+  window.openNewsModal = function(id) {
+    const article = newsArticles.find(a => a.id === id);
+    if (!article) return;
+    
+    const modalDiv = document.getElementById('newsModal');
+    modalDiv.innerHTML = `
+      <div class="modal-backdrop-custom" onclick="closeNewsModal(event)">
+        <div class="news-modal" onclick="event.stopPropagation()">
+          <div class="position-relative">
+            <img src="${article.image}" class="w-100" style="height: 300px; object-fit: cover;" alt="${article.title}">
+            <button class="position-absolute top-0 end-0 m-3 btn btn-dark rounded-circle" style="width: 40px; height: 40px;" onclick="closeNewsModal()">✕</button>
+          </div>
+          <div class="p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="category-chip ${getCategoryClass(article.category)}">${getCategoryIcon(article.category)} ${article.category.charAt(0).toUpperCase() + article.category.slice(1)}</span>
+              <small class="text-muted">${formatDate(article.date)} • ${article.readTime}</small>
+            </div>
+            <h2 class="fw-bold mb-3">${article.title}</h2>
+            <div class="d-flex align-items-center gap-3 mb-4 pb-2 border-bottom">
+              <img src="${article.authorAvatar}" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+              <div>
+                <p class="fw-semibold mb-0">${article.author}</p>
+                <small class="text-muted">WME Newsroom</small>
+              </div>
+            </div>
+            <p class="lead">${article.excerpt}</p>
+            <p>${article.content}</p>
+            <hr>
+            <div class="d-flex gap-2 justify-content-end">
+              <button class="btn btn-outline-dark rounded-pill" onclick="shareArticle('${article.title}')"><i class="lni lni-share"></i> Share</button>
+              <button class="btn btn-dark rounded-pill" onclick="closeNewsModal()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    modalDiv.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+  
+  window.closeNewsModal = function(e) {
+    const modal = document.getElementById('newsModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+  
+  window.shareArticle = function(title) {
+    navigator.clipboard?.writeText(`Check out this article: ${title} on WME Newsroom`);
+    showToast('📎 Link copied to clipboard!', 'success');
+  };
+  
+  window.subscribeNewsletter = function() {
+    const email = document.getElementById('newsletterEmail')?.value;
+    if (!email || !email.includes('@')) {
+      showToast('Please enter a valid email address', 'error');
+      return;
+    }
+    showToast(`✅ Subscribed! Updates will be sent to ${email}`, 'success');
+    document.getElementById('newsletterEmail').value = '';
+  };
+  
+  function showToast(msg, type = 'success') {
+    const toastDiv = document.createElement('div');
+    toastDiv.className = 'position-fixed bottom-0 end-0 p-3';
+    toastDiv.style.zIndex = '1300';
+    toastDiv.innerHTML = `<div class="toast show" role="alert"><div class="toast-header ${type === 'success' ? 'bg-dark text-white' : 'bg-warning'}"><i class="lni lni-information me-2"></i><strong>WME News</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button></div><div class="toast-body">${msg}</div></div>`;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 3000);
+  }
+  
+  // Setup filters
+  function setupFilters() {
+    document.querySelectorAll('.filter-cat').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-cat').forEach(b => b.classList.remove('active-cat'));
+        btn.classList.add('active-cat');
+        btn.style.background = '#000';
+        btn.style.color = '#fff';
+        document.querySelectorAll('.filter-cat:not(.active-cat)').forEach(b => {
+          if (b.getAttribute('data-cat') === 'all') b.style.background = '#e9ecef';
+          else if (b.getAttribute('data-cat') === 'announcement') b.style.background = '#e8f5e9';
+          else if (b.getAttribute('data-cat') === 'celebrity') b.style.background = '#fce4ec';
+          else if (b.getAttribute('data-cat') === 'industry') b.style.background = '#e3f2fd';
+          else if (b.getAttribute('data-cat') === 'community') b.style.background = '#fff3e0';
+          b.style.color = '';
+        });
+        currentCategory = btn.getAttribute('data-cat');
+        renderNewsGrid();
+      });
+    });
+  }
+  
+  function setupSearch() {
+    const searchInput = document.getElementById('searchNews');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderNewsGrid();
+      });
+    }
+  }
+  
+  // Burger menu
+  function setupBurgerMenu() {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const sidebar = document.getElementById('mainSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    if (!burgerBtn || !sidebar || !overlay) return;
+    function openSidebar() { sidebar.classList.add('mobile-open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeSidebar() { sidebar.classList.remove('mobile-open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar(); });
+    overlay.addEventListener('click', closeSidebar);
+    window.addEventListener('resize', () => { if (window.innerWidth > 991) closeSidebar(); });
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    renderFeatured();
+    renderNewsGrid();
+    setupFilters();
+    setupSearch();
+    setupBurgerMenu();
+    document.getElementById('headerUsername').innerText = 'Alex Rivera';
+  });
+</script>
+</body>
+</html>

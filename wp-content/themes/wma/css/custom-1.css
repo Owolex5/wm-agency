@@ -1,0 +1,8 @@
+.department-row .department,
+.department-row .department a {
+  opacity: 1;
+}
+
+.department-row .department:hover a {
+  opacity: 0.75;
+}

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+  <title>WME Agency | Invoices & Payments</title>
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    :root {
+      --primary: #000000;
+      --sidebar-bg: #ffffff;
+      --main-bg: #f8f9fc;
+      --border-color: rgba(0, 0, 0, 0.06);
+      --text-muted: #6c757d;
+      --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Styles (Unchanged) */
+    .sidebar-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar-nav-wrapper { transform: translateX(-100%); }
+      .sidebar-nav-wrapper.mobile-open { transform: translateX(0); box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15); }
+    }
+
+    .sidebar-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+    }
+    .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+    .menu-toggle-btn {
+      background: rgba(0, 0, 0, 0.03); border: none; width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;
+    }
+    .menu-toggle-btn:hover { background: rgba(0, 0, 0, 0.08); transform: scale(0.96); }
+
+    .navbar-logo { padding: 0 10px 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 16px; }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 12px; }
+    .logo-text { font-weight: 800; font-size: 1.3rem; color: #111; text-decoration: none;}
+
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; gap: 12px; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
+
+    .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
+    @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
+
+    /* --- Payment Page Specifics --- */
+    .payment-method-card { 
+      transition: all 0.2s; 
+      cursor: pointer; 
+      border: 1px solid var(--border-color); 
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .payment-method-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); border-color: #000; }
+    .payment-method-card.selected { border-color: #000; background: #fdfdfd; box-shadow: inset 0 0 0 1px #000; }
+    
+    .form-input-minimal {
+      background: #fcfcfc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      width: 100%;
+      margin-bottom: 12px;
+      transition: 0.2s;
+    }
+    .form-input-minimal:focus { border-color: #000; outline: none; background: #fff; }
+
+    .btn-action {
+      background: #000; color: #fff; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 600; transition: 0.3s;
+    }
+    .btn-action:hover { opacity: 0.85; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<aside id="mainSidebar" class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html" class="d-flex align-items-center gap-2">
+      <div class="logo-icon-bg">W</div>
+      <span class="logo-text">WME <small class="d-block" style="font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted);">AGENCY</small></span>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-label">Main Menu</li>
+      <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
+      <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
+      <li class="nav-item"><a href="invoices.html" class="active"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
+    </ul>
+  </nav>
+</aside>
+
+<main class="main-wrapper">
+  <header class="header py-3 border-bottom bg-white sticky-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+      <button id="burgerMenuBtn" class="menu-toggle-btn d-lg-none"><i class="lni lni-menu"></i></button>
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <div class="text-end d-none d-md-block">
+          <h6 class="m-0 fw-bold small">Alex Rivera</h6>
+          <p class="m-0 text-muted small">Talent Booker</p>
+        </div>
+        <img src="https://ui-avatars.com/api/?name=Alex+Rivera&background=000&color=fff" class="rounded-3" width="40">
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid px-4 py-4">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="bg-dark text-white rounded-4 p-4 mb-4" style="background: linear-gradient(135deg, #111 0%, #333 100%);">
+          <p class="small opacity-50 mb-1">Available Balance</p>
+          <h1 class="display-5 fw-bold mb-0" id="balanceDisplay">$2,450.00</h1>
+          <p class="small mt-2 opacity-75"><i class="lni lni-coin"></i> 24,500 Agency Points</p>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+          <h5 class="fw-bold mb-4">Choose Payment Method</h5>
+          <div class="row g-3 mb-4">
+            <div class="col-md-3 col-6">
+              <div class="payment-method-card text-center" data-method="card" onclick="selectPaymentMethod('card')">
+                <i class="lni lni-credit-cards fs-2 mb-2"></i>
+                <p class="small fw-bold mb-0">Bank Card</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="payment-method-card text-center" data-method="cashapp" onclick="selectPaymentMethod('cashapp')">
+                <i class="lni lni-dollar fs-2 mb-2"></i>
+                <p class="small fw-bold mb-0">Cash App</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="payment-method-card text-center" data-method="crypto" onclick="selectPaymentMethod('crypto')">
+                <i class="lni lni-bitcoin fs-2 mb-2"></i>
+                <p class="small fw-bold mb-0">Crypto</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="payment-method-card text-center" data-method="bank" onclick="selectPaymentMethod('bank')">
+                <i class="lni lni-world fs-2 mb-2"></i>
+                <p class="small fw-bold mb-0">Wire/Proof</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="methodFormArea" class="p-3 rounded-4" style="background: #fcfcfc; border: 1px dashed #ddd;">
+            <p class="text-muted text-center py-4 m-0">Select a method above to enter payment details</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+          <h6 class="fw-bold mb-3">Quick Point Bundles</h6>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-dark text-start p-3 rounded-3" onclick="processPayment(10)">
+                <span class="d-flex justify-content-between"><b>1,000 Points</b> <span>$10</span></span>
+            </button>
+            <button class="btn btn-outline-dark text-start p-3 rounded-3" onclick="processPayment(50)">
+                <span class="d-flex justify-content-between"><b>5,500 Points</b> <span>$50</span></span>
+            </button>
+            <button class="btn btn-dark text-start p-3 rounded-3" onclick="processPayment(100)">
+                <span class="d-flex justify-content-between"><b>12,000 Points</b> <span class="badge bg-warning text-dark">Best Value</span></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4">
+          <h6 class="fw-bold mb-3">Recent Transactions</h6>
+          <div id="miniTransactions">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // State Management
+  let balance = 2450.00;
+
+  function updateBalanceDisplay() {
+    document.getElementById('balanceDisplay').innerText = `$${balance.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+  }
+
+  // Dynamic Form Switcher
+  window.selectPaymentMethod = function(method) {
+    // UI Feedback for selection
+    document.querySelectorAll('.payment-method-card').forEach(el => el.classList.remove('selected'));
+    document.querySelector(`[data-method="${method}"]`).classList.add('selected');
+
+    const area = document.getElementById('methodFormArea');
+    area.style.border = "none";
+    area.style.background = "transparent";
+
+    if (method === 'card') {
+      area.innerHTML = `
+        <h6 class="fw-bold mb-3">Secure Card Checkout</h6>
+        <input type="text" class="form-input-minimal" placeholder="Card Number">
+        <div class="row g-2">
+            <div class="col-6"><input type="text" class="form-input-minimal" placeholder="MM / YY"></div>
+            <div class="col-6"><input type="text" class="form-input-minimal" placeholder="CVC"></div>
+        </div>
+        <input type="number" id="payAmount" class="form-input-minimal" placeholder="Amount to add ($)">
+        <button class="btn-action w-100" onclick="handleDeposit('payAmount')">Deposit Now</button>
+      `;
+    } else if (method === 'cashapp') {
+      area.innerHTML = `
+        <div class="text-center p-2">
+            <p class="small text-muted mb-2">Send payment to our Cashtag:</p>
+            <h4 class="fw-bold text-success mb-3">$WMEAGENCY</h4>
+            <input type="text" class="form-input-minimal" placeholder="Your $Cashtag for verification">
+            <input type="number" id="cashAmount" class="form-input-minimal" placeholder="Amount Sent ($)">
+            <button class="btn-action w-100" onclick="handleDeposit('cashAmount')">Notify Admin of Transfer</button>
+        </div>
+      `;
+    } else if (method === 'crypto') {
+      area.innerHTML = `
+        <h6 class="fw-bold mb-2">USDT (TRC20) Address</h6>
+        <div class="p-2 bg-light rounded-3 mb-3 text-break small font-monospace">TX7qKz9LpR2mVnXwYjH5bNcA8dFgE3hJkL</div>
+        <input type="text" class="form-input-minimal" placeholder="Transaction Hash (TxID)">
+        <input type="number" id="cryptoAmount" class="form-input-minimal" placeholder="Amount in USD">
+        <button class="btn-action w-100" onclick="handleDeposit('cryptoAmount')">Verify Blockchain Payment</button>
+      `;
+    } else {
+      area.innerHTML = `
+        <h6 class="fw-bold mb-3">Manual Bank/Wire Proof</h6>
+        <p class="small text-muted">Upload a screenshot of your transfer receipt.</p>
+        <input type="file" class="form-input-minimal">
+        <input type="number" id="wireAmount" class="form-input-minimal" placeholder="Amount ($)">
+        <button class="btn-action w-100" onclick="handleDeposit('wireAmount')">Upload Proof</button>
+      `;
+    }
+  }
+
+  function handleDeposit(inputId) {
+    const amt = parseFloat(document.getElementById(inputId).value);
+    if (!amt || amt <= 0) return alert("Please enter a valid amount");
+    
+    // Logic for demo
+    balance += amt;
+    updateBalanceDisplay();
+    alert(`Success! $${amt} has been added to your balance.`);
+    document.getElementById(inputId).value = "";
+  }
+
+  function processPayment(amt) {
+    balance += amt;
+    updateBalanceDisplay();
+  }
+
+  // Burger Menu Logic
+  const burgerBtn = document.getElementById('burgerMenuBtn');
+  const sidebar = document.getElementById('mainSidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+
+  burgerBtn.addEventListener('click', () => {
+    sidebar.classList.add('mobile-open');
+    overlay.classList.add('active');
+  });
+
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('mobile-open');
+    overlay.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>

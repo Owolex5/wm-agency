@@ -1,0 +1,2052 @@
+Uri: http://code.jquery.com/jquery-migrate-1.2.1.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\jquery-migrate-1.2.1.min-1.js
+Content Type: application/javascript
+
+Uri: http://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js
+File Name: C:\Downloaded Web Sites\wma.agency\downloads.mailchimp.com\js\mc-validate-1.js
+Content Type: application/javascript
+
+Uri: http://wma.agency/careers/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\index-1.html
+Content Type: text/html
+
+Uri: http://wma.agency/clients/
+File Name: C:\Downloaded Web Sites\wma.agency\clients\index-1.html
+Content Type: text/html
+
+Uri: http://wma.agency/contact/
+File Name: C:\Downloaded Web Sites\wma.agency\contact\index-1.html
+Content Type: text/html
+
+Uri: http://wma.agency/privacy-policy/
+File Name: C:\Downloaded Web Sites\wma.agency\privacy-policy\index-1.html
+Content Type: text/html
+
+Uri: http://wma.agency/talent/
+File Name: C:\Downloaded Web Sites\wma.agency\talent\index-1.html
+Content Type: text/html
+
+Uri: http://wma.agency/terms/
+File Name: C:\Downloaded Web Sites\wma.agency\terms\index-1.html
+Content Type: text/html
+
+Uri: http://wma.agency/wp-content/themes/wma/css/animations.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\animations.min-1.css
+Content Type: text/css
+
+Uri: http://wma.agency/wp-content/themes/wma/css/bootstrap.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\bootstrap.min-1.css
+Content Type: text/css
+
+Uri: http://wma.agency/wp-content/themes/wma/css/custom.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\custom-1.css
+Content Type: text/css
+
+Uri: http://wma.agency/wp-content/themes/wma/css/slick-theme.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\slick-theme.min-1.css
+Content Type: text/css
+
+Uri: http://wma.agency/wp-content/themes/wma/css/slick.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\slick.min-1.css
+Content Type: text/css
+
+Uri: http://wma.agency/wp-content/themes/wma/css/styles.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\styles-1.css
+Content Type: text/css
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/Avenir-Light.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Avenir-Light-1.ttf
+Content Type: font/ttf
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/Futura-Bold.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Futura-Bold-1.ttf
+Content Type: font/ttf
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/Futura-Book.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Futura-Book-1.ttf
+Content Type: font/ttf
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/Futura-Light.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Futura-Light-1.ttf
+Content Type: font/ttf
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.eot
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular-2.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.eot?
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular-3.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular-1.svg
+Content Type: image/svg+xml
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular-1.ttf
+Content Type: font/ttf
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.woff
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular-1.woff
+Content Type: font/woff
+
+Uri: http://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.woff2
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular-1.woff2
+Content Type: font/woff2
+
+Uri: http://wma.agency/wp-content/themes/wma/images/favicon.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\favicon-1.png
+Content Type: image/png
+
+Uri: http://wma.agency/wp-content/themes/wma/images/instagram-title-color.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\instagram-title-color-1.png
+Content Type: image/png
+
+Uri: http://wma.agency/wp-content/themes/wma/images/instagram-title.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\instagram-title-1.png
+Content Type: image/png
+
+Uri: http://wma.agency/wp-content/themes/wma/images/scroll-arrow-black.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\scroll-arrow-black-1.png
+Content Type: image/png
+
+Uri: http://wma.agency/wp-content/themes/wma/images/twitter-title-blue.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\twitter-title-blue-1.png
+Content Type: image/png
+
+Uri: http://wma.agency/wp-content/themes/wma/images/twitter-title.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\twitter-title-1.png
+Content Type: image/png
+
+Uri: http://wma.agency/wp-content/themes/wma/images/wma-logo-black.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\wma-logo-black-1.svg
+Content Type: image/svg+xml
+
+Uri: http://wma.agency/wp-content/themes/wma/images/wma-logo-white.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\wma-logo-white-1.svg
+Content Type: image/svg+xml
+
+Uri: http://wma.agency/wp-content/themes/wma/js/bootstrap.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\bootstrap.min-1.js
+Content Type: text/javascript
+
+Uri: http://wma.agency/wp-content/themes/wma/js/cookie-banner.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\cookie-banner.min-1.js
+Content Type: text/javascript
+
+Uri: http://wma.agency/wp-content/themes/wma/js/css3-animate-it.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\css3-animate-it.min-1.js
+Content Type: text/javascript
+
+Uri: http://wma.agency/wp-content/themes/wma/js/instafeed.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\instafeed.min-1.js
+Content Type: text/javascript
+
+Uri: http://wma.agency/wp-content/themes/wma/js/jquery.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\jquery.min-1.js
+Content Type: text/javascript
+
+Uri: http://wma.agency/wp-content/themes/wma/js/main.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\main-1.js
+Content Type: text/javascript
+
+Uri: http://wma.agency/wp-content/uploads/2019/08/WMA-US-Intern-NY.pdf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\08\WMA-US-Intern-NY.pdf
+Content Type: application/pdf
+
+Uri: http://wma.agency/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\jquery\jquery-migrate.min-1.js
+Content Type: text/javascript
+
+Uri: http://wma.agency/wp-includes/js/jquery/jquery.min.js?ver=3.7.1
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\jquery\jquery.min-1.js
+Content Type: text/javascript
+
+Uri: https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\jquery.slick\1.6.0\slick.min.js
+Content Type: application/javascript
+
+Uri: https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\npm\js-cookie@beta\dist\js.cookie.min.js
+Content Type: application/javascript
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\ajax\libs\1000hz-bootstrap-validator\0.11.9\validator.min.js
+Content Type: application/javascript
+
+Uri: https://code.jquery.com/jquery-migrate-1.2.1.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\jquery-migrate-1.2.1.min.js
+Content Type: application/javascript
+
+Uri: https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js
+File Name: C:\Downloaded Web Sites\wma.agency\downloads.mailchimp.com\js\mc-validate.js
+Content Type: application/javascript
+
+Uri: https://widget.tagembed.com/embed.min.js?ver=5.5
+File Name: C:\Downloaded Web Sites\wma.agency\embed.min.js
+Content Type: application/javascript
+
+Uri: https://wma.agency/
+File Name: C:\Downloaded Web Sites\wma.agency\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/about/
+File Name: C:\Downloaded Web Sites\wma.agency\about\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/creative-account-manager/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\creative-account-manager\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/digital-channel-manager-5/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\digital-channel-manager-5\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/digital-channel-manager-6/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\digital-channel-manager-6\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/digital-channel-manager/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\digital-channel-manager\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/head-of-dd/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\head-of-dd\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/junior-digital-channel-manager-nyc-la-nashville/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\junior-digital-channel-manager-nyc-la-nashville\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/marketing-social-media-internship-ny/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\marketing-social-media-internship-ny\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/marketing-strategy-manager-5/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\marketing-strategy-manager-5\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/publicity-internship/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\publicity-internship\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/senior-publicist-2/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\senior-publicist-2\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/senior-publicist-3/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\senior-publicist-3\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/senior-publicist/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\senior-publicist\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/careers/us-freelance-social-media-data-analyst/
+File Name: C:\Downloaded Web Sites\wma.agency\careers\us-freelance-social-media-data-analyst\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/clients/
+File Name: C:\Downloaded Web Sites\wma.agency\clients\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/contact/
+File Name: C:\Downloaded Web Sites\wma.agency\contact\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/department/digital-advertising/
+File Name: C:\Downloaded Web Sites\wma.agency\department\digital-advertising\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/department/partnerships-2/
+File Name: C:\Downloaded Web Sites\wma.agency\department\partnerships-2\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/department/publicity/
+File Name: C:\Downloaded Web Sites\wma.agency\department\publicity\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/department/social/
+File Name: C:\Downloaded Web Sites\wma.agency\department\social\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/department/strategy/
+File Name: C:\Downloaded Web Sites\wma.agency\department\strategy\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/newsletter-signup/
+File Name: C:\Downloaded Web Sites\wma.agency\newsletter-signup\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/privacy-policy/
+File Name: C:\Downloaded Web Sites\wma.agency\privacy-policy\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/talent/
+File Name: C:\Downloaded Web Sites\wma.agency\talent\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/terms/
+File Name: C:\Downloaded Web Sites\wma.agency\terms\index.html
+Content Type: text/html
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-orbital-theme.min.css?ver=2.9.31
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\assets\css\dist\gravity-forms-orbital-theme.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-foundation.min.css?ver=2.9.31
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\assets\css\dist\gravity-forms-theme-foundation.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-framework.min.css?ver=2.9.31
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\assets\css\dist\gravity-forms-theme-framework.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-reset.min.css?ver=2.9.31
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\assets\css\dist\gravity-forms-theme-reset.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=a1e4be6ab14e0f896212221fc6ec8edd
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\assets\js\dist\scripts-theme.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=3f278756f0a3032bed328ff6a9f6c01d
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\assets\js\dist\utils.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4f8b3915c1c1e1a6800825abd64b03cb
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\assets\js\dist\vendor-theme.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/fonts/gform-icons-orbital.svg?gxy8zs
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\fonts\gform-icons-orbital.svg
+Content Type: image/svg+xml
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/fonts/gform-icons-orbital.ttf?gxy8zs
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\fonts\gform-icons-orbital.ttf
+Content Type: font/ttf
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/fonts/gform-icons-orbital.woff2?gxy8zs
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\fonts\gform-icons-orbital.woff2
+Content Type: font/woff2
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/fonts/gform-icons-orbital.woff?gxy8zs
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\fonts\gform-icons-orbital.woff
+Content Type: font/woff
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/images/gf-creditcards-check.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\images\gf-creditcards-check.svg
+Content Type: image/svg+xml
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/images/gf-creditcards.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\images\gf-creditcards.svg
+Content Type: image/svg+xml
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/images/theme/chosen/chosen-sprite.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\images\theme\chosen\chosen-sprite.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/images/theme/chosen/chosen-sprite@2x.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\images\theme\chosen\chosen-sprite@2x.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/images/theme/down-arrow.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\images\theme\down-arrow.svg
+Content Type: image/svg+xml
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.9.31
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\js\gravityforms.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.9.31
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\plugins\gravityforms\js\jquery.json.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/themes/wma/css/animations.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\animations.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/themes/wma/css/bootstrap.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\bootstrap.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/themes/wma/css/custom.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\custom.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/themes/wma/css/slick-theme.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\slick-theme.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/themes/wma/css/slick.min.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\slick.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/themes/wma/css/styles.css
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\css\styles.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/Avenir-Light.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Avenir-Light.ttf
+Content Type: font/ttf
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/Futura-Bold.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Futura-Bold.ttf
+Content Type: font/ttf
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/Futura-Book.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Futura-Book.ttf
+Content Type: font/ttf
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/Futura-Light.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\Futura-Light.ttf
+Content Type: font/ttf
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.eot
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.eot?
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular.svg
+Content Type: image/svg+xml
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.ttf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular.ttf
+Content Type: font/ttf
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.woff
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular.woff
+Content Type: font/woff
+
+Uri: https://wma.agency/wp-content/themes/wma/fonts/glyphicons-halflings-regular.woff2
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\fonts\glyphicons-halflings-regular.woff2
+Content Type: font/woff2
+
+Uri: https://wma.agency/wp-content/themes/wma/images/careers.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\careers.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/themes/wma/images/favicon.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\favicon.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/themes/wma/images/instagram-title-color.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\instagram-title-color.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/themes/wma/images/instagram-title.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\instagram-title.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/themes/wma/images/scroll-arrow-black.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\scroll-arrow-black.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/themes/wma/images/scroll-arrow.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\scroll-arrow.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/themes/wma/images/twitter-title-blue.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\twitter-title-blue.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/themes/wma/images/twitter-title.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\twitter-title.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/themes/wma/images/video-placeholder.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\video-placeholder.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/themes/wma/images/wma-logo-black.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\wma-logo-black.svg
+Content Type: image/svg+xml
+
+Uri: https://wma.agency/wp-content/themes/wma/images/wma-logo-white.svg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\images\wma-logo-white.svg
+Content Type: image/svg+xml
+
+Uri: https://wma.agency/wp-content/themes/wma/js/bootstrap.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\bootstrap.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/themes/wma/js/cookie-banner.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\cookie-banner.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/themes/wma/js/css3-animate-it.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\css3-animate-it.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/themes/wma/js/instafeed.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\instafeed.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/themes/wma/js/jquery.min.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\jquery.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/themes/wma/js/main.js
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\themes\wma\js\main.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ab-in-bev-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ab-in-bev-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ab-in-bev-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ab-in-bev-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ab-in-bev.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ab-in-bev.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/adidas-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\adidas-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/adidas-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\adidas-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/adidas.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\adidas.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ady-suleiman.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ady-suleiman.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/alex-aiono.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\alex-aiono.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/allie-x.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\allie-x.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ariana-and-the-rose-vertical--768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ariana-and-the-rose-vertical--768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/audi-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\audi-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/audi-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\audi-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/audi.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\audi.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/avelino.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\avelino.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/barbour-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\barbour-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/barbour-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\barbour-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/barbour.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\barbour.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ben-sherman-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ben-sherman-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ben-sherman-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ben-sherman-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ben-sherman.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ben-sherman.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/bleachers.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\bleachers.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/bmg-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\bmg-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/bmg-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\bmg-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/bmg.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\bmg.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/borns.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\borns.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/careers-1024x418.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\careers-1024x418.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/careers-300x123.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\careers-300x123.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/careers-768x314.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\careers-768x314.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/careers.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\careers.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/caroline-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\caroline-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/caroline-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\caroline-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/caroline.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\caroline.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/contact-1024x418.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\contact-1024x418.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/contact-300x123.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\contact-300x123.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/contact-768x314.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\contact-768x314.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/contact.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\contact.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/craig-david.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\craig-david.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/digital-banner.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\digital-banner.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/digital.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\digital.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/disney-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\disney-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/disney-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\disney-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/disney.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\disney.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/dj-fresh.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\dj-fresh.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ella-henderson.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ella-henderson.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ellie-goulding.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ellie-goulding.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/example.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\example.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/feist-768x432.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\feist-768x432.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/george-michael.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\george-michael.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/georgia-smith.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\georgia-smith.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/GraceApprovedPressImageWHNM.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\GraceApprovedPressImageWHNM.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/graze-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\graze-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/graze-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\graze-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/graze.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\graze.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ignition-management-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ignition-management-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ignition-management-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ignition-management-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ignition-management.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ignition-management.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/insanity-records-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\insanity-records-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/insanity-records-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\insanity-records-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/insanity-records.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\insanity-records.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/intermarketing-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\intermarketing-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/intermarketing-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\intermarketing-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/intermarketing.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\intermarketing.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/interscope-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\interscope-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/interscope-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\interscope-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/interscope.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\interscope.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/island-records-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\island-records-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/island-records-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\island-records-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/island-records.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\island-records.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/j-hus.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\j-hus.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/j-stash.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\j-stash.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/jack-sav.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\jack-sav.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/joy-crookes-768x510.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\joy-crookes-768x510.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/kobalt-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\kobalt-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/kobalt-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\kobalt-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/kobalt.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\kobalt.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/labrinth.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\labrinth.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/lany.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\lany.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/laura-mvula.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\laura-mvula.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/liam-payne.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\liam-payne.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/LOUIS-T-PRESS-SHOT-V2-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\LOUIS-T-PRESS-SHOT-V2-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/martini-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\martini-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/martini-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\martini-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/martini.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\martini.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/nicole.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\nicole.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/nike-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\nike-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/nike-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\nike-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/nike.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\nike.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/notion-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\notion-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/notion-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\notion-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/notion.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\notion.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ocean-park-standoff.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ocean-park-standoff.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/odesza.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\odesza.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/olly-murs.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\olly-murs.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/polydor-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\polydor-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/polydor-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\polydor-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/polydor.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\polydor.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/proximity-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\proximity-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/proximity-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\proximity-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/proximity.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\proximity.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/publicity-banner.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\publicity-banner.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/rat-boy.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\rat-boy.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/raye.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\raye.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/RCA-Logo-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\RCA-Logo-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/RCA-Logo-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\RCA-Logo-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/RCA-Logo.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\RCA-Logo.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/rebelution.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\rebelution.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/reebok-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\reebok-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/reebok-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\reebok-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/reebok.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\reebok.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/republic-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\republic-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/republic-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\republic-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/republic.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\republic.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/rose-gray.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\rose-gray.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/rpm-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\rpm-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/rpm-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\rpm-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/rpm.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\rpm.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/ryan-delacruz.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\ryan-delacruz.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/shawn-hook.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\shawn-hook.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/skrapz.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\skrapz.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/sony-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\sony-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/sony-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\sony-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/sony.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\sony.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/spindle-1-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\spindle-1-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/spindle-1-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\spindle-1-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/spindle-1.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\spindle-1.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/sta-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\sta-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/sta-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\sta-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/sta.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\sta.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/stefflon_don.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\stefflon_don.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/syco-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\syco-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/syco-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\syco-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/syco.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\syco.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/Take_That_-_Hamish_Brown_1-768x1001.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\Take_That_-_Hamish_Brown_1-768x1001.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/the-chainsmokers.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\the-chainsmokers.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/the-xx.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\the-xx.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/tinashe.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\tinashe.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/universal-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\universal-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/universal-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\universal-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/universal.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\universal.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/vevo-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\vevo-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/vevo-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\vevo-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/vevo.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\vevo.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/viber-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\viber-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/viber-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\viber-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/viber.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\viber.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/virgin-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\virgin-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/virgin-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\virgin-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/virgin.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\virgin.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/warnermusic-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\warnermusic-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/warnermusic-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\warnermusic-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/warnermusic.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\warnermusic.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/WebbyAwards.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\WebbyAwards.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/y-y.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\y-y.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/youngturks-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\youngturks-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/youngturks-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\youngturks-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/youngturks.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\youngturks.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/YYYs.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\YYYs.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/10/zz-ward.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\10\zz-ward.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/11/mr-jukes-768x327.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\11\mr-jukes-768x327.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2017/11/WMA_Job-Spec_DCM_Berlin_Jan21-2.pdf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2017\11\WMA_Job-Spec_DCM_Berlin_Jan21-2.pdf
+Content Type: application/pdf
+
+Uri: https://wma.agency/wp-content/uploads/2018/03/C9A7518-1-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\03\C9A7518-1-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/03/donovan-woods.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\03\donovan-woods.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/03/PostImage1-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\03\PostImage1-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/06/abisha.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\06\abisha.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/06/Copy-of-Yoshiki-Face-promo1.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\06\Copy-of-Yoshiki-Face-promo1.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/06/first-aid-kit.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\06\first-aid-kit.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/06/John-Newman-press-shot-1.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\06\John-Newman-press-shot-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/06/Sigala-768x1048.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\06\Sigala-768x1048.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/netflix-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\netflix-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/netflix-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\netflix-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/netflix.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\netflix.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/paramount-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\paramount-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/paramount-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\paramount-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/paramount.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\paramount.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/spotify-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\spotify-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/spotify-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\spotify-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/spotify.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\spotify.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/topman-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\topman-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/topman-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\topman-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/08/topman.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\08\topman.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2018/11/betta-lemme.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\11\betta-lemme.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/11/GGFO-Shervin-Lainez-768x513.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\11\GGFO-Shervin-Lainez-768x513.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/11/Janet-Jackson-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\11\Janet-Jackson-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/11/methodman1-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\11\methodman1-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2018/11/ZL_PUB_CR_07182_8X11_hr-768x1115.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2018\11\ZL_PUB_CR_07182_8X11_hr-768x1115.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/02/Bryan-Adams-photo-3-768x1025.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\02\Bryan-Adams-photo-3-768x1025.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/02/SandroCavazza-768x1152.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\02\SandroCavazza-768x1152.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/02/Weathers_by-Bella-Howard_Shot10_593_A1_HigestRes_Horizontal-768x549.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\02\Weathers_by-Bella-Howard_Shot10_593_A1_HigestRes_Horizontal-768x549.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/02/Westlife-Final-2-Crop-BW-1-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\02\Westlife-Final-2-Crop-BW-1-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/bastile.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\bastile.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/cheryl.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\cheryl.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/FRENSHIP-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\FRENSHIP-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/IngridMichaelson-768x513.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\IngridMichaelson-768x513.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/KFLAY-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\KFLAY-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/LA-HARA.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\LA-HARA.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/LITTLE-DRAGON-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\LITTLE-DRAGON-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/Malia-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\Malia-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/the-hives.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\the-hives.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/06/TheGrahams-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\06\TheGrahams-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/07/Cray-768x1152.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\07\Cray-768x1152.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/07/NEWOCMS_PhotoEdit_6.25.20_01-768x558.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\07\NEWOCMS_PhotoEdit_6.25.20_01-768x558.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/07/SR10187-768x493.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\07\SR10187-768x493.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/08/trace.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\08\trace.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/09/46998160_2113639505352928_6163209848499470336_n-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\09\46998160_2113639505352928_6163209848499470336_n-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/09/Celine.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\09\Celine.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/09/dvsn-768x384.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\09\dvsn-768x384.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/09/G-Herbo-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\09\G-Herbo-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/09/LEAD-PHOTO-_-MIREI-pending-photo-credit-768x537.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\09\LEAD-PHOTO-_-MIREI-pending-photo-credit-768x537.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/09/Lost-Kings-768x769.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\09\Lost-Kings-768x769.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/09/WhatsApp-Image-2019-09-11-at-11.05.27-768x1153.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\09\WhatsApp-Image-2019-09-11-at-11.05.27-768x1153.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/10/eric-nam.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\10\eric-nam.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/11/201014_Zedd1982_D-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\11\201014_Zedd1982_D-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/ada-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\ada-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/ada-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\ada-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/ada.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\ada.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/Legacy-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\Legacy-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/Legacy-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\Legacy-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/Legacy.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\Legacy.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/Leonard-Cohen-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\Leonard-Cohen-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/ovo-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\ovo-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/ovo-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\ovo-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2019/12/ovo.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2019\12\ovo.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/01/alicia-key.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\01\alicia-key.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/01/cat-stevens-yusuf-islam.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\01\cat-stevens-yusuf-islam.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/01/desfbphoto-768x769.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\01\desfbphoto-768x769.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/01/James_Arthur_Press_NYC18936-768x502.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\01\James_Arthur_Press_NYC18936-768x502.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/01/Tom-new-dp.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\01\Tom-new-dp.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/02/JamesBay2019-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\02\JamesBay2019-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/04/69630980_125596412145099_6651051009019323064_n-768x960.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\04\69630980_125596412145099_6651051009019323064_n-768x960.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/04/millennium-parade.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\04\millennium-parade.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/04/Orchard_Black_500x500px_borderspace-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\04\Orchard_Black_500x500px_borderspace-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/04/Orchard_Black_500x500px_borderspace-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\04\Orchard_Black_500x500px_borderspace-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/04/Orchard_Black_500x500px_borderspace.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\04\Orchard_Black_500x500px_borderspace.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/05/Pop-Evil-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\05\Pop-Evil-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/07/coshunie_FLARE_AP_jpg-768x576.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\07\coshunie_FLARE_AP_jpg-768x576.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/07/KM-5-768x1149.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\07\KM-5-768x1149.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/07/Olivia-promo-Louis-Browne-768x552.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\07\Olivia-promo-Louis-Browne-768x552.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/07/Tei_Shi_0929-768x1095.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\07\Tei_Shi_0929-768x1095.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/08/CHAI-2020-LATEST-main-L-1-768x574.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\08\CHAI-2020-LATEST-main-L-1-768x574.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/08/daryl-hall-and-john-oats.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\08\daryl-hall-and-john-oats.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/08/Sam-Fischer-The-Usual_Homework-Press-Shot1-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\08\Sam-Fischer-The-Usual_Homework-Press-Shot1-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/09/Lulu-Simon-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\09\Lulu-Simon-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/09/LWU_LeadImage-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\09\LWU_LeadImage-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/09/SamDeRosa_creditMatthewBerinato_1389R-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\09\SamDeRosa_creditMatthewBerinato_1389R-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/09/we-the-commas.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\09\we-the-commas.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/ingrooves-Logo-1-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\ingrooves-Logo-1-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/ingrooves-Logo-1-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\ingrooves-Logo-1-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/ingrooves-Logo-1.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\ingrooves-Logo-1.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/Prime-Logo-1-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\Prime-Logo-1-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/Prime-Logo-1-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\Prime-Logo-1-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/Prime-Logo-1.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\Prime-Logo-1.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/Verve-Logo-1-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\Verve-Logo-1-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/Verve-Logo-1-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\Verve-Logo-1-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/10/Verve-Logo-1.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\10\Verve-Logo-1.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/11/kate-yeager.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\11\kate-yeager.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/Awfultune-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\Awfultune-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/bea-miller.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\bea-miller.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/C32A9529-768x1075.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\C32A9529-768x1075.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/fana-hues.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\fana-hues.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/PRESS-LEAD-MOLLY-768x1024.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\PRESS-LEAD-MOLLY-768x1024.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/Quadio_Logo_01-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\Quadio_Logo_01-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/Quadio_Logo_01-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\Quadio_Logo_01-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/Quadio_Logo_01.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\Quadio_Logo_01.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/Ronnie-Watts-768x1152.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\Ronnie-Watts-768x1152.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2020/12/YolanDa-brown-17-768x576.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2020\12\YolanDa-brown-17-768x576.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2021/01/charlotte-rosse.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\01\charlotte-rosse.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2021/01/Hannah-Hausman.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\01\Hannah-Hausman.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2021/01/LB25034-768x510.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\01\LB25034-768x510.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2021/01/Ultra-Music-Logo-1-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\01\Ultra-Music-Logo-1-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2021/01/Ultra-Music-Logo-1-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\01\Ultra-Music-Logo-1-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2021/01/Ultra-Music-Logo-1.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\01\Ultra-Music-Logo-1.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2021/02/IMG_D24BD0A1CDA9-1-768x512.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\02\IMG_D24BD0A1CDA9-1-768x512.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2021/02/MARI-CRAY-Back-To-Life-Press-Shots-Bobbypin-Wig-4-1a-768x1045.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\02\MARI-CRAY-Back-To-Life-Press-Shots-Bobbypin-Wig-4-1a-768x1045.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2021/04/US-Publicity-Intern-Spec.pdf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2021\04\US-Publicity-Intern-Spec.pdf
+Content Type: application/pdf
+
+Uri: https://wma.agency/wp-content/uploads/2022/03/Marketing-Strategy-Manager-Germany.pdf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2022\03\Marketing-Strategy-Manager-Germany.pdf
+Content Type: application/pdf
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/20th_century-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\20th_century-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/20th_century-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\20th_century-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/20th_century.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\20th_century.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/amazon_fashion-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\amazon_fashion-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/amazon_fashion-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\amazon_fashion-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/amazon_fashion.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\amazon_fashion.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/amazon_music-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\amazon_music-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/amazon_music-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\amazon_music-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/amazon_music.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\amazon_music.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/awal-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\awal-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/awal-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\awal-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/awal.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\awal.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/brighton_pride-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\brighton_pride-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/brighton_pride-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\brighton_pride-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/brighton_pride.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\brighton_pride.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/columbia-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\columbia-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/columbia-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\columbia-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/columbia.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\columbia.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/ea_games-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\ea_games-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/ea_games-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\ea_games-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/ea_games.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\ea_games.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/gucci-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\gucci-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/gucci-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\gucci-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/gucci.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\gucci.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/levis-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\levis-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/levis-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\levis-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/levis.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\levis.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/man_city-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\man_city-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/man_city-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\man_city-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/man_city.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\man_city.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/parlophone-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\parlophone-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/parlophone-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\parlophone-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/parlophone.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\parlophone.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/premier_league-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\premier_league-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/premier_league-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\premier_league-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/premier_league.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\premier_league.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/samsung-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\samsung-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/samsung-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\samsung-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/samsung.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\samsung.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/tiktok-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\tiktok-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/tiktok-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\tiktok-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/tiktok.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\tiktok.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/twitch-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\twitch-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/twitch-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\twitch-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/twitch.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\twitch.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/vogue-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\vogue-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/vogue-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\vogue-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/11/vogue.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\11\vogue.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2023/12/Junior-Digital-Channel-Manager-US.pdf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2023\12\Junior-Digital-Channel-Manager-US.pdf
+Content Type: application/pdf
+
+Uri: https://wma.agency/wp-content/uploads/2024/02/partnerships-banner.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2024\02\partnerships-banner.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2024/05/creative.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2024\05\creative.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2024/05/marketing.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2024\05\marketing.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2024/05/partnerships.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2024\05\partnerships.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2024/05/pr.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2024\05\pr.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2024/05/social.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2024\05\social.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/02/Alok-768x960.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\02\Alok-768x960.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/02/City-and-Colour-768x960.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\02\City-and-Colour-768x960.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/02/Creative-Account-Manager-WMA-STUDIOS-PDF-2.pdf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\02\Creative-Account-Manager-WMA-STUDIOS-PDF-2.pdf
+Content Type: application/pdf
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Ashnikko.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Ashnikko.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Bamby.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Bamby.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Ben-Bohmer.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Ben-Bohmer.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Boney-M-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Boney-M-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Brynn-Cartelli.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Brynn-Cartelli.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Chloe-Flower-768x768.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Chloe-Flower-768x768.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Delta-Goodrem-768x432.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Delta-Goodrem-768x432.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Doves_02.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Doves_02.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Elton-John.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Elton-John.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Flo_02.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Flo_02.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Freya-Skye.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Freya-Skye.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Gabriel-Olafs-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Gabriel-Olafs-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Girli-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Girli-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Grace-Davies-768x510.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Grace-Davies-768x510.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/INXS-.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\INXS-.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Joe-Hisaishi.jpeg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Joe-Hisaishi.jpeg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Kaleb-Sanders-14-Credit-Luke-Rogers.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Kaleb-Sanders-14-Credit-Luke-Rogers.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Kids-Return.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Kids-Return.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Lenny-Kravitz.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Lenny-Kravitz.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/LF-System-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\LF-System-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Lindsey-Buckingham.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Lindsey-Buckingham.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/live-nation-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\live-nation-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/live-nation-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\live-nation-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/live-nation.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\live-nation.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Merky-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Merky-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Merky-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Merky-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Merky.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Merky.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Milli-Vanilli.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Milli-Vanilli.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Pink-Floyd.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Pink-Floyd.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Polo-Pan-768x614.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Polo-Pan-768x614.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Queen-e1743596046992.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Queen-e1743596046992.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Rita-Ora-Photo-e1743596010360.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Rita-Ora-Photo-e1743596010360.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Satori-768x749.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Satori-768x749.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Stephan-Moccio-768x959.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Stephan-Moccio-768x959.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/SYDNEY_SHERRILL_20240703.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\SYDNEY_SHERRILL_20240703.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/Travis-Japan-768x768.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\Travis-Japan-768x768.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/UMe-Logo-150x150.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\UMe-Logo-150x150.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/UMe-Logo-300x300.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\UMe-Logo-300x300.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/UMe-Logo.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\UMe-Logo.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/WHAM-768x703.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\WHAM-768x703.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/04/X-Ambassadors-768x512.jpg
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\04\X-Ambassadors-768x512.jpg
+Content Type: image/jpeg
+
+Uri: https://wma.agency/wp-content/uploads/2025/05/social-banner-2.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\05\social-banner-2.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/05/social-icons-group.png
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\05\social-icons-group.png
+Content Type: image/png
+
+Uri: https://wma.agency/wp-content/uploads/2025/10/WMA_Site_HERO_HZ_2025.webm
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\10\WMA_Site_HERO_HZ_2025.webm
+Content Type: video/webm
+
+Uri: https://wma.agency/wp-content/uploads/2025/11/Senior-Publicist-US-2025.pdf
+File Name: C:\Downloaded Web Sites\wma.agency\wp-content\uploads\2025\11\Senior-Publicist-US-2025.pdf
+Content Type: application/pdf
+
+Uri: https://wma.agency/wp-includes/css/dashicons.min.css?ver=6.8.5
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\css\dashicons.min.css
+Content Type: text/css
+
+Uri: https://wma.agency/wp-includes/fonts/dashicons.eot?99ac726223c749443b642ce33df8b800
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\fonts\dashicons.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://wma.agency/wp-includes/fonts/dashicons.ttf?99ac726223c749443b642ce33df8b800
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\fonts\dashicons.ttf
+Content Type: font/ttf
+
+Uri: https://wma.agency/wp-includes/js/dist/a11y.min.js?ver=3156534cc54473497e14
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\dist\a11y.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\dist\dom-ready.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\dist\hooks.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\dist\i18n.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\jquery\jquery-migrate.min.js
+Content Type: text/javascript
+
+Uri: https://wma.agency/wp-includes/js/jquery/jquery.min.js?ver=3.7.1
+File Name: C:\Downloaded Web Sites\wma.agency\wp-includes\js\jquery\jquery.min.js
+Content Type: text/javascript
+
+Uri: https://www.facebook.com/tr?id=1400560896731848&ev=PageView&noscript=1
+File Name: C:\Downloaded Web Sites\wma.agency\tr
+Content Type: text/plain
+

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+  <title>WME Agency | Dashboard</title>
+
+  <!-- ========== All CSS files ========= -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    /* ===== MODERN DASHBOARD STYLES ===== */
+    :root {
+      --primary: #000000;
+      --primary-dark: #1a1a1a;
+      --sidebar-bg: #ffffff;
+      --main-bg: #f8f9fc;
+      --border-color: rgba(0, 0, 0, 0.06);
+      --text-muted: #6c757d;
+      --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+      --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ===== SIDEBAR (MODERN FIXED + MOBILE OVERLAY) ===== */
+    .sidebar-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      box-shadow: 2px 0 20px rgba(0, 0, 0, 0.03);
+      overflow-y: auto;
+    }
+
+    /* Mobile: sidebar hidden by default */
+    @media (max-width: 991px) {
+      .sidebar-nav-wrapper {
+        transform: translateX(-100%);
+      }
+      .sidebar-nav-wrapper.mobile-open {
+        transform: translateX(0);
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    /* Overlay for mobile */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Burger Menu Button - Modern Design */
+    .menu-toggle-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: rgba(0, 0, 0, 0.03);
+      backdrop-filter: blur(4px);
+    }
+    .menu-toggle-btn:hover {
+      background: rgba(0, 0, 0, 0.08);
+      transform: scale(0.96);
+    }
+    .menu-toggle-btn i {
+      font-size: 1.5rem;
+      color: #1a1a1a;
+      transition: transform 0.2s;
+    }
+    .menu-toggle-btn:active i {
+      transform: scale(0.9);
+    }
+
+    /* Sidebar inner styles */
+    .navbar-logo {
+      padding: 0 10px 32px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      margin-bottom: 16px;
+    }
+    .navbar-logo a { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; border-radius: 12px; }
+    .logo-text { font-weight: 800; letter-spacing: -0.5px; font-size: 1.3rem; color: #111; }
+    .logo-text small { display: block; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); font-weight: 500; }
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; font-size: 0.9rem; gap: 12px; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
+    .sidebar-nav ul li a .icon { font-size: 1.2rem; opacity: 0.7; width: 24px; }
+    .status-badge { margin-left: auto; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 10px; border-radius: 20px; }
+    .badge-green { background: rgba(40, 167, 69, 0.12); color: #2a9d8f; }
+    .badge-red { background: rgba(220, 53, 69, 0.1); color: #e63946; }
+    .badge-blue { background: rgba(0, 122, 255, 0.1); color: #1e88e5; }
+    .promo-box { margin-top: auto; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 24px; padding: 24px 20px; color: #fff; text-align: center; margin-top: 24px; }
+    .promo-box i { color: #f9ca24; font-size: 2rem; margin-bottom: 12px; display: inline-block; }
+    .promo-box h3 { font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+    .promo-box p { font-size: 0.7rem; opacity: 0.7; margin-bottom: 16px; }
+    .upgrade-btn { background: #fff; color: #000; padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s; }
+    .upgrade-btn:hover { transform: translateY(-2px); background: #f0f0f0; }
+
+    /* Header Glassmorphism */
+    .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 99; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .header-search { background: rgba(0, 0, 0, 0.03); border-radius: 40px; padding: 8px 18px; display: flex; align-items: center; gap: 10px; width: 280px; transition: all 0.2s; }
+    .header-search:focus-within { background: rgba(0, 0, 0, 0.06); box-shadow: 0 0 0 2px rgba(0,0,0,0.05); }
+    .header-search input { background: none; border: none; outline: none; font-size: 0.85rem; width: 100%; }
+    .profile-box button { background: none; border: none; display: flex; align-items: center; gap: 12px; }
+    .profile-info h6 { font-size: 0.85rem; font-weight: 700; margin: 0; }
+    .profile-info p { font-size: 0.7rem; color: var(--text-muted); margin: 0; }
+    .profile-img-wrapper img { width: 42px; height: 42px; border-radius: 14px; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+    .card-style { background: #fff; border-radius: 24px; padding: 24px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: var(--card-shadow); transition: all 0.3s ease; }
+    .icon-card { background: #fff; border-radius: 20px; padding: 20px; display: flex; align-items: center; gap: 16px; transition: all 0.2s; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: var(--card-shadow); }
+    .icon-card:hover { transform: translateY(-3px); box-shadow: var(--card-hover-shadow); }
+    .icon-card .icon { width: 52px; height: 52px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .icon.blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .icon.orange { background: rgba(249, 115, 22, 0.1); color: #f97316; }
+    .icon.green { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+    .icon.purple { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+    .quick-link-card { background: #fff; border-radius: 20px; padding: 24px 16px; text-align: center; transition: all 0.25s; border: 1px solid rgba(0, 0, 0, 0.04); height: 100%; }
+    .quick-link-card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
+    .bg-blue-500 { background: #3b82f6; } .bg-purple-500 { background: #9333ea; } .bg-green-500 { background: #10b981; } .bg-yellow-500 { background: #eab308; } .bg-red-500 { background: #ef4444; }
+    .bg-gradient-to-r { background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%); }
+    .activity-item { transition: background 0.2s; padding: 12px; border-radius: 16px; }
+    .activity-item:hover { background: rgba(0, 0, 0, 0.02); }
+    .footer { background: transparent; border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 20px 0; margin-top: 32px; }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-slide-up { animation: fadeSlideUp 0.5s ease-out forwards; }
+    .text-white\/70 { color: rgba(255,255,255,0.7); } .text-white\/80 { color: rgba(255,255,255,0.8); } .bg-black { background: #000; } .rounded-2xl { border-radius: 1.5rem; }
+    .col-lg-2-4 { flex: 0 0 auto; width: 20%; }
+    @media (max-width: 992px) { .col-lg-2-4 { width: 25%; } }
+    @media (max-width: 768px) { .col-lg-2-4 { width: 33.333%; } }
+    @media (max-width: 576px) { .col-lg-2-4 { width: 50%; } }
+    .dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; border: 2px solid #fff; }
+    .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
+    @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
+
+    /* Toast notification style */
+    .toast-message {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader"><div class="spinner"></div></div>
+
+<!-- Mobile Overlay -->
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<!-- ========== SIDEBAR ========== -->
+<aside id="mainSidebar" class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html">
+      <div class="logo-icon-bg">W</div>
+      <span class="logo-text">WME <small>AGENCY</small></span>
+    </a>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-label">Main Menu</li>
+      <li class="nav-item"><a href="index.html" class="active"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
+      <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span><span class="status-badge badge-green">2 New</span></a></li>
+      <li class="nav-item"><a href="BehindTheScenes.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-item"><a href="newsroom.html"><span class="icon"><i class="lni lni-bullhorn"></i></span><span class="text">Newsroom</span><span class="status-badge badge-blue">Update</span></a></li>
+      <li class="nav-label">Management</li>
+      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Invoices</span><span class="status-badge badge-red">Pending</span></a></li>
+      <li class="nav-item nav-item-has-children">
+        <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_profile"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a>
+        <ul id="ddmenu_profile" class="collapse dropdown-nav">
+          <li><a href="dashboard/index.html">Overview</a></li>
+          <li><a href="dashboard/chat.html">Group Chat</a></li>
+          <li><a href="dashboard/rankings.html">Rankings</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="promo-box">
+    <i class="lni lni-star-filled"></i>
+    <h3>Premium Access</h3>
+    <p>Get exclusive talent rates.</p>
+    <a href="#" class="upgrade-btn">Upgrade</a>
+  </div>
+</aside>
+
+<!-- ========== MAIN WRAPPER ========== -->
+<main class="main-wrapper">
+  <!-- Header -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="header-content">
+        <div class="header-left">
+          <!-- Modern Burger Menu Button -->
+          <button id="burgerMenuBtn" class="menu-toggle-btn" aria-label="Toggle menu">
+            <i class="lni lni-menu"></i>
+          </button>
+          <div class="header-search"><i class="lni lni-search-alt"></i><input type="text" id="globalSearch" placeholder="Search celebrities..."></div>
+        </div>
+        <div class="header-right">
+          <div class="header-icon-btn me-3 position-relative">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0"><li class="dropdown-header">Notifications</li><li><a class="dropdown-item" href="#">New booking request</a></li></ul>
+          </div>
+          <div class="profile-box">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown">
+              <div class="profile-info d-none d-md-block text-end">
+                <h6 id="headerUserName">Loading...</h6>
+                <p id="headerUserRole">Member</p>
+              </div>
+              <div class="profile-img-wrapper" id="profileAvatarContainer">
+                <div style="width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px;">A</div>
+              </div>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0">
+              <li><a class="dropdown-item" href="profile.html"><i class="lni lni-user"></i> Profile</a></li><li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="lni lni-exit"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Content -->
+  <div class="container-fluid px-4 py-3">
+    <div class="row g-4">
+      <!-- Welcome Card -->
+      <div class="col-12">
+        <div class="card-style bg-black text-white p-4 p-xl-5 fade-slide-up">
+          <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-4">
+            <div><h1 class="display-6 fw-bold mb-2" id="welcome-name">Welcome back!</h1><p class="text-white-50 mb-0">Here's what's happening with your account today.</p></div>
+            <div class="d-flex align-items-center gap-4"><div class="text-end"><p class="text-white-50 small mb-0">Your Points</p><p class="display-6 fw-bold mb-0" id="user-points">0</p></div><div class="bg-white-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;"><i class="lni lni-trophy text-warning fs-2"></i></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="col-xl-3 col-md-6"><div class="icon-card"><div class="icon blue"><i class="lni lni-calendar"></i></div><div class="content"><h6>Total Bookings</h6><h3 id="total-bookings">0</h3><p class="small text-success"><i class="lni lni-arrow-up"></i> This month</p></div></div></div>
+      <div class="col-xl-3 col-md-6"><div class="icon-card"><div class="icon orange"><i class="lni lni-trophy"></i></div><div class="content"><h6>Rank Position</h6><h3 id="user-rank">#--</h3><p class="small text-success"><i class="lni lni-arrow-up"></i> Climb higher</p></div></div></div>
+      <div class="col-xl-3 col-md-6"><div class="icon-card"><div class="icon green"><i class="lni lni-message"></i></div><div class="content"><h6>Chat Messages</h6><h3>0</h3><p class="small text-warning"><i class="lni lni-alarm-clock"></i> Join chat</p></div></div></div>
+      <div class="col-xl-3 col-md-6"><div class="icon-card"><div class="icon purple"><i class="lni lni-users"></i></div><div class="content"><h6>Referrals</h6><h3>0</h3><p class="small text-success"><i class="lni lni-arrow-up"></i> Share & earn</p></div></div></div>
+
+      <!-- Quick Access -->
+      <div class="col-12"><h4 class="fw-semibold mb-3">Quick Access</h4><div class="row g-4" id="quick-links-container"></div></div>
+
+      <!-- Recent Activity & Upcoming Bookings -->
+      <div class="col-lg-6"><div class="card-style h-100"><div class="d-flex justify-content-between align-items-center mb-4"><h5 class="fw-bold">Recent Activity</h5><i class="lni lni-reload text-muted" style="cursor:pointer;" onclick="refreshActivity()"></i></div><div id="recent-activity-container"><p class="text-muted text-center py-4">No recent activity</p></div></div></div>
+      <div class="col-lg-6"><div class="card-style h-100"><div class="d-flex justify-content-between align-items-center mb-4"><h5 class="fw-bold">Upcoming Bookings</h5><a href="dashboard/bookings.html" class="text-primary small">View All →</a></div><div id="upcoming-bookings-container"><p class="text-muted text-center py-4">No upcoming bookings</p></div></div></div>
+
+      <!-- CTA Points -->
+      <div class="col-12"><div class="card-style bg-gradient-to-r text-white p-4 p-xl-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><div class="d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4"><div><h3 class="fs-4 fw-bold mb-2">Earn More Points!</h3><p class="text-white-80 mb-0">Refer friends, share content, and engage with the community to climb the rankings.</p></div><a href="dashboard/rankings.html" class="btn btn-light px-5 py-3 fw-semibold rounded-pill">View Rankings →</a></div></div></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer"><div class="container-fluid"><div class="row"><div class="col-md-6 order-last order-md-first"><div class="copyright text-center text-md-start"><p class="text-sm">Designed and Developed by <a href="https://wmeagency.com" target="_blank">WME</a></p></div></div><div class="col-md-6"><div class="terms d-flex justify-content-center justify-content-md-end"><a href="#" class="text-sm">Term & Conditions</a><a href="#" class="text-sm ms-3">Privacy & Policy</a></div></div></div></div></footer>
+</main>
+
+<div id="toastContainer"></div>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/Chart.min.js"></script>
+<script src="assets/js/dynamic-pie-chart.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/fullcalendar.js"></script>
+<script src="assets/js/jvectormap.min.js"></script>
+<script src="assets/js/world-merc.js"></script>
+<script src="assets/js/polyfill.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // ========== SUPABASE CONFIGURATION ==========
+  const SUPABASE_URL = 'https://becpujqyjjlezgibmdfk.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_MA-ivarGoHmTWsVgoodPvA_bKq0Wihs';
+  let supabase = null;
+  let currentUser = null;
+
+  // Initialize Supabase
+  function initSupabase() {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log('✅ Supabase initialized');
+  }
+
+  // Show toast notification
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    const bgColor = type === 'success' ? 'bg-black' : type === 'error' ? 'bg-red-600' : 'bg-orange-500';
+    toast.className = `toast-message ${bgColor} text-white px-6 py-3 rounded-xl shadow-lg text-sm`;
+    toast.innerHTML = `<div class="flex items-center gap-3"><i class="fa-${type === 'success' ? 'regular fa-circle-check' : 'regular fa-circle-xmark'}"></i><span>${message}</span></div>`;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // Get initials from name
+  function getInitials(name) {
+    if (!name) return '?';
+    const parts = name.trim().split(' ');
+    if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+    return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+  }
+
+  // Get consistent color for avatar
+  function getAvatarColor(name) {
+    const colors = [
+      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+      'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+    ];
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = ((hash << 5) - hash) + name.charCodeAt(i);
+      hash |= 0;
+    }
+    return colors[Math.abs(hash) % colors.length];
+  }
+
+  // Update avatar display
+  function updateAvatar(name) {
+    const container = document.getElementById('profileAvatarContainer');
+    const initials = getInitials(name);
+    const color = getAvatarColor(name);
+    container.innerHTML = `<div style="width: 42px; height: 42px; border-radius: 14px; background: ${color}; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px;">${initials}</div>`;
+  }
+
+  // Check authentication
+  async function checkAuth() {
+    const storedUser = localStorage.getItem('wme_current_user');
+    if (!storedUser) {
+      window.location.href = 'login.html';
+      return;
+    }
+    
+    currentUser = JSON.parse(storedUser);
+    initSupabase();
+    
+    // Verify session with Supabase
+    const { data: { session }, error } = await supabase.auth.getSession();
+    if (error || !session) {
+      localStorage.removeItem('wme_current_user');
+      window.location.href = 'login.html';
+      return;
+    }
+    
+    // Fetch fresh user data from database
+    await fetchUserData();
+    updateDashboardUI();
+  }
+
+  // Fetch user data from Supabase
+  async function fetchUserData() {
+    try {
+      const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', currentUser.id)
+        .single();
+      
+      if (!error && profile) {
+        currentUser = { ...currentUser, ...profile };
+        localStorage.setItem('wme_current_user', JSON.stringify(currentUser));
+      }
+      
+      // Fetch user bookings
+      const { data: bookings } = await supabase
+        .from('bookings')
+        .select('*')
+        .eq('user_id', currentUser.id)
+        .order('event_date', { ascending: true });
+      
+      if (bookings) {
+        window.userBookings = bookings;
+        document.getElementById('total-bookings').innerText = bookings.length;
+        renderUpcomingBookings(bookings);
+      }
+      
+      // Fetch points transactions for activity
+      const { data: transactions } = await supabase
+        .from('points_transactions')
+        .select('*')
+        .eq('user_id', currentUser.id)
+        .order('created_at', { ascending: false })
+        .limit(5);
+      
+      if (transactions) {
+        renderRecentActivity(transactions);
+      }
+      
+    } catch (err) {
+      console.error('Error fetching user data:', err);
+    }
+  }
+
+  // Update dashboard UI with user data
+  function updateDashboardUI() {
+    const firstName = currentUser.full_name?.split(' ')[0] || 'User';
+    document.getElementById('welcome-name').innerHTML = `Welcome back, ${firstName}!`;
+    document.getElementById('user-points').innerText = currentUser.points?.toLocaleString() || '0';
+    document.getElementById('user-rank').innerHTML = `#${currentUser.rank || '100+'}`;
+    document.getElementById('headerUserName').innerText = currentUser.full_name || 'User';
+    document.getElementById('headerUserRole').innerText = currentUser.role === 'admin' ? 'Admin' : 'Member';
+    updateAvatar(currentUser.full_name || currentUser.email);
+  }
+
+  // Render upcoming bookings
+  function renderUpcomingBookings(bookings) {
+    const container = document.getElementById('upcoming-bookings-container');
+    if (!bookings || bookings.length === 0) {
+      container.innerHTML = `<div class="text-center py-5"><i class="lni lni-calendar fs-1 text-muted mb-2"></i><p class="text-muted">No upcoming bookings</p><a href="bookings.html" class="btn btn-outline-primary btn-sm">Book a Celebrity</a></div>`;
+      return;
+    }
+    
+    const upcoming = bookings.filter(b => new Date(b.event_date) > new Date()).slice(0, 3);
+    if (upcoming.length === 0) {
+      container.innerHTML = `<div class="text-center py-5"><i class="lni lni-calendar fs-1 text-muted mb-2"></i><p class="text-muted">No upcoming bookings</p><a href="bookings.html" class="btn btn-outline-primary btn-sm">Book a Celebrity</a></div>`;
+      return;
+    }
+    
+    container.innerHTML = upcoming.map(b => `
+      <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
+        <div class="d-flex align-items-center gap-3"><div class="bg-light rounded d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;"><i class="lni lni-calendar text-secondary"></i></div><div><p class="fw-semibold mb-0">${b.event_name || 'Booking'}</p><small class="text-muted">${b.event_location || ''} · ${new Date(b.event_date).toLocaleDateString()}</small></div></div>
+        <span class="badge ${b.status === 'approved' ? 'bg-success' : b.status === 'pending' ? 'bg-warning' : 'bg-secondary'} px-3 py-1 rounded-pill">${b.status || 'pending'}</span>
+      </div>
+    `).join('');
+  }
+
+  // Render recent activity from points transactions
+  function renderRecentActivity(transactions) {
+    const container = document.getElementById('recent-activity-container');
+    if (!transactions || transactions.length === 0) {
+      container.innerHTML = '<p class="text-muted text-center py-4">No recent activity</p>';
+      return;
+    }
+    
+    container.innerHTML = transactions.map(t => `
+      <div class="activity-item d-flex align-items-start gap-3 border-bottom pb-3 mb-2">
+        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="lni lni-trophy text-secondary"></i></div>
+        <div><p class="mb-0 small fw-500">${t.description || `Earned ${t.points} points`}</p><small class="text-muted">${new Date(t.created_at).toLocaleDateString()}</small></div>
+      </div>
+    `).join('');
+  }
+
+  // Quick Links (updated paths)
+  const quickLinks = [
+    { name: "My Bookings", icon: "lni lni-calendar", color: "bg-blue-500", link: "bookings.html" },
+    { name: "Behind the Scenes", icon: "lni lni-camera", color: "bg-purple-500", link: "behind-the-scenes.html" },
+    { name: "Group Chat", icon: "lni lni-message", color: "bg-green-500", link: "group-chat.html" },
+    { name: "Testimonials", icon: "lni lni-star", color: "bg-yellow-500", link: "rankings-testimonials.html" },
+    { name: "Rankings", icon: "lni lni-trophy", color: "bg-red-500", link: "rankings-testimonials.html" }
+  ];
+
+  function renderQuickLinks() {
+    const container = document.getElementById('quick-links-container');
+    if (!container) return;
+    container.innerHTML = quickLinks.map(link => `
+      <div class="col-lg-2-4 col-md-4 col-sm-6">
+        <a href="${link.link}" class="text-decoration-none">
+          <div class="quick-link-card">
+            <div class="${link.color} rounded-3 d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 56px; height: 56px;">
+              <i class="${link.icon} text-white fs-3"></i>
+            </div>
+            <p class="fw-semibold text-dark mb-0 small">${link.name}</p>
+          </div>
+        </a>
+      </div>
+    `).join('');
+  }
+
+  // Refresh activity
+  window.refreshActivity = async function() {
+    const { data: transactions } = await supabase
+      .from('points_transactions')
+      .select('*')
+      .eq('user_id', currentUser.id)
+      .order('created_at', { ascending: false })
+      .limit(5);
+    if (transactions) renderRecentActivity(transactions);
+    showToast('Activity refreshed!', 'success');
+  };
+
+  // Logout function
+  window.logout = async function() {
+    if (confirm("Sign out?")) {
+      if (supabase) await supabase.auth.signOut();
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  };
+
+  // ========== BURGER MENU FUNCTIONALITY (UNCHANGED) ==========
+  const burgerBtn = document.getElementById('burgerMenuBtn');
+  const sidebar = document.getElementById('mainSidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+
+  function openSidebar() {
+    sidebar.classList.add('mobile-open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('mobile-open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (burgerBtn) {
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar.classList.contains('mobile-open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', closeSidebar);
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 991) {
+      closeSidebar();
+      sidebar.classList.remove('mobile-open');
+    }
+  });
+
+  // Initialize everything
+  document.addEventListener('DOMContentLoaded', () => {
+    renderQuickLinks();
+    checkAuth();
+  });
+</script>
+
+<!-- Font Awesome for toast icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</body>
+</html>

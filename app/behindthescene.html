@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+  <title>WME Agency | Behind The Scenes</title>
+
+  <!-- ========== All CSS files ========= -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    /* ===== MODERN DASHBOARD STYLES ===== */
+    :root {
+      --primary: #000000;
+      --sidebar-bg: #ffffff;
+      --main-bg: #f8f9fc;
+      --border-color: rgba(0, 0, 0, 0.06);
+      --text-muted: #6c757d;
+      --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+      --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar-nav-wrapper { transform: translateX(-100%); }
+      .sidebar-nav-wrapper.mobile-open { transform: translateX(0); box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15); }
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+    .menu-toggle-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.03);
+      transition: all 0.2s;
+    }
+    .menu-toggle-btn:hover { background: rgba(0, 0, 0, 0.08); transform: scale(0.96); }
+    .menu-toggle-btn i { font-size: 1.5rem; color: #1a1a1a; }
+
+    .navbar-logo { padding: 0 10px 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 16px; }
+    .navbar-logo a { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; border-radius: 12px; }
+    .logo-text { font-weight: 800; letter-spacing: -0.5px; font-size: 1.3rem; color: #111; }
+    .logo-text small { display: block; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); }
+
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; font-size: 0.9rem; gap: 12px; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
+    .sidebar-nav ul li a .icon { font-size: 1.2rem; opacity: 0.7; width: 24px; }
+    .status-badge { margin-left: auto; font-size: 9px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+    .badge-green { background: rgba(40, 167, 69, 0.12); color: #2a9d8f; }
+
+    .promo-box { margin-top: auto; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 24px; padding: 24px 20px; color: #fff; text-align: center; margin-top: 24px; }
+    .promo-box i { color: #f9ca24; font-size: 2rem; margin-bottom: 12px; }
+    .upgrade-btn { background: #fff; color: #000; padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-decoration: none; display: inline-block; }
+
+    /* Header */
+    .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 99; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .header-search { background: rgba(0, 0, 0, 0.03); border-radius: 40px; padding: 8px 18px; display: flex; align-items: center; gap: 10px; width: 280px; }
+    .header-search input { background: none; border: none; outline: none; font-size: 0.85rem; width: 100%; }
+    .profile-box button { background: none; border: none; display: flex; align-items: center; gap: 12px; }
+    .profile-img-wrapper img { width: 42px; height: 42px; border-radius: 14px; object-fit: cover; border: 2px solid #fff; }
+    .dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; border: 2px solid #fff; }
+
+    /* Card Styles */
+    .card-style { background: #fff; border-radius: 24px; padding: 24px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: var(--card-shadow); transition: all 0.3s ease; }
+    .bts-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .bts-card:hover { transform: translateY(-6px); box-shadow: var(--card-hover-shadow); }
+
+    .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
+    @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
+    .footer { background: transparent; border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 20px 0; margin-top: 32px; }
+
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-slide-up { animation: fadeSlideUp 0.5s ease-out forwards; }
+
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .modal-content {
+      max-width: 900px;
+      width: 100%;
+      background: #fff;
+      border-radius: 32px;
+      overflow: hidden;
+      animation: fadeSlideUp 0.3s ease;
+    }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<div id="preloader"><div class="spinner"></div></div>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<!-- ========== SIDEBAR ========== -->
+<aside id="mainSidebar" class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html">
+      <div class="logo-icon-bg">W</div>
+      <span class="logo-text">WME <small>AGENCY</small></span>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-label">Main Menu</li>
+      <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
+      <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
+      <li class="nav-item"><a href="behind-the-scenes.html" class="active"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span><span class="status-badge badge-green">New</span></a></li>
+      <li class="nav-label">Management</li>
+      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Invoices</span></a></li>
+      <li class="nav-item nav-item-has-children">
+        <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_profile"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a>
+        <ul id="ddmenu_profile" class="collapse dropdown-nav">
+          <li><a href="dashboard/rankings.html">Rankings</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="promo-box">
+    <i class="lni lni-star-filled"></i>
+    <h3>Premium Access</h3>
+    <p>Get exclusive talent rates.</p>
+    <a href="#" class="upgrade-btn">Upgrade</a>
+  </div>
+</aside>
+
+<!-- ========== MAIN WRAPPER ========== -->
+<main class="main-wrapper">
+  <header class="header">
+    <div class="container-fluid">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="burgerMenuBtn" class="menu-toggle-btn"><i class="lni lni-menu"></i></button>
+          <div class="header-search"><i class="lni lni-search-alt"></i><input type="text" id="searchBTS" placeholder="Search BTS content..."></div>
+        </div>
+        <div class="header-right">
+          <div class="header-icon-btn me-3 position-relative">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
+          </div>
+          <div class="profile-box">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown">
+              <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
+              <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Behind The Scenes Content -->
+  <div class="container-fluid px-4 py-4">
+    <!-- Header -->
+    <div class="mb-4">
+      <h1 class="display-6 fw-bold mb-1">Behind The Scenes</h1>
+      <p class="text-muted">Exclusive access to what happens when the cameras stop rolling</p>
+    </div>
+
+    <!-- Premium Banner -->
+    <div class="card-style mb-4 p-4 fade-slide-up" style="background: linear-gradient(135deg, #d97706 0%, #ea580c 100%); color: white; border: none;">
+      <div class="d-flex flex-column flex-lg-row align-items-center gap-4">
+        <div class="flex-grow-1">
+          <div class="d-flex align-items-center gap-2 mb-2"><i class="lni lni-lock fs-4"></i><h3 class="fs-5 fw-bold mb-0">Premium Behind The Scenes</h3></div>
+          <p class="mb-0 opacity-75">Unlock exclusive studio sessions, training footage, and private moments by staying active on the platform.</p>
+        </div>
+        <button class="btn btn-light rounded-pill px-4 py-2 fw-semibold" onclick="toastMessage('🔓 Premium content unlocks at 5000 points!')">Unlock Premium</button>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="row g-4" id="btsGridContainer">
+      <!-- JS will populate -->
+    </div>
+
+    <!-- Call to Action -->
+    <div class="card-style text-center mt-4 p-5 bg-black text-white">
+      <h3 class="fs-3 fw-bold mb-3">Want more exclusive content?</h3>
+      <p class="text-white-50 mb-4">Book more celebrities and stay active to unlock premium behind-the-scenes footage.</p>
+      <a href="bookings.html" class="btn btn-light rounded-pill px-5 py-2 fw-semibold">Browse Celebrities →</a>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container-fluid"><div class="row"><div class="col-md-6"><div class="copyright"><p class="text-sm">Designed by <a href="https://wmeagency.com">WME</a></p></div></div></div></div></footer>
+</main>
+
+<!-- Video/Image Preview Modal -->
+<div id="contentModal" style="display: none; position: fixed; inset: 0; z-index: 1200;"></div>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // ========== BTS CONTENT DATA (matching React component) ==========
+  const btsContent = [
+    {
+      id: '1',
+      celebrityName: 'Zendaya',
+      celebrityImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop',
+      title: 'Dune Part Two - Chani Training',
+      description: 'Raw footage of Zendaya preparing for the intense desert scenes as Chani.',
+      thumbnail: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&h=400&fit=crop',
+      type: 'video',
+      likes: 12400,
+      views: 45200,
+      isPremium: false,
+      duration: '4:21',
+    },
+    {
+      id: '2',
+      celebrityName: 'The Weeknd',
+      celebrityImage: 'https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=80&h=80&fit=crop',
+      title: 'Studio Session - New Album',
+      description: 'Intimate look inside the studio as The Weeknd records vocals for his upcoming project.',
+      thumbnail: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&h=400&fit=crop',
+      type: 'video',
+      likes: 23100,
+      views: 78900,
+      isPremium: true,
+      duration: '12:45',
+    },
+    {
+      id: '3',
+      celebrityName: 'Michael B. Jordan',
+      celebrityImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop',
+      title: 'Creed IV - Training Montage',
+      description: 'Behind-the-scenes of the brutal training regimen for Creed IV.',
+      thumbnail: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop',
+      type: 'video',
+      likes: 18900,
+      views: 67300,
+      isPremium: false,
+      duration: '6:12',
+    },
+    {
+      id: '4',
+      celebrityName: 'Ryan Reynolds',
+      celebrityImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop',
+      title: 'Deadpool & Wolverine - Set Shenanigans',
+      description: 'Hilarious bloopers and funny moments from the set with Hugh Jackman.',
+      thumbnail: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop',
+      type: 'video',
+      likes: 34200,
+      views: 124000,
+      isPremium: true,
+      duration: '8:33',
+    },
+    {
+      id: '5',
+      celebrityName: 'Adele',
+      celebrityImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop',
+      title: 'Recording "Easy On Me" in Lagos',
+      description: 'Emotional studio session during her Africa tour.',
+      thumbnail: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop',
+      type: 'image',
+      likes: 15700,
+      views: 48900,
+      isPremium: false,
+      duration: null,
+    },
+    {
+      id: '6',
+      celebrityName: 'Serena Williams',
+      celebrityImage: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=80&h=80&fit=crop',
+      title: 'A Day in the Life - Mother & Athlete',
+      description: 'Balancing family, business, and training like only Serena can.',
+      thumbnail: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&h=400&fit=crop',
+      type: 'image',
+      likes: 9800,
+      views: 31200,
+      isPremium: true,
+      duration: null,
+    },
+  ];
+
+  // State management
+  let likedContent = new Set();
+  let currentFilter = 'all';
+  let searchQuery = '';
+  let selectedContent = null;
+
+  // Load likes from localStorage
+  function loadLikes() {
+    const saved = localStorage.getItem('btsLiked');
+    if (saved) likedContent = new Set(JSON.parse(saved));
+  }
+
+  function saveLikes() {
+    localStorage.setItem('btsLiked', JSON.stringify([...likedContent]));
+  }
+
+  function toastMessage(msg, type = 'success') {
+    const toastDiv = document.createElement('div');
+    toastDiv.className = 'position-fixed bottom-0 end-0 p-3';
+    toastDiv.style.zIndex = '1200';
+    toastDiv.innerHTML = `<div class="toast show" role="alert"><div class="toast-header ${type === 'success' ? 'bg-dark text-white' : 'bg-warning'}"><i class="lni lni-information me-2"></i><strong>WME</strong><button type="button" class="btn-close" data-bs-dismiss="toast"></button></div><div class="toast-body">${msg}</div></div>`;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 2500);
+  }
+
+  // Handle like
+  function handleLike(id, currentLikes) {
+    if (likedContent.has(id)) {
+      likedContent.delete(id);
+      toastMessage('❤️ Removed like');
+    } else {
+      likedContent.add(id);
+      toastMessage('🎉 +10 points for liking!', 'success');
+    }
+    saveLikes();
+    renderBTSGrid();
+  }
+
+  // Handle share
+  function handleShare() {
+    toastMessage('📤 Shared! +25 points', 'success');
+  }
+
+  // Open content preview
+  function openContent(content) {
+    if (content.isPremium) {
+      toastMessage('🔒 This is premium content. Keep engaging to unlock!', 'warning');
+      return;
+    }
+    selectedContent = content;
+    renderModal();
+  }
+
+  function closeModal() {
+    selectedContent = null;
+    const modal = document.getElementById('contentModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function renderModal() {
+    const modalContainer = document.getElementById('contentModal');
+    if (!modalContainer || !selectedContent) return;
+
+    modalContainer.style.display = 'flex';
+    modalContainer.innerHTML = `
+      <div style="position: relative; max-width: 900px; width: 100%; background: white; border-radius: 32px; overflow: hidden; animation: fadeSlideUp 0.3s ease;">
+        <button onclick="closeModal()" style="position: absolute; top: 16px; right: 16px; z-index: 10; background: rgba(0,0,0,0.6); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <i class="lni lni-close"></i>
+        </button>
+        <div style="position: relative;">
+          <img src="${selectedContent.thumbnail}" alt="${selectedContent.title}" style="width: 100%; height: auto;">
+          <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+              <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <i class="lni lni-play fs-1" style="color: black; margin-left: 4px;"></i>
+              </div>
+              <p style="color: white; font-size: 14px;">${selectedContent.type === 'video' ? 'Video Preview (Demo)' : 'Image Preview'}</p>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 24px;">
+          <h3 style="font-weight: 700; margin-bottom: 8px;">${escapeHtml(selectedContent.title)}</h3>
+          <p style="color: #6c757d; margin-bottom: 0;">${escapeHtml(selectedContent.description)}</p>
+        </div>
+      </div>
+    `;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+
+  function formatNumber(num) {
+    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+    return num.toString();
+  }
+
+  // Render grid
+  function renderBTSGrid() {
+    const container = document.getElementById('btsGridContainer');
+    if (!container) return;
+
+    let filtered = btsContent.filter(content => {
+      const matchSearch = content.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         content.celebrityName.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchSearch;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = `<div class="col-12"><div class="card-style text-center py-5"><i class="lni lni-search fs-1 text-muted"></i><h5 class="mt-3">No content found</h5><p class="text-muted">Try a different search term</p></div></div>`;
+      return;
+    }
+
+    container.innerHTML = filtered.map((content, idx) => {
+      const isLiked = likedContent.has(content.id);
+      return `
+        <div class="col-md-6 col-lg-4 fade-slide-up" style="animation-delay: ${idx * 0.05}s">
+          <div class="bts-card card-style p-0 overflow-hidden h-100">
+            <div style="position: relative; height: 220px; overflow: hidden;">
+              <img src="${content.thumbnail}" alt="${content.title}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+              <div onclick="openContent(${JSON.stringify(content).replace(/"/g, '&quot;')})" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; cursor: pointer;">
+                <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="lni lni-play" style="font-size: 24px; color: black; margin-left: 3px;"></i></div>
+              </div>
+              ${content.isPremium ? `<div style="position: absolute; top: 12px; right: 12px; background: #d97706; color: white; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700;"><i class="lni lni-lock me-1"></i>PREMIUM</div>` : ''}
+              ${content.duration ? `<div style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); color: white; padding: 2px 8px; border-radius: 6px; font-size: 11px;">${content.duration}</div>` : ''}
+              <div style="position: absolute; bottom: 12px; left: 12px; display: flex; align-items: center; gap: 8px;">
+                <img src="${content.celebrityImage}" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid white; object-fit: cover;">
+                <span style="color: white; font-size: 13px; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">${escapeHtml(content.celebrityName)}</span>
+              </div>
+            </div>
+            <div style="padding: 20px;">
+              <h3 style="font-weight: 600; font-size: 1rem; margin-bottom: 8px; line-clamp: 2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${escapeHtml(content.title)}</h3>
+              <p style="color: #6c757d; font-size: 0.85rem; margin-bottom: 16px; line-clamp: 2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${escapeHtml(content.description)}</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; gap: 16px; color: #6c757d; font-size: 0.8rem;">
+                  <span><i class="lni lni-eye"></i> ${formatNumber(content.views)}</span>
+                  <span><i class="lni lni-heart ${isLiked ? 'text-danger' : ''}"></i> ${formatNumber(content.likes + (isLiked ? 1 : 0))}</span>
+                </div>
+                <div style="display: flex; gap: 4px;">
+                  <button onclick="handleLike('${content.id}', ${content.likes})" class="btn btn-sm rounded-circle" style="background: ${isLiked ? '#fee2e2' : 'transparent'}; width: 32px; height: 32px;"><i class="lni lni-heart ${isLiked ? 'text-danger' : ''}" style="font-size: 14px;"></i></button>
+                  <button onclick="handleShare()" class="btn btn-sm rounded-circle" style="background: transparent; width: 32px; height: 32px;"><i class="lni lni-share" style="font-size: 14px;"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Add hover effect listeners after render
+    document.querySelectorAll('.bts-card').forEach(card => {
+      const overlay = card.querySelector('[onclick*="openContent"]');
+      if (overlay) {
+        card.addEventListener('mouseenter', () => overlay.style.opacity = '1');
+        card.addEventListener('mouseleave', () => overlay.style.opacity = '0');
+      }
+    });
+  }
+
+  // Search functionality
+  function setupSearch() {
+    const searchInput = document.getElementById('searchBTS');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderBTSGrid();
+      });
+    }
+  }
+
+  // Burger menu functionality (FIXED)
+  function setupBurgerMenu() {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const sidebar = document.getElementById('mainSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    if (!burgerBtn || !sidebar || !overlay) return;
+
+    function openSidebar() {
+      sidebar.classList.add('mobile-open');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('mobile-open');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar.classList.contains('mobile-open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 991) closeSidebar();
+    });
+  }
+
+  // Global function for modal close
+  window.closeModal = closeModal;
+  window.openContent = openContent;
+  window.handleLike = handleLike;
+  window.handleShare = handleShare;
+  window.toastMessage = toastMessage;
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    loadLikes();
+    renderBTSGrid();
+    setupSearch();
+    setupBurgerMenu();
+  });
+</script>
+</body>
+</html>

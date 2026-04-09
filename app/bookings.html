@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+  <title>WME Agency | My Bookings</title>
+
+  <!-- ========== All CSS files ========= -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    /* ===== MODERN DASHBOARD STYLES (same as dashboard) ===== */
+    :root {
+      --primary: #000000;
+      --sidebar-bg: #ffffff;
+      --main-bg: #f8f9fc;
+      --border-color: rgba(0, 0, 0, 0.06);
+      --text-muted: #6c757d;
+      --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+      --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar-nav-wrapper { transform: translateX(-100%); }
+      .sidebar-nav-wrapper.mobile-open { transform: translateX(0); box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15); }
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+    .menu-toggle-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.03);
+    }
+    .menu-toggle-btn:hover { background: rgba(0, 0, 0, 0.08); transform: scale(0.96); }
+    .menu-toggle-btn i { font-size: 1.5rem; color: #1a1a1a; }
+
+    .navbar-logo { padding: 0 10px 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 16px; }
+    .navbar-logo a { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; border-radius: 12px; }
+    .logo-text { font-weight: 800; letter-spacing: -0.5px; font-size: 1.3rem; color: #111; }
+    .logo-text small { display: block; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); }
+
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; font-size: 0.9rem; gap: 12px; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
+    .sidebar-nav ul li a .icon { font-size: 1.2rem; opacity: 0.7; width: 24px; }
+    .status-badge { margin-left: auto; font-size: 9px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+    .badge-green { background: rgba(40, 167, 69, 0.12); color: #2a9d8f; }
+    .badge-blue { background: rgba(0, 122, 255, 0.1); color: #1e88e5; }
+    .badge-red { background: rgba(220, 53, 69, 0.1); color: #e63946; }
+
+    .promo-box { margin-top: auto; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 24px; padding: 24px 20px; color: #fff; text-align: center; margin-top: 24px; }
+    .promo-box i { color: #f9ca24; font-size: 2rem; margin-bottom: 12px; }
+    .upgrade-btn { background: #fff; color: #000; padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-decoration: none; display: inline-block; }
+
+    /* Header */
+    .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 99; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .header-search { background: rgba(0, 0, 0, 0.03); border-radius: 40px; padding: 8px 18px; display: flex; align-items: center; gap: 10px; width: 280px; }
+    .header-search input { background: none; border: none; outline: none; font-size: 0.85rem; width: 100%; }
+    .profile-box button { background: none; border: none; display: flex; align-items: center; gap: 12px; }
+    .profile-img-wrapper img { width: 42px; height: 42px; border-radius: 14px; object-fit: cover; border: 2px solid #fff; }
+    .dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; border: 2px solid #fff; }
+
+    /* Card Styles */
+    .card-style { background: #fff; border-radius: 24px; padding: 24px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: var(--card-shadow); transition: all 0.3s ease; }
+    .booking-card { transition: all 0.3s ease; }
+    .booking-card:hover { transform: translateY(-3px); box-shadow: var(--card-hover-shadow); }
+
+    .status-badge-sm { padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+    .status-pending { background: #fef3c7; color: #d97706; }
+    .status-confirmed, .status-approved { background: #d1fae5; color: #059669; }
+    .status-rejected, .status-cancelled { background: #fee2e2; color: #dc2626; }
+
+    .filter-btn { padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; background: transparent; border: none; }
+    .filter-btn.active { background: #000; color: #fff; }
+    .filter-btn:not(.active) { background: rgba(0, 0, 0, 0.05); color: #4a4a4a; }
+    .filter-btn:not(.active):hover { background: rgba(0, 0, 0, 0.1); }
+
+    .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
+    @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
+    .footer { background: transparent; border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 20px 0; margin-top: 32px; }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-slide-up { animation: fadeSlideUp 0.5s ease-out forwards; }
+  </style>
+</head>
+<body>
+
+<div id="preloader"><div class="spinner"></div></div>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<!-- ========== SIDEBAR ========== -->
+<aside id="mainSidebar" class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html">
+      <div class="logo-icon-bg">W</div>
+      <span class="logo-text">WME <small>AGENCY</small></span>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-label">Main Menu</li>
+      <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
+      <li class="nav-item"><a href="bookings.html" class="active"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span><span class="status-badge badge-green" id="newBookingsBadge">0 New</span></a></li>
+      <li class="nav-item"><a href="BehindTheScenes.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-label">Management</li>
+      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Invoices</span></a></li>
+      <li class="nav-item nav-item-has-children">
+        <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_profile"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a>
+        <ul id="ddmenu_profile" class="collapse dropdown-nav">
+          <li><a href="dashboard/rankings.html">Rankings</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="promo-box">
+    <i class="lni lni-star-filled"></i>
+    <h3>Premium Access</h3>
+    <p>Get exclusive talent rates.</p>
+    <a href="#" class="upgrade-btn">Upgrade</a>
+  </div>
+</aside>
+
+<!-- ========== MAIN WRAPPER ========== -->
+<main class="main-wrapper">
+  <header class="header">
+    <div class="container-fluid">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="burgerMenuBtn" class="menu-toggle-btn"><i class="lni lni-menu"></i></button>
+          <div class="header-search"><i class="lni lni-search-alt"></i><input type="text" id="searchBookings" placeholder="Search bookings..."></div>
+        </div>
+        <div class="header-right">
+          <div class="header-icon-btn me-3 position-relative">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
+          </div>
+          <div class="profile-box">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown">
+              <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
+              <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- My Bookings Content -->
+  <div class="container-fluid px-4 py-4">
+    <!-- Header Section -->
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3 mb-4">
+      <div>
+        <h1 class="display-6 fw-bold mb-1">My Bookings</h1>
+        <p class="text-muted">Manage your celebrity booking requests</p>
+      </div>
+      <a href="book-now.html" class="btn btn-dark px-4 py-2 rounded-pill">
+        <i class="lni lni-plus me-2"></i>Book New Celebrity
+      </a>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="d-flex flex-wrap gap-2 mb-4 pb-2 overflow-auto">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="confirmed">Confirmed</button>
+      <button class="filter-btn" data-filter="approved">Approved</button>
+      <button class="filter-btn" data-filter="rejected">Rejected</button>
+      <button class="filter-btn" data-filter="cancelled">Cancelled</button>
+    </div>
+
+    <!-- Bookings List Container -->
+    <div id="bookingsListContainer">
+      <div class="text-center py-5">
+        <div class="spinner-border text-dark" role="status"></div>
+        <p class="mt-3 text-muted">Loading your bookings...</p>
+      </div>
+    </div>
+
+    <!-- Booking Tips -->
+    <div class="card-style mt-4 bg-light">
+      <h5 class="fw-bold mb-3">📌 Booking Tips</h5>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="bg-white p-3 rounded-3"><strong>Book Early</strong><p class="small text-muted mb-0">Popular celebrities get booked months in advance.</p></div></div>
+        <div class="col-md-4"><div class="bg-white p-3 rounded-3"><strong>Be Specific</strong><p class="small text-muted mb-0">Provide detailed event information for faster approval.</p></div></div>
+        <div class="col-md-4"><div class="bg-white p-3 rounded-3"><strong>Flexible Dates</strong><p class="small text-muted mb-0">Having flexible dates increases booking success.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container-fluid"><div class="row"><div class="col-md-6"><div class="copyright"><p class="text-sm">Designed by <a href="https://wmeagency.com">WME</a></p></div></div></div></div></footer>
+</main>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // ========== SUPABASE CONFIGURATION ==========
+  // Replace with your actual Supabase credentials from Vercel environment variables
+  const SUPABASE_URL = 'https://your-project.supabase.co';  // UPDATE THIS
+  const SUPABASE_ANON_KEY = 'your-anon-key';  // UPDATE THIS
+  
+  let supabase = null;
+  let currentUser = null;
+  let allBookings = [];
+  let currentFilter = 'all';
+  let searchQuery = '';
+
+  // Initialize Supabase client
+  function initSupabase() {
+    if (SUPABASE_URL !== 'https://your-project.supabase.co' && SUPABASE_ANON_KEY !== 'your-anon-key') {
+      supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      console.log('✅ Supabase initialized');
+      return true;
+    } else {
+      console.warn('⚠️ Using demo mode - No Supabase credentials provided');
+      return false;
+    }
+  }
+
+  // Demo bookings for fallback / testing
+  const demoBookings = [
+    { id: 1, celebrity_id: 1, event_type: "Corporate Gala", event_date: "2025-05-15", event_location: "Los Angeles, CA", budget: "$50,000 - $75,000", status: "approved", payment_status: "paid", special_requests: null, created_at: "2025-03-01T10:00:00Z", celebrities: { name: "Zendaya", category: "Acting Talent", image: null } },
+    { id: 2, celebrity_id: 2, event_type: "Brand Launch", event_date: "2025-06-20", event_location: "Miami, FL", budget: "$150,000 - $200,000", status: "pending", payment_status: "pending", special_requests: "VIP meet and greet", created_at: "2025-03-10T14:30:00Z", celebrities: { name: "Dwayne Johnson", category: "Acting Talent", image: null } },
+    { id: 3, celebrity_id: 7, event_type: "Private Concert", event_date: "2025-07-10", event_location: "New York, NY", budget: "$500,000+", status: "pending", payment_status: "pending", special_requests: null, created_at: "2025-03-15T09:00:00Z", celebrities: { name: "Taylor Swift", category: "Music", image: null } }
+  ];
+
+  // Get status color class
+  function getStatusClass(status, paymentStatus) {
+    if (paymentStatus === 'paid' && status === 'confirmed') return 'status-approved';
+    const statusMap = {
+      'pending': 'status-pending',
+      'confirmed': 'status-approved',
+      'approved': 'status-approved',
+      'rejected': 'status-rejected',
+      'cancelled': 'status-rejected'
+    };
+    return statusMap[status] || 'status-pending';
+  }
+
+  function getDisplayStatus(status, paymentStatus) {
+    if (paymentStatus === 'paid' && status === 'confirmed') return 'Confirmed & Paid';
+    return status.charAt(0).toUpperCase() + status.slice(1);
+  }
+
+  // Render bookings list
+  function renderBookings() {
+    const container = document.getElementById('bookingsListContainer');
+    if (!container) return;
+
+    let filtered = allBookings.filter(b => {
+      const matchFilter = currentFilter === 'all' || b.status === currentFilter || b.payment_status === currentFilter;
+      const matchSearch = searchQuery === '' || 
+        (b.celebrities?.name || 'Celebrity').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        b.event_type.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        b.event_location.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchFilter && matchSearch;
+    });
+
+    // Update new bookings badge
+    const pendingCount = allBookings.filter(b => b.status === 'pending').length;
+    const badge = document.getElementById('newBookingsBadge');
+    if (badge) badge.innerText = pendingCount > 0 ? `${pendingCount} New` : '0 New';
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="card-style text-center py-5 fade-slide-up">
+          <i class="lni lni-calendar fs-1 text-muted"></i>
+          <h5 class="mt-3">${searchQuery ? 'No matching bookings found' : (currentFilter === 'all' ? 'No bookings yet' : `No ${currentFilter} bookings`)}</h5>
+          <p class="text-muted">${currentFilter === 'all' ? 'Start by booking your first celebrity' : 'Try a different filter'}</p>
+          <a href="book-now.html" class="btn btn-dark mt-2 rounded-pill">Browse Celebrities →</a>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = filtered.map((booking, idx) => `
+      <div class="card-style booking-card fade-slide-up mb-3" style="animation-delay: ${idx * 0.05}s">
+        <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+          <div class="d-flex gap-3 flex-grow-1">
+            <div class="bg-light rounded-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+              <i class="lni lni-calendar fs-3 text-secondary"></i>
+            </div>
+            <div>
+              <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                <h5 class="fw-bold mb-0">${escapeHtml(booking.celebrities?.name || 'Celebrity Booking')}</h5>
+                <span class="status-badge-sm ${getStatusClass(booking.status, booking.payment_status)}">${getDisplayStatus(booking.status, booking.payment_status)}</span>
+              </div>
+              <p class="text-muted small mb-2">${escapeHtml(booking.event_type)}</p>
+              <div class="d-flex flex-wrap gap-3 gap-x-4 small text-muted">
+                <span><i class="lni lni-calendar me-1"></i> ${new Date(booking.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                <span><i class="lni lni-map-marker me-1"></i> ${escapeHtml(booking.event_location)}</span>
+                ${booking.budget ? `<span><i class="lni lni-dollar me-1"></i> ${escapeHtml(booking.budget)}</span>` : ''}
+              </div>
+            </div>
+          </div>
+          <div class="text-end">
+            <small class="text-muted d-block">Requested ${new Date(booking.created_at).toLocaleDateString()}</small>
+            ${booking.payment_status ? `<span class="badge ${booking.payment_status === 'paid' ? 'bg-success' : 'bg-warning'} mt-1 px-3 py-1 rounded-pill">${booking.payment_status.toUpperCase()}</span>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Escape HTML
+  function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+
+  // Fetch bookings from Supabase
+  async function fetchBookings() {
+    const container = document.getElementById('bookingsListContainer');
+    if (container) container.innerHTML = `<div class="text-center py-5"><div class="spinner-border text-dark"></div><p class="mt-3">Loading your bookings...</p></div>`;
+
+    try {
+      if (supabase) {
+        // Get current user
+        const { data: { user }, error: userError } = await supabase.auth.getUser();
+        if (userError || !user) {
+          console.log('No authenticated user, using demo data');
+          useDemoData();
+          return;
+        }
+        currentUser = user;
+        document.getElementById('headerUsername').innerText = user.email?.split('@')[0] || 'User';
+
+        // Fetch bookings with celebrity join
+        const { data, error } = await supabase
+          .from('bookings')
+          .select(`*, celebrities ( name, category, image )`)
+          .eq('user_id', user.id)
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+        if (data && data.length > 0) {
+          allBookings = data;
+        } else {
+          allBookings = [];
+        }
+      } else {
+        useDemoData();
+      }
+    } catch (err) {
+      console.error('Error fetching bookings:', err);
+      useDemoData();
+    }
+    renderBookings();
+  }
+
+  function useDemoData() {
+    allBookings = demoBookings;
+    document.getElementById('headerUsername').innerText = 'Alex Rivera';
+    renderBookings();
+  }
+
+  // Filter and search handlers
+  function setupFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        renderBookings();
+      });
+    });
+
+    const searchInput = document.getElementById('searchBookings');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderBookings();
+      });
+    }
+  }
+
+  // Burger menu functionality
+  function setupBurgerMenu() {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const sidebar = document.getElementById('mainSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    function openSidebar() { sidebar.classList.add('mobile-open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeSidebar() { sidebar.classList.remove('mobile-open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    if (burgerBtn) burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar(); });
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+    window.addEventListener('resize', () => { if (window.innerWidth > 991) closeSidebar(); });
+  }
+
+  // Logout function
+  window.logout = async function() {
+    if (supabase) await supabase.auth.signOut();
+    localStorage.clear();
+    window.location.href = "login.html";
+  };
+
+  // Initialize page
+  document.addEventListener('DOMContentLoaded', async () => {
+    const hasSupabase = initSupabase();
+    if (hasSupabase) {
+      await fetchBookings();
+    } else {
+      useDemoData();
+    }
+    setupFilters();
+    setupBurgerMenu();
+    
+    // Check for welcome message
+    if (!localStorage.getItem('bookingsPageViewed')) {
+      setTimeout(() => { toastMessage?.(); }, 500);
+      localStorage.setItem('bookingsPageViewed', 'true');
+    }
+  });
+
+  function toastMessage() {
+    const toastDiv = document.createElement('div');
+    toastDiv.className = 'position-fixed bottom-0 end-0 p-3';
+    toastDiv.style.zIndex = '1100';
+    toastDiv.innerHTML = `<div class="toast show" role="alert"><div class="toast-header bg-dark text-white"><i class="lni lni-information me-2"></i><strong>Welcome</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button></div><div class="toast-body">View and manage all your celebrity bookings here.</div></div>`;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 3000);
+  }
+</script>
+</body>
+</html>

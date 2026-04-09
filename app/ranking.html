@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+  <title>WME Agency | Rankings & Testimonials</title>
+
+  <!-- ========== All CSS files ========= -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    :root {
+      --primary: #000000;
+      --sidebar-bg: #ffffff;
+      --main-bg: #f8f9fc;
+      --border-color: rgba(0, 0, 0, 0.06);
+      --text-muted: #6c757d;
+      --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar-nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar-nav-wrapper { transform: translateX(-100%); }
+      .sidebar-nav-wrapper.mobile-open { transform: translateX(0); box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15); }
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+    .menu-toggle-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.03);
+      transition: all 0.2s;
+    }
+    .menu-toggle-btn:hover { background: rgba(0, 0, 0, 0.08); transform: scale(0.96); }
+    .menu-toggle-btn i { font-size: 1.5rem; color: #1a1a1a; }
+
+    .navbar-logo { padding: 0 10px 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 16px; }
+    .navbar-logo a { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; border-radius: 12px; }
+    .logo-text { font-weight: 800; letter-spacing: -0.5px; font-size: 1.3rem; color: #111; }
+    .logo-text small { display: block; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); }
+
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; font-size: 0.9rem; gap: 12px; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
+    .sidebar-nav ul li a .icon { font-size: 1.2rem; opacity: 0.7; width: 24px; }
+    .status-badge { margin-left: auto; font-size: 9px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+    .badge-green { background: rgba(40, 167, 69, 0.12); color: #2a9d8f; }
+
+    .promo-box { margin-top: auto; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 24px; padding: 24px 20px; color: #fff; text-align: center; margin-top: 24px; }
+    .promo-box i { color: #f9ca24; font-size: 2rem; margin-bottom: 12px; }
+    .upgrade-btn { background: #fff; color: #000; padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-decoration: none; display: inline-block; }
+
+    .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 99; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .profile-box button { background: none; border: none; display: flex; align-items: center; gap: 12px; }
+    .profile-img-wrapper img { width: 42px; height: 42px; border-radius: 14px; object-fit: cover; border: 2px solid #fff; }
+    .dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; border: 2px solid #fff; }
+
+    .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
+    @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
+    .footer { background: transparent; border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 20px 0; margin-top: 32px; }
+
+    /* Ranking specific */
+    .rank-card { transition: all 0.2s; cursor: pointer; }
+    .rank-card:hover { transform: translateY(-3px); background: #fff; }
+    .rank-1 { background: linear-gradient(135deg, #ffd70020, #ffb34720); border-left: 4px solid #ffd700; }
+    .rank-2 { background: linear-gradient(135deg, #c0c0c020, #e0e0e020); border-left: 4px solid #c0c0c0; }
+    .rank-3 { background: linear-gradient(135deg, #cd7f3220, #d4af3720); border-left: 4px solid #cd7f32; }
+    .tier-card { transition: all 0.2s; }
+    .tier-card:hover { transform: translateY(-5px); }
+
+    .testimonial-card { transition: all 0.2s; }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+    .stars { color: #ffc107; letter-spacing: 2px; }
+
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-slide-up { animation: fadeSlideUp 0.5s ease-out forwards; }
+
+    .modal-backdrop-custom { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1100; display: flex; align-items: center; justify-content: center; }
+    .testimonial-modal { max-width: 500px; width: 90%; background: white; border-radius: 32px; overflow: hidden; animation: fadeSlideUp 0.3s ease; }
+  </style>
+</head>
+<body>
+
+<div id="preloader"><div class="spinner"></div></div>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<!-- ========== SIDEBAR ========== -->
+<aside id="mainSidebar" class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html">
+      <div class="logo-icon-bg">W</div>
+      <span class="logo-text">WME <small>AGENCY</small></span>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-label">Main Menu</li>
+      <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
+      <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
+      <li class="nav-item"><a href="behind-the-scenes.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-item"><a href="group-chat.html"><span class="icon"><i class="lni lni-message"></i></span><span class="text">Group Chat</span></a></li>
+      <li class="nav-item"><a href="newsroom.html"><span class="icon"><i class="lni lni-bullhorn"></i></span><span class="text">Newsroom</span></a></li>
+      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
+      <li class="nav-item"><a href="rankings-testimonials.html" class="active"><span class="icon"><i class="lni lni-trophy"></i></span><span class="text">Rankings</span><span class="status-badge badge-green">Leaderboard</span></a></li>
+      <li class="nav-item"><a href="profile.html"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a></li>
+    </ul>
+  </nav>
+  <div class="promo-box">
+    <i class="lni lni-star-filled"></i>
+    <h3>Premium Access</h3>
+    <p>Get exclusive talent rates.</p>
+    <a href="#" class="upgrade-btn">Upgrade</a>
+  </div>
+</aside>
+
+<!-- ========== MAIN WRAPPER ========== -->
+<main class="main-wrapper">
+  <header class="header">
+    <div class="container-fluid">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="burgerMenuBtn" class="menu-toggle-btn"><i class="lni lni-menu"></i></button>
+        </div>
+        <div class="header-right">
+          <div class="header-icon-btn me-3 position-relative">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
+          </div>
+          <div class="profile-box">
+            <button class="dropdown-toggle" data-bs-toggle="dropdown">
+              <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
+              <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Rankings & Testimonials Content -->
+  <div class="container-fluid px-4 py-4">
+    <div class="mb-4">
+      <h1 class="display-6 fw-bold mb-1">Rankings & Testimonials</h1>
+      <p class="text-muted">See where you stand and what our community says about us</p>
+    </div>
+
+    <!-- Your Current Rank Card -->
+    <div class="card-style mb-4 bg-dark text-white fade-slide-up">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+            <i class="lni lni-trophy fs-1 text-dark"></i>
+          </div>
+          <div>
+            <small class="text-white-50">Your Current Rank</small>
+            <h2 class="fw-bold mb-0" id="userRank">#12</h2>
+            <small class="text-warning">Top 10% • 2,450 points away from Top 10</small>
+          </div>
+        </div>
+        <div class="text-end">
+          <small class="text-white-50">Your Points</small>
+          <h3 class="fw-bold mb-0" id="userPoints">24,500</h3>
+          <small class="text-success"><i class="lni lni-arrow-up"></i> +2,500 this month</small>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div class="d-flex justify-content-between small mb-1">
+          <span>Bronze</span><span>Silver</span><span>Gold</span><span>Platinum</span><span>Diamond</span>
+        </div>
+        <div class="progress" style="height: 8px;">
+          <div class="progress-bar bg-warning" style="width: 65%;"></div>
+        </div>
+        <small class="text-white-50 mt-2 d-block">Next tier: Platinum (50,000 points) • Need 25,500 more points</small>
+      </div>
+    </div>
+
+    <!-- Membership Tiers -->
+    <h4 class="fw-bold mb-3 fade-slide-up" style="animation-delay: 0.05s"><i class="lni lni-crown me-2"></i> Membership Tiers</h4>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-2-4">
+        <div class="tier-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.1s">
+          <div class="bg-secondary bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;"><i class="lni lni-star fs-3"></i></div>
+          <h6 class="fw-bold mb-0">Bronze</h6>
+          <small class="text-muted">0 - 9,999 pts</small>
+          <small class="text-success d-block mt-1">Basic perks</small>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-2-4">
+        <div class="tier-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.15s">
+          <div class="bg-secondary bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;"><i class="lni lni-star fs-3"></i></div>
+          <h6 class="fw-bold mb-0">Silver</h6>
+          <small class="text-muted">10k - 24,999 pts</small>
+          <small class="text-success d-block mt-1">+5% bonus points</small>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-2-4">
+        <div class="tier-card card-style text-center p-3 border-warning fade-slide-up" style="animation-delay: 0.2s">
+          <div class="bg-warning bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;"><i class="lni lni-star fs-3 text-warning"></i></div>
+          <h6 class="fw-bold mb-0">Gold</h6>
+          <small class="text-muted">25k - 49,999 pts</small>
+          <small class="text-success d-block mt-1">+10% bonus • Priority support</small>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-2-4">
+        <div class="tier-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.25s">
+          <div class="bg-info bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;"><i class="lni lni-diamond fs-3 text-info"></i></div>
+          <h6 class="fw-bold mb-0">Platinum</h6>
+          <small class="text-muted">50k - 99,999 pts</small>
+          <small class="text-success d-block mt-1">+15% bonus • Early access</small>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-2-4">
+        <div class="tier-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.3s">
+          <div class="bg-danger bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;"><i class="lni lni-crown fs-3 text-danger"></i></div>
+          <h6 class="fw-bold mb-0">Diamond</h6>
+          <small class="text-muted">100k+ pts</small>
+          <small class="text-success d-block mt-1">+25% bonus • VIP access</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Rankings Section -->
+      <div class="col-lg-6">
+        <div class="card-style fade-slide-up" style="animation-delay: 0.35s">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0"><i class="lni lni-trophy me-2 text-warning"></i> Top Users Leaderboard</h5>
+            <button class="btn btn-sm btn-light" onclick="refreshLeaderboard()"><i class="lni lni-reload"></i> Refresh</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr><th>Rank</th><th>User</th><th>Points</th><th>Badge</th></tr>
+              </thead>
+              <tbody id="leaderboardBody">
+                <!-- JS Populates -->
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 text-center">
+            <button class="btn btn-outline-dark btn-sm rounded-pill" onclick="showAllRankings()">View Full Rankings →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Section -->
+      <div class="col-lg-6">
+        <div class="card-style fade-slide-up" style="animation-delay: 0.4s">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0"><i class="lni lni-star me-2 text-warning"></i> Community Testimonials</h5>
+            <button class="btn btn-sm btn-dark rounded-pill" onclick="openAddTestimonial()"><i class="lni lni-plus"></i> Share Your Story</button>
+          </div>
+          <div id="testimonialsList">
+            <!-- JS Populates -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Earn Points Section -->
+    <div class="card-style mt-4 fade-slide-up" style="animation-delay: 0.45s">
+      <h5 class="fw-bold mb-3"><i class="lni lni-coins me-2"></i> How to Earn Points</h5>
+      <div class="row g-3">
+        <div class="col-md-3 col-6">
+          <div class="text-center p-2"><i class="lni lni-calendar fs-2"></i><p class="small mb-0 fw-semibold">Book a Celebrity</p><small class="text-muted">+500 pts</small></div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="text-center p-2"><i class="lni lni-users fs-2"></i><p class="small mb-0 fw-semibold">Refer a Friend</p><small class="text-muted">+1,000 pts</small></div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="text-center p-2"><i class="lni lni-message fs-2"></i><p class="small mb-0 fw-semibold">Chat Activity</p><small class="text-muted">+10 per msg</small></div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="text-center p-2"><i class="lni lni-heart fs-2"></i><p class="small mb-0 fw-semibold">Like & Share</p><small class="text-muted">+5-25 pts</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container-fluid"><div class="row"><div class="col-md-6"><div class="copyright"><p class="text-sm">Designed by <a href="https://wmeagency.com">WME</a></p></div></div></div></div></footer>
+</main>
+
+<!-- Add Testimonial Modal -->
+<div id="testimonialModal" style="display: none; position: fixed; inset: 0; z-index: 1200;"></div>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  // ========== RANKINGS DATA ==========
+  let leaderboard = [
+    { rank: 1, name: "Sarah Johnson", points: 187500, badge: "👑 Diamond", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" },
+    { rank: 2, name: "Mike Chen", points: 156200, badge: "💎 Diamond", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop" },
+    { rank: 3, name: "Emily Davis", points: 134800, badge: "💎 Diamond", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop" },
+    { rank: 4, name: "Chris Evans", points: 98700, badge: "⭐ Platinum", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" },
+    { rank: 5, name: "Jessica Lee", points: 87600, badge: "⭐ Platinum", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" },
+    { rank: 6, name: "David Kim", points: 65400, badge: "🥇 Gold", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" },
+    { rank: 7, name: "Sophia Martinez", points: 58900, badge: "🥇 Gold", avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&fit=crop" },
+    { rank: 8, name: "James Wilson", points: 45200, badge: "🥈 Silver", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop" },
+    { rank: 9, name: "Olivia Brown", points: 39800, badge: "🥈 Silver", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop" },
+    { rank: 10, name: "Alex Rivera", points: 24500, badge: "🥉 Bronze", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop", isCurrentUser: true }
+  ];
+
+  // Testimonials data
+  let testimonials = [
+    { id: 1, name: "Sarah Johnson", role: "Corporate Event Planner", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop", rating: 5, text: "WME made booking Zendaya for our gala seamless. The team was professional and the experience was unforgettable!", date: "2025-03-15" },
+    { id: 2, name: "Mike Chen", role: "Music Festival Organizer", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop", rating: 5, text: "Incredible platform! Booked The Weeknd for our festival and everything went perfectly. Highly recommend!", date: "2025-03-10" },
+    { id: 3, name: "Emily Davis", role: "Brand Manager", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop", rating: 4, text: "Great experience working with WME. The behind-the-scenes content is a game-changer for our campaigns.", date: "2025-03-05" },
+    { id: 4, name: "David Kim", role: "Private Event Host", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop", rating: 5, text: "Booking Dwayne Johnson was a dream come true! WME handled everything with class and professionalism.", date: "2025-02-28" }
+  ];
+
+  let currentUserPoints = 24500;
+  let currentUserRank = 12;
+
+  function renderLeaderboard() {
+    const tbody = document.getElementById('leaderboardBody');
+    tbody.innerHTML = leaderboard.slice(0, 10).map(user => `
+      <tr class="${user.isCurrentUser ? 'table-warning' : ''}">
+        <td><strong>#${user.rank}</strong> ${user.rank === 1 ? '🏆' : user.rank === 2 ? '🥈' : user.rank === 3 ? '🥉' : ''}</td>
+        <td><div class="d-flex align-items-center gap-2"><img src="${user.avatar}" class="rounded-circle" style="width: 32px; height: 32px; object-fit: cover;"> ${user.name} ${user.isCurrentUser ? '(You)' : ''}</div></td>
+        <td><strong>${user.points.toLocaleString()}</strong></td>
+        <td><span class="badge bg-dark">${user.badge}</span></td>
+      </tr>
+    `).join('');
+  }
+
+  function renderTestimonials() {
+    const container = document.getElementById('testimonialsList');
+    container.innerHTML = testimonials.map(t => `
+      <div class="testimonial-card p-3 mb-3 bg-light rounded-3">
+        <div class="d-flex gap-3">
+          <img src="${t.avatar}" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h6 class="fw-bold mb-0">${t.name}</h6>
+                <small class="text-muted">${t.role}</small>
+              </div>
+              <div class="stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+            </div>
+            <p class="small mt-2 mb-1">"${t.text}"</p>
+            <small class="text-muted">${new Date(t.date).toLocaleDateString()}</small>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function updateUserStats() {
+    document.getElementById('userRank').innerText = `#${currentUserRank}`;
+    document.getElementById('userPoints').innerText = currentUserPoints.toLocaleString();
+  }
+
+  window.refreshLeaderboard = function() {
+    showToast('Leaderboard refreshed!', 'success');
+    renderLeaderboard();
+  };
+
+  window.showAllRankings = function() {
+    showToast('Full rankings available in the app! 🏆', 'info');
+  };
+
+  window.openAddTestimonial = function() {
+    const modalDiv = document.getElementById('testimonialModal');
+    modalDiv.innerHTML = `
+      <div class="modal-backdrop-custom" onclick="closeTestimonialModal(event)">
+        <div class="testimonial-modal" onclick="event.stopPropagation()">
+          <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
+            <h5 class="fw-bold mb-0">Share Your Experience</h5>
+            <button class="btn-close" onclick="closeTestimonialModal()"></button>
+          </div>
+          <div class="p-4">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Your Name</label>
+              <input type="text" id="testName" class="form-control" value="Alex Rivera">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Role / Title</label>
+              <input type="text" id="testRole" class="form-control" placeholder="e.g., Event Planner">
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Rating</label>
+              <select id="testRating" class="form-select">
+                <option value="5">★★★★★ (5 stars)</option>
+                <option value="4">★★★★☆ (4 stars)</option>
+                <option value="3">★★★☆☆ (3 stars)</option>
+                <option value="2">★★☆☆☆ (2 stars)</option>
+                <option value="1">★☆☆☆☆ (1 star)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Your Testimonial</label>
+              <textarea id="testText" class="form-control" rows="4" placeholder="Share your experience with WME..."></textarea>
+            </div>
+            <button class="btn btn-dark w-100 rounded-pill py-2" onclick="submitTestimonial()">Submit Testimonial</button>
+            <small class="text-muted d-block mt-2 text-center">+50 points for sharing your story!</small>
+          </div>
+        </div>
+      </div>
+    `;
+    modalDiv.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.submitTestimonial = function() {
+    const name = document.getElementById('testName')?.value.trim();
+    const role = document.getElementById('testRole')?.value.trim();
+    const rating = parseInt(document.getElementById('testRating')?.value);
+    const text = document.getElementById('testText')?.value.trim();
+
+    if (!name || !text) {
+      showToast('Please fill in your name and testimonial', 'error');
+      return;
+    }
+
+    const newTestimonial = {
+      id: testimonials.length + 1,
+      name: name,
+      role: role || "WME User",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop",
+      rating: rating,
+      text: text,
+      date: new Date().toISOString().split('T')[0]
+    };
+
+    testimonials.unshift(newTestimonial);
+    renderTestimonials();
+    
+    // Add points for testimonial
+    currentUserPoints += 50;
+    updateUserStats();
+    
+    closeTestimonialModal();
+    showToast('Thank you! +50 points added! 🌟', 'success');
+    
+    // Save to localStorage
+    saveData();
+  };
+
+  window.closeTestimonialModal = function(e) {
+    const modal = document.getElementById('testimonialModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  function showToast(msg, type = 'success') {
+    const toastDiv = document.createElement('div');
+    toastDiv.className = 'position-fixed bottom-0 end-0 p-3';
+    toastDiv.style.zIndex = '1300';
+    toastDiv.innerHTML = `<div class="toast show" role="alert"><div class="toast-header ${type === 'success' ? 'bg-dark text-white' : 'bg-warning'}"><i class="lni lni-information me-2"></i><strong>Rankings</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button></div><div class="toast-body">${msg}</div></div>`;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 3000);
+  }
+
+  function saveData() {
+    localStorage.setItem('wme_leaderboard', JSON.stringify(leaderboard));
+    localStorage.setItem('wme_testimonials', JSON.stringify(testimonials));
+    localStorage.setItem('wme_userPoints', currentUserPoints);
+  }
+
+  function loadData() {
+    const savedLeaderboard = localStorage.getItem('wme_leaderboard');
+    const savedTestimonials = localStorage.getItem('wme_testimonials');
+    const savedPoints = localStorage.getItem('wme_userPoints');
+    
+    if (savedLeaderboard) {
+      try {
+        const parsed = JSON.parse(savedLeaderboard);
+        if (parsed.length) leaderboard = parsed;
+      } catch(e) {}
+    }
+    if (savedTestimonials) {
+      try {
+        const parsed = JSON.parse(savedTestimonials);
+        if (parsed.length) testimonials = parsed;
+      } catch(e) {}
+    }
+    if (savedPoints) currentUserPoints = parseInt(savedPoints);
+    
+    // Update the current user in leaderboard
+    const currentUserIndex = leaderboard.findIndex(u => u.isCurrentUser);
+    if (currentUserIndex !== -1) {
+      leaderboard[currentUserIndex].points = currentUserPoints;
+    }
+    // Sort leaderboard by points
+    leaderboard.sort((a, b) => b.points - a.points);
+    leaderboard.forEach((user, idx) => {
+      user.rank = idx + 1;
+      if (user.isCurrentUser) currentUserRank = user.rank;
+    });
+  }
+
+  // Burger menu
+  function setupBurgerMenu() {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const sidebar = document.getElementById('mainSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    if (!burgerBtn || !sidebar || !overlay) return;
+    function openSidebar() { sidebar.classList.add('mobile-open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeSidebar() { sidebar.classList.remove('mobile-open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar(); });
+    overlay.addEventListener('click', closeSidebar);
+    window.addEventListener('resize', () => { if (window.innerWidth > 991) closeSidebar(); });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    renderLeaderboard();
+    renderTestimonials();
+    updateUserStats();
+    setupBurgerMenu();
+    document.getElementById('headerUsername').innerText = 'Alex Rivera';
+  });
+</script>
+</body>
+</html>
