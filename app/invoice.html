@@ -29,7 +29,7 @@
       overflow-x: hidden;
     }
 
-    /* Sidebar Styles (Unchanged) */
+    /* Sidebar Styles */
     .sidebar-nav-wrapper {
       position: fixed;
       top: 0;
@@ -73,7 +73,17 @@
     .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
     @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
 
-    /* --- Payment Page Specifics --- */
+    .header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    /* Payment Page Specifics */
     .payment-method-card { 
       transition: all 0.2s; 
       cursor: pointer; 
@@ -101,6 +111,18 @@
       background: #000; color: #fff; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 600; transition: 0.3s;
     }
     .btn-action:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .toast-message {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -119,21 +141,30 @@
       <li class="nav-label">Main Menu</li>
       <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
       <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
-      <li class="nav-item"><a href="invoices.html" class="active"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
+      <li class="nav-item"><a href="behindthescene.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-item"><a href="invoice.html" class="active"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
     </ul>
   </nav>
+  <div class="promo-box mt-auto p-3 bg-dark text-white rounded-3 text-center">
+    <i class="lni lni-star-filled text-warning"></i>
+    <h6 class="mt-2">Premium Access</h6>
+    <p class="small">Get exclusive talent rates.</p>
+    <a href="https://nowpayments.io/payment/?iid=5113386155" target="_blank" class="btn btn-light btn-sm rounded-pill">Upgrade</a>
+  </div>
 </aside>
 
 <main class="main-wrapper">
-  <header class="header py-3 border-bottom bg-white sticky-top">
-    <div class="container-fluid d-flex justify-content-between align-items-center px-4">
-      <button id="burgerMenuBtn" class="menu-toggle-btn d-lg-none"><i class="lni lni-menu"></i></button>
-      <div class="ms-auto d-flex align-items-center gap-3">
-        <div class="text-end d-none d-md-block">
-          <h6 class="m-0 fw-bold small">Alex Rivera</h6>
-          <p class="m-0 text-muted small">Talent Booker</p>
+  <header class="header">
+    <div class="container-fluid px-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <button id="burgerMenuBtn" class="menu-toggle-btn d-lg-none"><i class="lni lni-menu"></i></button>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <div class="text-end d-none d-md-block">
+            <h6 class="m-0 fw-bold small" id="headerUsername">Alex Rivera</h6>
+            <p class="m-0 text-muted small">Talent Booker</p>
+          </div>
+          <div class="profile-avatar rounded-circle bg-dark text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: bold;" id="userAvatar">A</div>
         </div>
-        <img src="https://ui-avatars.com/api/?name=Alex+Rivera&background=000&color=fff" class="rounded-3" width="40">
       </div>
     </div>
   </header>
@@ -143,8 +174,8 @@
       <div class="col-lg-8">
         <div class="bg-dark text-white rounded-4 p-4 mb-4" style="background: linear-gradient(135deg, #111 0%, #333 100%);">
           <p class="small opacity-50 mb-1">Available Balance</p>
-          <h1 class="display-5 fw-bold mb-0" id="balanceDisplay">$2,450.00</h1>
-          <p class="small mt-2 opacity-75"><i class="lni lni-coin"></i> 24,500 Agency Points</p>
+          <h1 class="display-5 fw-bold mb-0" id="balanceDisplay">$0.00</h1>
+          <p class="small mt-2 opacity-75"><i class="lni lni-coin"></i> <span id="pointsDisplay">0</span> Agency Points</p>
         </div>
 
         <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
@@ -186,13 +217,13 @@
         <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
           <h6 class="fw-bold mb-3">Quick Point Bundles</h6>
           <div class="d-grid gap-2">
-            <button class="btn btn-outline-dark text-start p-3 rounded-3" onclick="processPayment(10)">
+            <button class="btn btn-outline-dark text-start p-3 rounded-3" onclick="processPayment(10, 1000)">
                 <span class="d-flex justify-content-between"><b>1,000 Points</b> <span>$10</span></span>
             </button>
-            <button class="btn btn-outline-dark text-start p-3 rounded-3" onclick="processPayment(50)">
+            <button class="btn btn-outline-dark text-start p-3 rounded-3" onclick="processPayment(50, 5500)">
                 <span class="d-flex justify-content-between"><b>5,500 Points</b> <span>$50</span></span>
             </button>
-            <button class="btn btn-dark text-start p-3 rounded-3" onclick="processPayment(100)">
+            <button class="btn btn-dark text-start p-3 rounded-3" onclick="processPayment(100, 12000)">
                 <span class="d-flex justify-content-between"><b>12,000 Points</b> <span class="badge bg-warning text-dark">Best Value</span></span>
             </button>
           </div>
@@ -201,7 +232,8 @@
         <div class="card border-0 shadow-sm rounded-4 p-4">
           <h6 class="fw-bold mb-3">Recent Transactions</h6>
           <div id="miniTransactions">
-            </div>
+            <div class="text-center text-muted py-3 small">No recent transactions</div>
+          </div>
         </div>
       </div>
     </div>
@@ -209,16 +241,133 @@
 </main>
 
 <script>
-  // State Management
-  let balance = 2450.00;
+  // Supabase Configuration
+  const SUPABASE_URL = 'https://becpujqyjjlezgibmdfk.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_MA-ivarGoHmTWsVgoodPvA_bKq0Wihs';
+  
+  let supabase = null;
+  let currentUser = null;
+  let balance = 0.00;
+  let points = 0;
+  let transactions = [];
+
+  // Initialize Supabase
+  async function initSupabase() {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const { data: { user }, error } = await supabase.auth.getUser();
+    
+    if (error || !user) {
+      console.log('User not logged in');
+      window.location.href = 'login.html';
+      return;
+    }
+    
+    currentUser = user;
+    document.getElementById('headerUsername').innerText = user.email?.split('@')[0] || 'User';
+    
+    // Get initials for avatar
+    const emailName = user.email?.split('@')[0] || 'User';
+    const initials = emailName.charAt(0).toUpperCase();
+    document.getElementById('userAvatar').innerText = initials;
+    
+    // Fetch user profile for balance and points
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', user.id)
+      .single();
+    
+    if (profile) {
+      balance = profile.balance || 0;
+      points = profile.points || 0;
+    }
+    
+    // Fetch transactions
+    await fetchTransactions();
+    updateBalanceDisplay();
+  }
+
+  async function fetchTransactions() {
+    const { data, error } = await supabase
+      .from('payments')
+      .select('*')
+      .eq('user_id', currentUser.id)
+      .order('created_at', { ascending: false })
+      .limit(5);
+    
+    if (!error && data) {
+      transactions = data;
+      renderTransactions();
+    }
+  }
+
+  function renderTransactions() {
+    const container = document.getElementById('miniTransactions');
+    if (!transactions || transactions.length === 0) {
+      container.innerHTML = '<div class="text-center text-muted py-3 small">No recent transactions</div>';
+      return;
+    }
+    
+    container.innerHTML = transactions.map(tx => `
+      <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
+        <div>
+          <p class="small fw-bold mb-0">${tx.notes || 'Deposit'}</p>
+          <small class="text-muted">${new Date(tx.created_at).toLocaleDateString()}</small>
+        </div>
+        <span class="fw-bold text-success">+$${tx.amount.toFixed(2)}</span>
+      </div>
+    `).join('');
+  }
 
   function updateBalanceDisplay() {
     document.getElementById('balanceDisplay').innerText = `$${balance.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+    document.getElementById('pointsDisplay').innerText = points.toLocaleString();
+  }
+
+  async function updateDatabaseBalance(newBalance, newPoints) {
+    const { error } = await supabase
+      .from('profiles')
+      .update({ 
+        balance: newBalance,
+        points: newPoints,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', currentUser.id);
+    
+    if (error) {
+      console.error('Error updating balance:', error);
+      return false;
+    }
+    return true;
+  }
+
+  async function addTransaction(amount, type, method, status, notes) {
+    const { error } = await supabase
+      .from('payments')
+      .insert([{
+        user_id: currentUser.id,
+        amount: amount,
+        payment_method: method,
+        status: status,
+        notes: notes || `${type} deposit`,
+        created_at: new Date().toISOString()
+      }]);
+    
+    if (!error) {
+      await fetchTransactions();
+    }
+  }
+
+  function showToast(message, type = 'success') {
+    const toastDiv = document.createElement('div');
+    toastDiv.className = `toast-message ${type === 'success' ? 'bg-dark' : 'bg-danger'} text-white px-4 py-2 rounded-3 shadow`;
+    toastDiv.innerHTML = `<div class="d-flex align-items-center gap-2"><i class="lni lni-checkmark-circle"></i> ${message}</div>`;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 3000);
   }
 
   // Dynamic Form Switcher
   window.selectPaymentMethod = function(method) {
-    // UI Feedback for selection
     document.querySelectorAll('.payment-method-card').forEach(el => el.classList.remove('selected'));
     document.querySelector(`[data-method="${method}"]`).classList.add('selected');
 
@@ -235,7 +384,7 @@
             <div class="col-6"><input type="text" class="form-input-minimal" placeholder="CVC"></div>
         </div>
         <input type="number" id="payAmount" class="form-input-minimal" placeholder="Amount to add ($)">
-        <button class="btn-action w-100" onclick="handleDeposit('payAmount')">Deposit Now</button>
+        <button class="btn-action w-100" onclick="handleDeposit('payAmount', 'card')">Deposit Now</button>
       `;
     } else if (method === 'cashapp') {
       area.innerHTML = `
@@ -244,7 +393,7 @@
             <h4 class="fw-bold text-success mb-3">$WMEAGENCY</h4>
             <input type="text" class="form-input-minimal" placeholder="Your $Cashtag for verification">
             <input type="number" id="cashAmount" class="form-input-minimal" placeholder="Amount Sent ($)">
-            <button class="btn-action w-100" onclick="handleDeposit('cashAmount')">Notify Admin of Transfer</button>
+            <button class="btn-action w-100" onclick="handleDeposit('cashAmount', 'cashapp')">Notify Admin of Transfer</button>
         </div>
       `;
     } else if (method === 'crypto') {
@@ -253,7 +402,7 @@
         <div class="p-2 bg-light rounded-3 mb-3 text-break small font-monospace">TX7qKz9LpR2mVnXwYjH5bNcA8dFgE3hJkL</div>
         <input type="text" class="form-input-minimal" placeholder="Transaction Hash (TxID)">
         <input type="number" id="cryptoAmount" class="form-input-minimal" placeholder="Amount in USD">
-        <button class="btn-action w-100" onclick="handleDeposit('cryptoAmount')">Verify Blockchain Payment</button>
+        <button class="btn-action w-100" onclick="handleDeposit('cryptoAmount', 'crypto')">Verify Blockchain Payment</button>
       `;
     } else {
       area.innerHTML = `
@@ -261,42 +410,102 @@
         <p class="small text-muted">Upload a screenshot of your transfer receipt.</p>
         <input type="file" class="form-input-minimal">
         <input type="number" id="wireAmount" class="form-input-minimal" placeholder="Amount ($)">
-        <button class="btn-action w-100" onclick="handleDeposit('wireAmount')">Upload Proof</button>
+        <button class="btn-action w-100" onclick="handleDeposit('wireAmount', 'bank')">Upload Proof</button>
       `;
     }
   }
 
-  function handleDeposit(inputId) {
-    const amt = parseFloat(document.getElementById(inputId).value);
-    if (!amt || amt <= 0) return alert("Please enter a valid amount");
+  window.handleDeposit = async function(inputId, method) {
+    const amt = parseFloat(document.getElementById(inputId)?.value);
+    if (!amt || amt <= 0) {
+      showToast("Please enter a valid amount", "error");
+      return;
+    }
     
-    // Logic for demo
-    balance += amt;
-    updateBalanceDisplay();
-    alert(`Success! $${amt} has been added to your balance.`);
-    document.getElementById(inputId).value = "";
+    // Update balance
+    const newBalance = balance + amt;
+    const pointsEarned = Math.floor(amt * 100);
+    const newPoints = points + pointsEarned;
+    
+    // Update database
+    const success = await updateDatabaseBalance(newBalance, newPoints);
+    
+    if (success) {
+      balance = newBalance;
+      points = newPoints;
+      updateBalanceDisplay();
+      
+      // Add transaction record
+      await addTransaction(amt, 'deposit', method, 'completed', `Deposit via ${method}`);
+      
+      showToast(`Success! $${amt.toFixed(2)} added to your balance. +${pointsEarned} points earned!`);
+      
+      // Clear input
+      if (document.getElementById(inputId)) document.getElementById(inputId).value = '';
+    } else {
+      showToast("Error processing payment. Please try again.", "error");
+    }
   }
 
-  function processPayment(amt) {
-    balance += amt;
-    updateBalanceDisplay();
+  window.processPayment = async function(amt, pointsAmount) {
+    const newBalance = balance + amt;
+    const newPoints = points + pointsAmount;
+    
+    const success = await updateDatabaseBalance(newBalance, newPoints);
+    
+    if (success) {
+      balance = newBalance;
+      points = newPoints;
+      updateBalanceDisplay();
+      
+      await addTransaction(amt, 'points_purchase', 'points_bundle', 'completed', `Purchased ${pointsAmount} points`);
+      
+      showToast(`Success! Purchased ${pointsAmount.toLocaleString()} points for $${amt}!`);
+    } else {
+      showToast("Error processing payment. Please try again.", "error");
+    }
   }
 
   // Burger Menu Logic
-  const burgerBtn = document.getElementById('burgerMenuBtn');
-  const sidebar = document.getElementById('mainSidebar');
-  const overlay = document.getElementById('sidebarOverlay');
+  function setupBurgerMenu() {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const sidebar = document.getElementById('mainSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
 
-  burgerBtn.addEventListener('click', () => {
-    sidebar.classList.add('mobile-open');
-    overlay.classList.add('active');
-  });
+    if (!burgerBtn || !sidebar || !overlay) return;
 
-  overlay.addEventListener('click', () => {
-    sidebar.classList.remove('mobile-open');
-    overlay.classList.remove('active');
+    function openSidebar() {
+      sidebar.classList.add('mobile-open');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('mobile-open');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar.classList.contains('mobile-open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 991) closeSidebar();
+    });
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', async () => {
+    await initSupabase();
+    setupBurgerMenu();
   });
 </script>
-
 </body>
 </html>

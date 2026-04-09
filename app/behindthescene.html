@@ -115,7 +115,7 @@
 
     /* Card Styles */
     .card-style { background: #fff; border-radius: 24px; padding: 24px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: var(--card-shadow); transition: all 0.3s ease; }
-    .bts-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .bts-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
     .bts-card:hover { transform: translateY(-6px); box-shadow: var(--card-hover-shadow); }
 
     .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
@@ -129,7 +129,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.95);
       z-index: 1100;
       display: flex;
       align-items: center;
@@ -144,6 +144,19 @@
       border-radius: 32px;
       overflow: hidden;
       animation: fadeSlideUp 0.3s ease;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
     .line-clamp-2 {
       display: -webkit-box;
@@ -171,13 +184,13 @@
       <li class="nav-label">Main Menu</li>
       <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
       <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
-      <li class="nav-item"><a href="behind-the-scenes.html" class="active"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span><span class="status-badge badge-green">New</span></a></li>
+      <li class="nav-item"><a href="behindthescene.html" class="active"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span><span class="status-badge badge-green">New</span></a></li>
       <li class="nav-label">Management</li>
-      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Invoices</span></a></li>
+      <li class="nav-item"><a href="invoice.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Invoices</span></a></li>
       <li class="nav-item nav-item-has-children">
         <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_profile"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a>
         <ul id="ddmenu_profile" class="collapse dropdown-nav">
-          <li><a href="dashboard/rankings.html">Rankings</a></li>
+          <li><a href="ranking.html">Rankings</a></li>
         </ul>
       </li>
     </ul>
@@ -186,7 +199,7 @@
     <i class="lni lni-star-filled"></i>
     <h3>Premium Access</h3>
     <p>Get exclusive talent rates.</p>
-    <a href="#" class="upgrade-btn">Upgrade</a>
+    <a href="https://nowpayments.io/payment/?iid=5113386155" class="upgrade-btn">Upgrade</a>
   </div>
 </aside>
 
@@ -203,12 +216,12 @@
           <div class="header-icon-btn me-3 position-relative">
             <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
           </div>
-          <div class="profile-box">
+          <!-- <div class="profile-box">
             <button class="dropdown-toggle" data-bs-toggle="dropdown">
               <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
               <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -256,7 +269,7 @@
 <script src="assets/js/main.js"></script>
 
 <script>
-  // ========== BTS CONTENT DATA (matching React component) ==========
+  // ========== BTS CONTENT DATA with actual video links ==========
   const btsContent = [
     {
       id: '1',
@@ -266,6 +279,7 @@
       description: 'Raw footage of Zendaya preparing for the intense desert scenes as Chani.',
       thumbnail: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&h=400&fit=crop',
       type: 'video',
+      videoUrl: 'https://www.youtube.com/embed/QSAIgdLIhTE',
       likes: 12400,
       views: 45200,
       isPremium: false,
@@ -279,6 +293,7 @@
       description: 'Intimate look inside the studio as The Weeknd records vocals for his upcoming project.',
       thumbnail: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&h=400&fit=crop',
       type: 'video',
+      videoUrl: 'https://www.instagram.com/reel/DVy4E4RDI29/embed',
       likes: 23100,
       views: 78900,
       isPremium: true,
@@ -292,32 +307,22 @@
       description: 'Behind-the-scenes of the brutal training regimen for Creed IV.',
       thumbnail: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop',
       type: 'video',
+      videoUrl: 'https://www.youtube.com/embed/-NH1A6CLIrY',
       likes: 18900,
       views: 67300,
-      isPremium: false,
+      isPremium: true,
       duration: '6:12',
     },
-    {
-      id: '4',
-      celebrityName: 'Ryan Reynolds',
-      celebrityImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop',
-      title: 'Deadpool & Wolverine - Set Shenanigans',
-      description: 'Hilarious bloopers and funny moments from the set with Hugh Jackman.',
-      thumbnail: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop',
-      type: 'video',
-      likes: 34200,
-      views: 124000,
-      isPremium: true,
-      duration: '8:33',
-    },
+   
     {
       id: '5',
       celebrityName: 'Adele',
       celebrityImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop',
-      title: 'Recording "Easy On Me" in Lagos',
+      title: 'Recording "Easy On Me" S',
       description: 'Emotional studio session during her Africa tour.',
       thumbnail: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop',
       type: 'image',
+      videoUrl: null,
       likes: 15700,
       views: 48900,
       isPremium: false,
@@ -331,6 +336,7 @@
       description: 'Balancing family, business, and training like only Serena can.',
       thumbnail: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&h=400&fit=crop',
       type: 'image',
+      videoUrl: null,
       likes: 9800,
       views: 31200,
       isPremium: true,
@@ -340,7 +346,6 @@
 
   // State management
   let likedContent = new Set();
-  let currentFilter = 'all';
   let searchQuery = '';
   let selectedContent = null;
 
@@ -402,26 +407,35 @@
     const modalContainer = document.getElementById('contentModal');
     if (!modalContainer || !selectedContent) return;
 
+    let embedHtml = '';
+    if (selectedContent.type === 'video' && selectedContent.videoUrl) {
+      let videoUrl = selectedContent.videoUrl;
+      // Handle Instagram embed
+      if (videoUrl.includes('instagram.com')) {
+        embedHtml = `<iframe src="${videoUrl}" width="100%" height="500" frameborder="0" scrolling="yes" allowtransparency="true"></iframe>`;
+      } else if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+        embedHtml = `<iframe src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      } else {
+        embedHtml = `<img src="${selectedContent.thumbnail}" alt="${selectedContent.title}" style="width: 100%; height: auto;">`;
+      }
+    } else {
+      embedHtml = `<img src="${selectedContent.thumbnail}" alt="${selectedContent.title}" style="width: 100%; height: auto;">`;
+    }
+
     modalContainer.style.display = 'flex';
     modalContainer.innerHTML = `
-      <div style="position: relative; max-width: 900px; width: 100%; background: white; border-radius: 32px; overflow: hidden; animation: fadeSlideUp 0.3s ease;">
-        <button onclick="closeModal()" style="position: absolute; top: 16px; right: 16px; z-index: 10; background: rgba(0,0,0,0.6); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-          <i class="lni lni-close"></i>
-        </button>
-        <div style="position: relative;">
-          <img src="${selectedContent.thumbnail}" alt="${selectedContent.title}" style="width: 100%; height: auto;">
-          <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
-            <div style="text-align: center;">
-              <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-                <i class="lni lni-play fs-1" style="color: black; margin-left: 4px;"></i>
-              </div>
-              <p style="color: white; font-size: 14px;">${selectedContent.type === 'video' ? 'Video Preview (Demo)' : 'Image Preview'}</p>
-            </div>
+      <div class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+          <button onclick="closeModal()" style="position: absolute; top: 16px; right: 16px; z-index: 10; background: rgba(0,0,0,0.6); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <i class="lni lni-close"></i>
+          </button>
+          <div class="${selectedContent.type === 'video' ? 'video-container' : ''}">
+            ${embedHtml}
           </div>
-        </div>
-        <div style="padding: 24px;">
-          <h3 style="font-weight: 700; margin-bottom: 8px;">${escapeHtml(selectedContent.title)}</h3>
-          <p style="color: #6c757d; margin-bottom: 0;">${escapeHtml(selectedContent.description)}</p>
+          <div style="padding: 24px;">
+            <h3 style="font-weight: 700; margin-bottom: 8px;">${escapeHtml(selectedContent.title)}</h3>
+            <p style="color: #6c757d; margin-bottom: 0;">${escapeHtml(selectedContent.description)}</p>
+          </div>
         </div>
       </div>
     `;
@@ -455,10 +469,10 @@
       const isLiked = likedContent.has(content.id);
       return `
         <div class="col-md-6 col-lg-4 fade-slide-up" style="animation-delay: ${idx * 0.05}s">
-          <div class="bts-card card-style p-0 overflow-hidden h-100">
+          <div class="bts-card card-style p-0 overflow-hidden h-100" onclick="openContent(${JSON.stringify(content).replace(/"/g, '&quot;')})">
             <div style="position: relative; height: 220px; overflow: hidden;">
               <img src="${content.thumbnail}" alt="${content.title}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
-              <div onclick="openContent(${JSON.stringify(content).replace(/"/g, '&quot;')})" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; cursor: pointer;">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
                 <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="lni lni-play" style="font-size: 24px; color: black; margin-left: 3px;"></i></div>
               </div>
               ${content.isPremium ? `<div style="position: absolute; top: 12px; right: 12px; background: #d97706; color: white; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700;"><i class="lni lni-lock me-1"></i>PREMIUM</div>` : ''}
@@ -477,8 +491,8 @@
                   <span><i class="lni lni-heart ${isLiked ? 'text-danger' : ''}"></i> ${formatNumber(content.likes + (isLiked ? 1 : 0))}</span>
                 </div>
                 <div style="display: flex; gap: 4px;">
-                  <button onclick="handleLike('${content.id}', ${content.likes})" class="btn btn-sm rounded-circle" style="background: ${isLiked ? '#fee2e2' : 'transparent'}; width: 32px; height: 32px;"><i class="lni lni-heart ${isLiked ? 'text-danger' : ''}" style="font-size: 14px;"></i></button>
-                  <button onclick="handleShare()" class="btn btn-sm rounded-circle" style="background: transparent; width: 32px; height: 32px;"><i class="lni lni-share" style="font-size: 14px;"></i></button>
+                  <button onclick="event.stopPropagation(); handleLike('${content.id}', ${content.likes})" class="btn btn-sm rounded-circle" style="background: ${isLiked ? '#fee2e2' : 'transparent'}; width: 32px; height: 32px;"><i class="lni lni-heart ${isLiked ? 'text-danger' : ''}" style="font-size: 14px;"></i></button>
+                  <button onclick="event.stopPropagation(); handleShare()" class="btn btn-sm rounded-circle" style="background: transparent; width: 32px; height: 32px;"><i class="lni lni-share" style="font-size: 14px;"></i></button>
                 </div>
               </div>
             </div>
@@ -487,9 +501,9 @@
       `;
     }).join('');
 
-    // Add hover effect listeners after render
+    // Add hover effect listeners
     document.querySelectorAll('.bts-card').forEach(card => {
-      const overlay = card.querySelector('[onclick*="openContent"]');
+      const overlay = card.querySelector('div[style*="position: absolute; inset: 0; background: rgba(0,0,0,0.3)"]');
       if (overlay) {
         card.addEventListener('mouseenter', () => overlay.style.opacity = '1');
         card.addEventListener('mouseleave', () => overlay.style.opacity = '0');

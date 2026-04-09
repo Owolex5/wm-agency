@@ -157,22 +157,22 @@
       <li class="nav-label">Main Menu</li>
       <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
       <li class="nav-item"><a href="bookings.html" class="active"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span><span class="status-badge badge-green" id="newBookingsBadge">0 New</span></a></li>
-      <li class="nav-item"><a href="BehindTheScenes.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-item"><a href="BehindTheScene.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
       <li class="nav-label">Management</li>
-      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Invoices</span></a></li>
+      <li class="nav-item"><a href="invoice.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Invoices</span></a></li>
       <li class="nav-item nav-item-has-children">
         <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_profile"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a>
         <ul id="ddmenu_profile" class="collapse dropdown-nav">
-          <li><a href="dashboard/rankings.html">Rankings</a></li>
+          <li><a href="ranking.html">Rankings</a></li>
         </ul>
       </li>
     </ul>
   </nav>
-  <div class="promo-box">
+   <div class="promo-box">
     <i class="lni lni-star-filled"></i>
     <h3>Premium Access</h3>
     <p>Get exclusive talent rates.</p>
-    <a href="#" class="upgrade-btn">Upgrade</a>
+    <a href="https://nowpayments.io/payment/?iid=5113386155" class="upgrade-btn">Upgrade</a>
   </div>
 </aside>
 
@@ -190,9 +190,14 @@
             <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
           </div>
           <div class="profile-box">
-            <button class="dropdown-toggle" data-bs-toggle="dropdown">
-              <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
-              <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
+         <button class="dropdown-toggle" data-bs-toggle="dropdown">
+              <div class="profile-info d-none d-md-block text-end">
+                <h6 id="headerUserName">Loading...</h6>
+                <p id="headerUserRole">Member</p>
+              </div>
+              <div class="profile-img-wrapper" id="profileAvatarContainer">
+                <div style="width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px;">A</div>
+              </div>
             </button>
           </div>
         </div>
@@ -250,34 +255,22 @@
 
 <script>
   // ========== SUPABASE CONFIGURATION ==========
-  // Replace with your actual Supabase credentials from Vercel environment variables
-  const SUPABASE_URL = 'https://your-project.supabase.co';  // UPDATE THIS
-  const SUPABASE_ANON_KEY = 'your-anon-key';  // UPDATE THIS
+  // YOUR ACTUAL SUPABASE CREDENTIALS
+  const SUPABASE_URL = 'https://becpujqyjjlezgibmdfk.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_MA-ivarGoHmTWsVgoodPvA_bKq0Wihs';
   
-  let supabase = null;
-  let currentUser = null;
-  let allBookings = [];
-  let currentFilter = 'all';
-  let searchQuery = '';
+  let _supabase = null;
+  let _currentUser = null;
+  let _allBookings = [];
+  let _currentFilter = 'all';
+  let _searchQuery = '';
 
   // Initialize Supabase client
-  function initSupabase() {
-    if (SUPABASE_URL !== 'https://your-project.supabase.co' && SUPABASE_ANON_KEY !== 'your-anon-key') {
-      supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      console.log('✅ Supabase initialized');
-      return true;
-    } else {
-      console.warn('⚠️ Using demo mode - No Supabase credentials provided');
-      return false;
-    }
+  async function initSupabase() {
+    _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log('✅ Supabase initialized');
+    return true;
   }
-
-  // Demo bookings for fallback / testing
-  const demoBookings = [
-    { id: 1, celebrity_id: 1, event_type: "Corporate Gala", event_date: "2025-05-15", event_location: "Los Angeles, CA", budget: "$50,000 - $75,000", status: "approved", payment_status: "paid", special_requests: null, created_at: "2025-03-01T10:00:00Z", celebrities: { name: "Zendaya", category: "Acting Talent", image: null } },
-    { id: 2, celebrity_id: 2, event_type: "Brand Launch", event_date: "2025-06-20", event_location: "Miami, FL", budget: "$150,000 - $200,000", status: "pending", payment_status: "pending", special_requests: "VIP meet and greet", created_at: "2025-03-10T14:30:00Z", celebrities: { name: "Dwayne Johnson", category: "Acting Talent", image: null } },
-    { id: 3, celebrity_id: 7, event_type: "Private Concert", event_date: "2025-07-10", event_location: "New York, NY", budget: "$500,000+", status: "pending", payment_status: "pending", special_requests: null, created_at: "2025-03-15T09:00:00Z", celebrities: { name: "Taylor Swift", category: "Music", image: null } }
-  ];
 
   // Get status color class
   function getStatusClass(status, paymentStatus) {
@@ -294,7 +287,7 @@
 
   function getDisplayStatus(status, paymentStatus) {
     if (paymentStatus === 'paid' && status === 'confirmed') return 'Confirmed & Paid';
-    return status.charAt(0).toUpperCase() + status.slice(1);
+    return status ? status.charAt(0).toUpperCase() + status.slice(1) : 'Pending';
   }
 
   // Render bookings list
@@ -302,17 +295,17 @@
     const container = document.getElementById('bookingsListContainer');
     if (!container) return;
 
-    let filtered = allBookings.filter(b => {
-      const matchFilter = currentFilter === 'all' || b.status === currentFilter || b.payment_status === currentFilter;
-      const matchSearch = searchQuery === '' || 
-        (b.celebrities?.name || 'Celebrity').toLowerCase().includes(searchQuery.toLowerCase()) ||
-        b.event_type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        b.event_location.toLowerCase().includes(searchQuery.toLowerCase());
+    let filtered = _allBookings.filter(b => {
+      const matchFilter = _currentFilter === 'all' || b.status === _currentFilter || b.payment_status === _currentFilter;
+      const matchSearch = _searchQuery === '' || 
+        (b.celebrity_name || b.celebrities?.name || 'Celebrity').toLowerCase().includes(_searchQuery.toLowerCase()) ||
+        (b.event_name || b.event_type || '').toLowerCase().includes(_searchQuery.toLowerCase()) ||
+        (b.event_location || '').toLowerCase().includes(_searchQuery.toLowerCase());
       return matchFilter && matchSearch;
     });
 
     // Update new bookings badge
-    const pendingCount = allBookings.filter(b => b.status === 'pending').length;
+    const pendingCount = _allBookings.filter(b => b.status === 'pending').length;
     const badge = document.getElementById('newBookingsBadge');
     if (badge) badge.innerText = pendingCount > 0 ? `${pendingCount} New` : '0 New';
 
@@ -320,15 +313,22 @@
       container.innerHTML = `
         <div class="card-style text-center py-5 fade-slide-up">
           <i class="lni lni-calendar fs-1 text-muted"></i>
-          <h5 class="mt-3">${searchQuery ? 'No matching bookings found' : (currentFilter === 'all' ? 'No bookings yet' : `No ${currentFilter} bookings`)}</h5>
-          <p class="text-muted">${currentFilter === 'all' ? 'Start by booking your first celebrity' : 'Try a different filter'}</p>
+          <h5 class="mt-3">${_searchQuery ? 'No matching bookings found' : (_currentFilter === 'all' ? 'No bookings yet' : `No ${_currentFilter} bookings`)}</h5>
+          <p class="text-muted">${_currentFilter === 'all' ? 'Start by booking your first celebrity' : 'Try a different filter'}</p>
           <a href="book-now.html" class="btn btn-dark mt-2 rounded-pill">Browse Celebrities →</a>
         </div>
       `;
       return;
     }
 
-    container.innerHTML = filtered.map((booking, idx) => `
+    container.innerHTML = filtered.map((booking, idx) => {
+      const celebrityName = booking.celebrity_name || booking.celebrities?.name || 'Celebrity Booking';
+      const eventType = booking.event_name || booking.event_type || 'Event';
+      const eventDate = booking.event_date;
+      const eventLocation = booking.event_location || 'TBD';
+      const budgetDisplay = booking.budget ? `$${booking.budget.toLocaleString()}` : 'Contact for pricing';
+      
+      return `
       <div class="card-style booking-card fade-slide-up mb-3" style="animation-delay: ${idx * 0.05}s">
         <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
           <div class="d-flex gap-3 flex-grow-1">
@@ -337,14 +337,14 @@
             </div>
             <div>
               <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
-                <h5 class="fw-bold mb-0">${escapeHtml(booking.celebrities?.name || 'Celebrity Booking')}</h5>
+                <h5 class="fw-bold mb-0">${escapeHtml(celebrityName)}</h5>
                 <span class="status-badge-sm ${getStatusClass(booking.status, booking.payment_status)}">${getDisplayStatus(booking.status, booking.payment_status)}</span>
               </div>
-              <p class="text-muted small mb-2">${escapeHtml(booking.event_type)}</p>
+              <p class="text-muted small mb-2">${escapeHtml(eventType)}</p>
               <div class="d-flex flex-wrap gap-3 gap-x-4 small text-muted">
-                <span><i class="lni lni-calendar me-1"></i> ${new Date(booking.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                <span><i class="lni lni-map-marker me-1"></i> ${escapeHtml(booking.event_location)}</span>
-                ${booking.budget ? `<span><i class="lni lni-dollar me-1"></i> ${escapeHtml(booking.budget)}</span>` : ''}
+                <span><i class="lni lni-calendar me-1"></i> ${eventDate ? new Date(eventDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'Date TBD'}</span>
+                <span><i class="lni lni-map-marker me-1"></i> ${escapeHtml(eventLocation)}</span>
+                <span><i class="lni lni-dollar me-1"></i> ${budgetDisplay}</span>
               </div>
             </div>
           </div>
@@ -354,11 +354,11 @@
           </div>
         </div>
       </div>
-    `).join('');
+    `}).join('');
   }
 
   // Escape HTML
-  function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+  function escapeHtml(str) { if (!str) return ''; return String(str).replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
 
   // Fetch bookings from Supabase
   async function fetchBookings() {
@@ -366,43 +366,34 @@
     if (container) container.innerHTML = `<div class="text-center py-5"><div class="spinner-border text-dark"></div><p class="mt-3">Loading your bookings...</p></div>`;
 
     try {
-      if (supabase) {
-        // Get current user
-        const { data: { user }, error: userError } = await supabase.auth.getUser();
-        if (userError || !user) {
-          console.log('No authenticated user, using demo data');
-          useDemoData();
-          return;
-        }
-        currentUser = user;
-        document.getElementById('headerUsername').innerText = user.email?.split('@')[0] || 'User';
-
-        // Fetch bookings with celebrity join
-        const { data, error } = await supabase
-          .from('bookings')
-          .select(`*, celebrities ( name, category, image )`)
-          .eq('user_id', user.id)
-          .order('created_at', { ascending: false });
-
-        if (error) throw error;
-        if (data && data.length > 0) {
-          allBookings = data;
-        } else {
-          allBookings = [];
-        }
-      } else {
-        useDemoData();
+      // Get current user
+      const { data: { user }, error: userError } = await _supabase.auth.getUser();
+      if (userError || !user) {
+        console.log('No authenticated user, showing empty state');
+        _allBookings = [];
+        renderBookings();
+        return;
       }
+      
+      _currentUser = user;
+      document.getElementById('headerUsername').innerText = user.email?.split('@')[0] || 'User';
+
+      // Fetch bookings
+      const { data, error } = await _supabase
+        .from('bookings')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
+      _allBookings = data || [];
+      console.log(`Fetched ${_allBookings.length} bookings`);
+      
     } catch (err) {
       console.error('Error fetching bookings:', err);
-      useDemoData();
+      _allBookings = [];
     }
-    renderBookings();
-  }
-
-  function useDemoData() {
-    allBookings = demoBookings;
-    document.getElementById('headerUsername').innerText = 'Alex Rivera';
     renderBookings();
   }
 
@@ -412,7 +403,7 @@
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        currentFilter = btn.getAttribute('data-filter');
+        _currentFilter = btn.getAttribute('data-filter');
         renderBookings();
       });
     });
@@ -420,58 +411,74 @@
     const searchInput = document.getElementById('searchBookings');
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value;
+        _searchQuery = e.target.value;
         renderBookings();
       });
     }
   }
 
-  // Burger menu functionality
+  // Burger menu functionality - FIXED
   function setupBurgerMenu() {
     const burgerBtn = document.getElementById('burgerMenuBtn');
     const sidebar = document.getElementById('mainSidebar');
     const overlay = document.getElementById('sidebarOverlay');
 
-    function openSidebar() { sidebar.classList.add('mobile-open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeSidebar() { sidebar.classList.remove('mobile-open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
-    if (burgerBtn) burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar(); });
-    if (overlay) overlay.addEventListener('click', closeSidebar);
-    window.addEventListener('resize', () => { if (window.innerWidth > 991) closeSidebar(); });
+    if (!burgerBtn || !sidebar || !overlay) {
+      console.log('Burger menu elements not found');
+      return;
+    }
+
+    function openSidebar() {
+      sidebar.classList.add('mobile-open');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('mobile-open');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Remove any existing listeners to avoid duplicates
+    burgerBtn.removeEventListener('click', openSidebar);
+    burgerBtn.removeEventListener('click', closeSidebar);
+    
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar.classList.contains('mobile-open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+    
+    overlay.addEventListener('click', closeSidebar);
+    
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 991) {
+        closeSidebar();
+        sidebar.classList.remove('mobile-open');
+      }
+    });
   }
 
   // Logout function
   window.logout = async function() {
-    if (supabase) await supabase.auth.signOut();
-    localStorage.clear();
-    window.location.href = "login.html";
+    if (confirm('Are you sure you want to sign out?')) {
+      if (_supabase) await _supabase.auth.signOut();
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
   };
 
   // Initialize page
   document.addEventListener('DOMContentLoaded', async () => {
-    const hasSupabase = initSupabase();
-    if (hasSupabase) {
-      await fetchBookings();
-    } else {
-      useDemoData();
-    }
+    await initSupabase();
+    await fetchBookings();
     setupFilters();
     setupBurgerMenu();
-    
-    // Check for welcome message
-    if (!localStorage.getItem('bookingsPageViewed')) {
-      setTimeout(() => { toastMessage?.(); }, 500);
-      localStorage.setItem('bookingsPageViewed', 'true');
-    }
   });
-
-  function toastMessage() {
-    const toastDiv = document.createElement('div');
-    toastDiv.className = 'position-fixed bottom-0 end-0 p-3';
-    toastDiv.style.zIndex = '1100';
-    toastDiv.innerHTML = `<div class="toast show" role="alert"><div class="toast-header bg-dark text-white"><i class="lni lni-information me-2"></i><strong>Welcome</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button></div><div class="toast-body">View and manage all your celebrity bookings here.</div></div>`;
-    document.body.appendChild(toastDiv);
-    setTimeout(() => toastDiv.remove(), 3000);
-  }
 </script>
 </body>
 </html>

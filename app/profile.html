@@ -7,12 +7,12 @@
   <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
   <title>WME Agency | My Profile</title>
 
-  <!-- ========== All CSS files ========= -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/lineicons.css" />
   <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="assets/css/fullcalendar.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     :root {
@@ -54,97 +54,71 @@
     }
 
     .sidebar-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease;
     }
     .sidebar-overlay.active { opacity: 1; visibility: visible; }
 
     .menu-toggle-btn {
-      background: transparent;
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      background: rgba(0, 0, 0, 0.03);
-      transition: all 0.2s;
+      background: rgba(0, 0, 0, 0.03); border: none; width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;
     }
     .menu-toggle-btn:hover { background: rgba(0, 0, 0, 0.08); transform: scale(0.96); }
-    .menu-toggle-btn i { font-size: 1.5rem; color: #1a1a1a; }
 
     .navbar-logo { padding: 0 10px 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 16px; }
-    .navbar-logo a { text-decoration: none; display: flex; align-items: center; gap: 12px; }
-    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; border-radius: 12px; }
-    .logo-text { font-weight: 800; letter-spacing: -0.5px; font-size: 1.3rem; color: #111; }
-    .logo-text small { display: block; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); }
+    .logo-icon-bg { background: var(--primary); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 12px; }
+    .logo-text { font-weight: 800; font-size: 1.3rem; color: #111; text-decoration: none;}
 
     .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 20px 0 12px 16px; font-weight: 700; }
-    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; font-size: 0.9rem; gap: 12px; }
+    .sidebar-nav ul li a { display: flex; align-items: center; padding: 12px 16px; border-radius: 14px; color: #4a4a4a; transition: all 0.25s ease; text-decoration: none; font-weight: 500; gap: 12px; }
     .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover { background: rgba(0, 0, 0, 0.04); color: #000; }
-    .sidebar-nav ul li a .icon { font-size: 1.2rem; opacity: 0.7; width: 24px; }
-    .status-badge { margin-left: auto; font-size: 9px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
-    .badge-green { background: rgba(40, 167, 69, 0.12); color: #2a9d8f; }
-
-    .promo-box { margin-top: auto; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 24px; padding: 24px 20px; color: #fff; text-align: center; margin-top: 24px; }
-    .promo-box i { color: #f9ca24; font-size: 2rem; margin-bottom: 12px; }
-    .upgrade-btn { background: #fff; color: #000; padding: 8px 20px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-decoration: none; display: inline-block; }
-
-    .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 99; }
-    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
-    .header-left { display: flex; align-items: center; gap: 16px; }
-    .profile-box button { background: none; border: none; display: flex; align-items: center; gap: 12px; }
-    .profile-img-wrapper img { width: 42px; height: 42px; border-radius: 14px; object-fit: cover; border: 2px solid #fff; }
-    .dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; border: 2px solid #fff; }
 
     .main-wrapper { margin-left: 280px; transition: margin-left 0.3s ease; }
     @media (max-width: 991px) { .main-wrapper { margin-left: 0; } }
-    .footer { background: transparent; border-top: 1px solid rgba(0, 0, 0, 0.05); padding: 20px 0; margin-top: 32px; }
 
-    /* Profile specific styles */
-    .profile-avatar {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 60px;
-      border: 4px solid #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    .header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 99;
     }
-    .stat-card { transition: all 0.2s; }
-    .stat-card:hover { transform: translateY(-3px); background: #fff; }
-    .setting-item { border-bottom: 1px solid rgba(0,0,0,0.05); transition: background 0.2s; cursor: pointer; }
-    .setting-item:hover { background: rgba(0,0,0,0.02); }
-    .badge-tier { background: linear-gradient(135deg, #f5af19 0%, #f12711 100%); }
-    
-    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-slide-up { animation: fadeSlideUp 0.5s ease-out forwards; }
 
-    .modal-backdrop-custom { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1100; display: flex; align-items: center; justify-content: center; }
-    .edit-modal { max-width: 500px; width: 90%; background: white; border-radius: 32px; overflow: hidden; animation: fadeSlideUp 0.3s ease; }
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+      margin: 0 auto;
+    }
+
+    .toast-message {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
   </style>
 </head>
 <body>
 
-<div id="preloader"><div class="spinner"></div></div>
 <div id="sidebarOverlay" class="sidebar-overlay"></div>
 
-<!-- ========== SIDEBAR ========== -->
 <aside id="mainSidebar" class="sidebar-nav-wrapper">
   <div class="navbar-logo">
-    <a href="index.html">
+    <a href="index.html" class="d-flex align-items-center gap-2">
       <div class="logo-icon-bg">W</div>
-      <span class="logo-text">WME <small>AGENCY</small></span>
+      <span class="logo-text">WME <small class="d-block" style="font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted);">AGENCY</small></span>
     </a>
   </div>
   <nav class="sidebar-nav">
@@ -152,197 +126,122 @@
       <li class="nav-label">Main Menu</li>
       <li class="nav-item"><a href="index.html"><span class="icon"><i class="lni lni-grid-alt"></i></span><span class="text">Dashboard</span></a></li>
       <li class="nav-item"><a href="bookings.html"><span class="icon"><i class="lni lni-calendar"></i></span><span class="text">Bookings</span></a></li>
-      <li class="nav-item"><a href="behind-the-scenes.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
-      <li class="nav-item"><a href="group-chat.html"><span class="icon"><i class="lni lni-message"></i></span><span class="text">Group Chat</span></a></li>
-      <li class="nav-item"><a href="newsroom.html"><span class="icon"><i class="lni lni-bullhorn"></i></span><span class="text">Newsroom</span></a></li>
-      <li class="nav-item"><a href="invoices.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
-      <li class="nav-item"><a href="profile.html" class="active"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span><span class="status-badge badge-green">Edit</span></a></li>
+      <li class="nav-item"><a href="behindthescene.html"><span class="icon"><i class="lni lni-camera"></i></span><span class="text">Behind The Scenes</span></a></li>
+      <li class="nav-item"><a href="invoice.html"><span class="icon"><i class="lni lni-credit-cards"></i></span><span class="text">Payments</span></a></li>
+      <li class="nav-item"><a href="profile.html" class="active"><span class="icon"><i class="lni lni-user"></i></span><span class="text">My Profile</span></a></li>
     </ul>
   </nav>
-  <div class="promo-box">
-    <i class="lni lni-star-filled"></i>
-    <h3>Premium Access</h3>
-    <p>Get exclusive talent rates.</p>
-    <a href="#" class="upgrade-btn">Upgrade</a>
+  <div class="promo-box mt-auto p-3 bg-dark text-white rounded-3 text-center">
+    <i class="lni lni-star-filled text-warning"></i>
+    <h6 class="mt-2">Premium Access</h6>
+    <p class="small">Get exclusive talent rates.</p>
+    <a href="https://nowpayments.io/payment/?iid=5113386155" target="_blank" class="btn btn-light btn-sm rounded-pill">Upgrade</a>
   </div>
 </aside>
 
-<!-- ========== MAIN WRAPPER ========== -->
 <main class="main-wrapper">
   <header class="header">
-    <div class="container-fluid">
-      <div class="header-content">
-        <div class="header-left">
-          <button id="burgerMenuBtn" class="menu-toggle-btn"><i class="lni lni-menu"></i></button>
-        </div>
-        <div class="header-right">
-          <div class="header-icon-btn me-3 position-relative">
-            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i class="lni lni-bell"></i><span class="dot"></span></button>
+    <div class="container-fluid px-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <button id="burgerMenuBtn" class="menu-toggle-btn d-lg-none"><i class="lni lni-menu"></i></button>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <div class="text-end d-none d-md-block">
+            <h6 class="m-0 fw-bold small" id="headerUsername">Loading...</h6>
+            <p class="m-0 text-muted small" id="headerRole">Member</p>
           </div>
-          <div class="profile-box">
-            <button class="dropdown-toggle" data-bs-toggle="dropdown">
-              <div class="profile-info d-none d-md-block text-end"><h6 id="headerUsername">Alex Rivera</h6><p>Talent Booker</p></div>
-              <div class="profile-img-wrapper"><img src="assets/images/profile/profile-image.png" alt="Profile"></div>
-            </button>
-          </div>
+          <div class="profile-avatar rounded-circle bg-dark text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: bold;" id="userAvatar">A</div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Profile Content -->
   <div class="container-fluid px-4 py-4">
-    <div class="mb-4">
-      <h1 class="display-6 fw-bold mb-1">My Profile</h1>
-      <p class="text-muted">Manage your account information and preferences</p>
-    </div>
-
     <div class="row g-4">
       <!-- Profile Card Column -->
       <div class="col-lg-4">
-        <div class="card-style text-center fade-slide-up">
-          <div class="position-relative d-inline-block">
-            <img id="profileAvatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" alt="Profile" class="profile-avatar">
-            <button class="btn btn-sm btn-dark rounded-circle position-absolute bottom-0 end-0" style="width: 32px; height: 32px;" onclick="openEditAvatar()">
-              <i class="lni lni-camera" style="font-size: 14px;"></i>
-            </button>
-          </div>
-          <h3 class="fw-bold mt-3 mb-1" id="profileName">Alex Rivera</h3>
-          <p class="text-muted small" id="profileRole">Talent Booker • Premium Member</p>
+        <div class="card border-0 shadow-sm rounded-4 p-4 text-center">
+          <div class="profile-avatar bg-dark mx-auto mb-3 d-flex align-items-center justify-content-center" id="profileAvatar" style="width: 120px; height: 120px; font-size: 3rem;">A</div>
+          <h3 class="fw-bold mb-1" id="profileName">Loading...</h3>
+          <p class="text-muted small" id="profileRole">Member</p>
           <div class="d-flex justify-content-center gap-2 mb-3">
-            <span class="badge bg-dark rounded-pill px-3 py-1"><i class="lni lni-trophy"></i> Rank #12</span>
-            <span class="badge badge-tier rounded-pill px-3 py-1" style="background: linear-gradient(135deg, #f5af19, #f12711);">✨ Premium</span>
+            <span class="badge bg-dark rounded-pill px-3 py-2"><i class="lni lni-trophy"></i> Rank <span id="profileRank">#--</span></span>
+            <span class="badge bg-warning text-dark rounded-pill px-3 py-2"><i class="lni lni-star"></i> <span id="profilePoints">0</span> pts</span>
           </div>
-          <div class="row g-2 mt-2">
-            <div class="col-6">
-              <div class="bg-light rounded-3 p-2">
-                <small class="text-muted">Points</small>
-                <h5 class="mb-0 fw-bold" id="profilePoints">24,500</h5>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="bg-light rounded-3 p-2">
-                <small class="text-muted">Bookings</small>
-                <h5 class="mb-0 fw-bold" id="profileBookings">8</h5>
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-outline-dark w-100 mt-3 rounded-pill" onclick="openEditProfile()">
+          <button class="btn btn-dark w-100 rounded-pill mt-2" onclick="openEditModal()">
             <i class="lni lni-pencil"></i> Edit Profile
           </button>
         </div>
 
         <!-- Membership Card -->
-        <div class="card-style mt-4 bg-dark text-white text-center fade-slide-up" style="animation-delay: 0.05s">
+        <div class="card border-0 shadow-sm rounded-4 p-4 mt-4 bg-dark text-white text-center">
           <i class="lni lni-star-filled fs-1 text-warning mb-2"></i>
           <h5 class="fw-bold">Premium Member</h5>
-          <p class="small text-white-50">Valid until Dec 31, 2025</p>
-          <div class="progress bg-white-20 rounded-pill" style="height: 8px;">
-            <div class="progress-bar bg-warning" style="width: 65%;"></div>
+          <p class="small text-white-50" id="membershipStatus">Active Member</p>
+          <div class="progress bg-white-20 rounded-pill" style="height: 6px;">
+            <div class="progress-bar bg-warning" style="width: 0%;" id="progressBar"></div>
           </div>
-          <p class="small mt-2 text-white-50">65% to Platinum Tier</p>
-          <button class="btn btn-outline-light btn-sm mt-2 rounded-pill" onclick="showToast('Upgrade options coming soon!', 'info')">Upgrade Membership</button>
+          <p class="small mt-2 text-white-50" id="nextTier">Earn points to unlock Premium</p>
         </div>
       </div>
 
       <!-- Main Info Column -->
       <div class="col-lg-8">
-        <!-- Personal Information -->
-        <div class="card-style fade-slide-up" style="animation-delay: 0.1s">
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="fw-bold mb-0"><i class="lni lni-user me-2"></i> Personal Information</h5>
-            <button class="btn btn-sm btn-light rounded-pill" onclick="openEditProfile()">Edit</button>
+            <button class="btn btn-sm btn-outline-dark rounded-pill" onclick="openEditModal()">Edit</button>
           </div>
           <div class="row g-3">
             <div class="col-md-6">
               <label class="small text-muted">Full Name</label>
-              <p class="fw-semibold mb-0" id="infoName">Alex Rivera</p>
+              <p class="fw-semibold mb-0" id="infoName">-</p>
             </div>
             <div class="col-md-6">
               <label class="small text-muted">Email Address</label>
-              <p class="fw-semibold mb-0" id="infoEmail">alex.rivera@wmeagency.com</p>
+              <p class="fw-semibold mb-0" id="infoEmail">-</p>
             </div>
             <div class="col-md-6">
               <label class="small text-muted">Phone Number</label>
-              <p class="fw-semibold mb-0" id="infoPhone">+1 (555) 123-4567</p>
+              <p class="fw-semibold mb-0" id="infoPhone">-</p>
             </div>
             <div class="col-md-6">
               <label class="small text-muted">Member Since</label>
-              <p class="fw-semibold mb-0">January 15, 2024</p>
+              <p class="fw-semibold mb-0" id="infoJoined">-</p>
             </div>
             <div class="col-12">
               <label class="small text-muted">Bio</label>
-              <p class="mb-0" id="infoBio">Passionate talent booker with 5+ years in entertainment. Love discovering new talent and creating unforgettable experiences.</p>
+              <p class="mb-0" id="infoBio">No bio yet. Click edit to add one.</p>
             </div>
           </div>
         </div>
 
-        <!-- Stats Overview -->
-        <div class="row g-3 mt-1">
+        <!-- Account Stats -->
+        <div class="row g-3">
           <div class="col-md-4">
-            <div class="stat-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.15s">
+            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
               <i class="lni lni-calendar fs-2"></i>
-              <h3 class="fw-bold mb-0" id="statBookings">8</h3>
+              <h3 class="fw-bold mb-0" id="statBookings">0</h3>
               <small class="text-muted">Total Bookings</small>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="stat-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.2s">
+            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
               <i class="lni lni-trophy fs-2 text-warning"></i>
-              <h3 class="fw-bold mb-0" id="statPoints">24,500</h3>
+              <h3 class="fw-bold mb-0" id="statPoints">0</h3>
               <small class="text-muted">Points Earned</small>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="stat-card card-style text-center p-3 fade-slide-up" style="animation-delay: 0.25s">
+            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
               <i class="lni lni-users fs-2"></i>
-              <h3 class="fw-bold mb-0" id="statReferrals">3</h3>
+              <h3 class="fw-bold mb-0" id="statReferrals">0</h3>
               <small class="text-muted">Referrals</small>
             </div>
           </div>
         </div>
 
-        <!-- Settings Section -->
-        <div class="card-style mt-3 fade-slide-up" style="animation-delay: 0.3s">
-          <h5 class="fw-bold mb-3"><i class="lni lni-cog me-2"></i> Account Settings</h5>
-          <div class="setting-item d-flex justify-content-between align-items-center py-3" onclick="toggleSetting('notifications')">
-            <div>
-              <i class="lni lni-bell me-2"></i>
-              <span>Push Notifications</span>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="notifToggle" checked onchange="saveSetting('notifications', this.checked)">
-            </div>
-          </div>
-          <div class="setting-item d-flex justify-content-between align-items-center py-3" onclick="toggleSetting('email')">
-            <div>
-              <i class="lni lni-envelope me-2"></i>
-              <span>Email Updates</span>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="emailToggle" checked onchange="saveSetting('email', this.checked)">
-            </div>
-          </div>
-          <div class="setting-item d-flex justify-content-between align-items-center py-3" onclick="toggleSetting('dark')">
-            <div>
-              <i class="lni lni-night me-2"></i>
-              <span>Dark Mode</span>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="darkToggle" onchange="toggleDarkMode(this.checked)">
-            </div>
-          </div>
-          <div class="setting-item d-flex justify-content-between align-items-center py-3 border-bottom-0" onclick="changePassword()">
-            <div>
-              <i class="lni lni-lock me-2"></i>
-              <span>Change Password</span>
-            </div>
-            <i class="lni lni-arrow-right text-muted"></i>
-          </div>
-        </div>
-
         <!-- Danger Zone -->
-        <div class="card-style mt-3 border border-danger bg-danger bg-opacity-10 fade-slide-up" style="animation-delay: 0.35s">
+        <div class="card border-0 shadow-sm rounded-4 p-4 mt-4 border-danger bg-danger bg-opacity-10">
           <h5 class="fw-bold mb-2 text-danger"><i class="lni lni-warning me-2"></i> Danger Zone</h5>
           <p class="small text-muted mb-3">Permanently delete your account and all associated data.</p>
           <button class="btn btn-outline-danger btn-sm rounded-pill" onclick="confirmDelete()">Delete Account</button>
@@ -350,222 +249,256 @@
       </div>
     </div>
   </div>
-
-  <footer class="footer"><div class="container-fluid"><div class="row"><div class="col-md-6"><div class="copyright"><p class="text-sm">Designed by <a href="https://wmeagency.com">WME</a></p></div></div></div></div></footer>
 </main>
 
 <!-- Edit Profile Modal -->
-<div id="editModal" style="display: none; position: fixed; inset: 0; z-index: 1200;"></div>
+<div id="editModal" style="display: none; position: fixed; inset: 0; z-index: 1200; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); align-items: center; justify-content: center;">
+  <div class="bg-white rounded-4 p-4" style="max-width: 500px; width: 90%; margin: auto;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="fw-bold mb-0">Edit Profile</h5>
+      <button class="btn-close" onclick="closeEditModal()"></button>
+    </div>
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Phone Number</label>
+      <input type="tel" id="editPhone" class="form-control rounded-pill">
+    </div>
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Bio</label>
+      <textarea id="editBio" class="form-control" rows="4" placeholder="Tell us about yourself..."></textarea>
+    </div>
+    <button class="btn btn-dark w-100 rounded-pill py-2" onclick="saveProfileChanges()">Save Changes</button>
+  </div>
+</div>
 
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
+<div id="toastContainer"></div>
 
 <script>
-  // ========== USER PROFILE DATA ==========
-  let userProfile = {
-    name: "Alex Rivera",
-    email: "alex.rivera@wmeagency.com",
-    phone: "+1 (555) 123-4567",
-    bio: "Passionate talent booker with 5+ years in entertainment. Love discovering new talent and creating unforgettable experiences.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop",
-    points: 24500,
-    bookings: 8,
-    referrals: 3,
-    rank: 12,
-    memberSince: "January 15, 2024"
-  };
+  // Supabase Configuration
+  const SUPABASE_URL = 'https://becpujqyjjlezgibmdfk.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_MA-ivarGoHmTWsVgoodPvA_bKq0Wihs';
+  
+  let supabase = null;
+  let currentUser = null;
+  let userProfile = {};
 
-  // Load saved data from localStorage
-  function loadProfile() {
-    const saved = localStorage.getItem('wme_profile');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        Object.assign(userProfile, parsed);
-      } catch(e) {}
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    const bgColor = type === 'success' ? 'bg-dark' : 'bg-danger';
+    toast.className = `toast-message ${bgColor} text-white px-4 py-3 rounded-3 shadow`;
+    toast.innerHTML = `<div class="d-flex align-items-center gap-2"><i class="lni lni-checkmark-circle"></i> ${message}</div>`;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  function getInitials(name) {
+    if (!name) return '?';
+    const parts = name.trim().split(' ');
+    if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+    return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+  }
+
+  function getAvatarColor(name) {
+    const colors = [
+      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+      'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+    ];
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = ((hash << 5) - hash) + name.charCodeAt(i);
+      hash |= 0;
     }
-    updateProfileUI();
+    return colors[Math.abs(hash) % colors.length];
   }
 
-  function saveProfile() {
-    localStorage.setItem('wme_profile', JSON.stringify(userProfile));
-  }
-
-  function updateProfileUI() {
-    document.getElementById('profileName').innerText = userProfile.name;
-    document.getElementById('profileAvatar').src = userProfile.avatar;
-    document.getElementById('profilePoints').innerText = userProfile.points.toLocaleString();
-    document.getElementById('profileBookings').innerText = userProfile.bookings;
-    document.getElementById('infoName').innerText = userProfile.name;
-    document.getElementById('infoEmail').innerText = userProfile.email;
-    document.getElementById('infoPhone').innerText = userProfile.phone;
-    document.getElementById('infoBio').innerText = userProfile.bio;
-    document.getElementById('statBookings').innerText = userProfile.bookings;
-    document.getElementById('statPoints').innerText = userProfile.points.toLocaleString();
-    document.getElementById('statReferrals').innerText = userProfile.referrals;
-    document.getElementById('headerUsername').innerText = userProfile.name.split(' ')[0];
-  }
-
-  // Edit Profile Modal
-  window.openEditProfile = function() {
-    const modalDiv = document.getElementById('editModal');
-    modalDiv.innerHTML = `
-      <div class="modal-backdrop-custom" onclick="closeEditModal(event)">
-        <div class="edit-modal" onclick="event.stopPropagation()">
-          <div class="p-4 border-bottom d-flex justify-content-between align-items-center bg-white">
-            <h5 class="fw-bold mb-0">Edit Profile</h5>
-            <button class="btn-close" onclick="closeEditModal()"></button>
-          </div>
-          <div class="p-4">
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Full Name</label>
-              <input type="text" id="editName" class="form-control" value="${userProfile.name}">
-            </div>
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Email Address</label>
-              <input type="email" id="editEmail" class="form-control" value="${userProfile.email}">
-            </div>
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Phone Number</label>
-              <input type="tel" id="editPhone" class="form-control" value="${userProfile.phone}">
-            </div>
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Bio</label>
-              <textarea id="editBio" class="form-control" rows="3">${userProfile.bio}</textarea>
-            </div>
-            <button class="btn btn-dark w-100 rounded-pill py-2" onclick="saveProfileChanges()">Save Changes</button>
-          </div>
-        </div>
-      </div>
-    `;
-    modalDiv.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.saveProfileChanges = function() {
-    const newName = document.getElementById('editName')?.value.trim();
-    const newEmail = document.getElementById('editEmail')?.value.trim();
-    const newPhone = document.getElementById('editPhone')?.value.trim();
-    const newBio = document.getElementById('editBio')?.value.trim();
+  async function initSupabase() {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const { data: { user }, error } = await supabase.auth.getUser();
     
-    if (newName) userProfile.name = newName;
-    if (newEmail) userProfile.email = newEmail;
-    if (newPhone) userProfile.phone = newPhone;
-    if (newBio) userProfile.bio = newBio;
-    
-    saveProfile();
-    updateProfileUI();
-    closeEditModal();
-    showToast('Profile updated successfully!', 'success');
-  };
-
-  window.openEditAvatar = function() {
-    const avatarUrl = prompt('Enter image URL for your avatar:', userProfile.avatar);
-    if (avatarUrl && avatarUrl.startsWith('http')) {
-      userProfile.avatar = avatarUrl;
-      saveProfile();
-      updateProfileUI();
-      showToast('Avatar updated!', 'success');
-    } else if (avatarUrl) {
-      showToast('Please enter a valid image URL', 'error');
+    if (error || !user) {
+      window.location.href = 'login.html';
+      return;
     }
-  };
-
-  window.closeEditModal = function(e) {
-    const modal = document.getElementById('editModal');
-    if (modal) modal.style.display = 'none';
-    document.body.style.overflow = '';
-  };
-
-  // Settings handlers
-  window.toggleSetting = function(setting) {
-    const toggle = document.getElementById(`${setting}Toggle`);
-    if (toggle) toggle.checked = !toggle.checked;
-    saveSetting(setting, toggle.checked);
-  };
-
-  window.saveSetting = function(setting, value) {
-    localStorage.setItem(`wme_setting_${setting}`, value);
-    showToast(`${setting === 'notifications' ? 'Notifications' : setting === 'email' ? 'Email updates' : 'Setting'} ${value ? 'enabled' : 'disabled'}`, 'info');
-  };
-
-  function loadSettings() {
-    const notif = localStorage.getItem('wme_setting_notifications');
-    const email = localStorage.getItem('wme_setting_email');
-    const dark = localStorage.getItem('wme_setting_dark');
-    if (notif !== null) document.getElementById('notifToggle').checked = notif === 'true';
-    if (email !== null) document.getElementById('emailToggle').checked = email === 'true';
-    if (dark !== null && dark === 'true') toggleDarkMode(true);
+    
+    currentUser = user;
+    await fetchUserProfile();
+    await fetchUserStats();
   }
 
-  window.toggleDarkMode = function(enabled) {
-    if (enabled) {
-      document.body.style.background = '#1a1a2e';
-      document.querySelectorAll('.card-style, .icon-card, .stat-card').forEach(el => {
-        el.style.background = '#16213e';
-        el.style.color = '#fff';
-        el.style.borderColor = 'rgba(255,255,255,0.1)';
-      });
-      localStorage.setItem('wme_setting_dark', 'true');
+  async function fetchUserProfile() {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', currentUser.id)
+      .single();
+    
+    if (!error && data) {
+      userProfile = data;
     } else {
-      document.body.style.background = '#f8f9fc';
-      document.querySelectorAll('.card-style, .icon-card, .stat-card').forEach(el => {
-        el.style.background = '#fff';
-        el.style.color = '#000';
-        el.style.borderColor = 'rgba(0,0,0,0.06)';
-      });
-      localStorage.setItem('wme_setting_dark', 'false');
+      // Create profile if doesn't exist
+      userProfile = {
+        id: currentUser.id,
+        full_name: currentUser.email?.split('@')[0] || 'User',
+        email: currentUser.email,
+        phone: '',
+        bio: '',
+        points: 0,
+        rank: 0,
+        created_at: new Date().toISOString()
+      };
+      
+      await supabase.from('profiles').insert([userProfile]);
     }
-  };
+    
+    updateUI();
+  }
 
-  window.changePassword = function() {
-    const newPass = prompt('Enter new password:', '');
-    if (newPass && newPass.length >= 6) {
-      showToast('Password changed successfully!', 'success');
-    } else if (newPass) {
-      showToast('Password must be at least 6 characters', 'error');
+  async function fetchUserStats() {
+    // Fetch bookings count
+    const { count: bookingsCount } = await supabase
+      .from('bookings')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', currentUser.id);
+    
+    document.getElementById('statBookings').innerText = bookingsCount || 0;
+    document.getElementById('statPoints').innerText = userProfile.points?.toLocaleString() || '0';
+  }
+
+  function updateUI() {
+    const firstName = userProfile.full_name?.split(' ')[0] || 'User';
+    document.getElementById('profileName').innerText = userProfile.full_name || 'User';
+    document.getElementById('infoName').innerText = userProfile.full_name || '-';
+    document.getElementById('infoEmail').innerText = userProfile.email || '-';
+    document.getElementById('infoPhone').innerText = userProfile.phone || 'Not set';
+    document.getElementById('infoBio').innerHTML = userProfile.bio || 'No bio yet. Click edit to add one.';
+    document.getElementById('headerUsername').innerText = firstName;
+    document.getElementById('profilePoints').innerText = userProfile.points?.toLocaleString() || '0';
+    document.getElementById('profileRank').innerText = `#${userProfile.rank || '100+'}`;
+    document.getElementById('statPoints').innerText = userProfile.points?.toLocaleString() || '0';
+    
+    const joinedDate = userProfile.created_at ? new Date(userProfile.created_at).toLocaleDateString() : '2024';
+    document.getElementById('infoJoined').innerText = joinedDate;
+    
+    // Update membership tier
+    const points = userProfile.points || 0;
+    let tier = 'Standard';
+    let nextTier = 'Earn 5000 points for Gold';
+    let progress = (points / 5000) * 100;
+    
+    if (points >= 5000 && points < 25000) {
+      tier = 'Gold';
+      nextTier = 'Earn 25000 points for Platinum';
+      progress = ((points - 5000) / 20000) * 100;
+    } else if (points >= 25000 && points < 100000) {
+      tier = 'Platinum';
+      nextTier = 'Earn 100000 points for Diamond';
+      progress = ((points - 25000) / 75000) * 100;
+    } else if (points >= 100000) {
+      tier = 'Diamond';
+      nextTier = 'Maximum tier achieved!';
+      progress = 100;
     }
-  };
+    
+    document.getElementById('membershipStatus').innerHTML = `${tier} Member`;
+    document.getElementById('nextTier').innerHTML = nextTier;
+    document.getElementById('progressBar').style.width = `${Math.min(progress, 100)}%`;
+    
+    // Update avatar
+    const initials = getInitials(userProfile.full_name || userProfile.email);
+    const avatarColor = getAvatarColor(userProfile.full_name || userProfile.email);
+    document.getElementById('userAvatar').innerText = initials;
+    document.getElementById('profileAvatar').innerHTML = initials;
+    document.getElementById('profileAvatar').style.background = avatarColor;
+    document.getElementById('userAvatar').style.background = avatarColor;
+  }
+
+  window.openEditModal = function() {
+    document.getElementById('editPhone').value = userProfile.phone || '';
+    document.getElementById('editBio').value = userProfile.bio || '';
+    document.getElementById('editModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  window.closeEditModal = function() {
+    document.getElementById('editModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  window.saveProfileChanges = async function() {
+    const newPhone = document.getElementById('editPhone').value.trim();
+    const newBio = document.getElementById('editBio').value.trim();
+    
+    const { error } = await supabase
+      .from('profiles')
+      .update({ 
+        phone: newPhone,
+        bio: newBio,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', currentUser.id);
+    
+    if (error) {
+      showToast('Error updating profile', 'error');
+    } else {
+      userProfile.phone = newPhone;
+      userProfile.bio = newBio;
+      updateUI();
+      showToast('Profile updated successfully!', 'success');
+      closeEditModal();
+    }
+  }
 
   window.confirmDelete = function() {
     if (confirm('⚠️ WARNING: This will permanently delete your account. This action cannot be undone. Are you sure?')) {
-      if (confirm('Type "DELETE" to confirm:')) {
+      const confirmText = prompt('Type "DELETE" to confirm:');
+      if (confirmText === 'DELETE') {
         showToast('Account deletion requested. Please contact support.', 'error');
       }
     }
-  };
-
-  function showToast(msg, type = 'success') {
-    const toastDiv = document.createElement('div');
-    toastDiv.className = 'position-fixed bottom-0 end-0 p-3';
-    toastDiv.style.zIndex = '1300';
-    toastDiv.innerHTML = `<div class="toast show" role="alert"><div class="toast-header ${type === 'success' ? 'bg-dark text-white' : 'bg-danger text-white'}"><i class="lni lni-information me-2"></i><strong>Profile</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button></div><div class="toast-body">${msg}</div></div>`;
-    document.body.appendChild(toastDiv);
-    setTimeout(() => toastDiv.remove(), 3000);
   }
 
-  // Burger menu
+  // Burger Menu Logic
   function setupBurgerMenu() {
     const burgerBtn = document.getElementById('burgerMenuBtn');
     const sidebar = document.getElementById('mainSidebar');
     const overlay = document.getElementById('sidebarOverlay');
+
     if (!burgerBtn || !sidebar || !overlay) return;
-    function openSidebar() { sidebar.classList.add('mobile-open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeSidebar() { sidebar.classList.remove('mobile-open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
-    burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar(); });
+
+    function openSidebar() {
+      sidebar.classList.add('mobile-open');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('mobile-open');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar.classList.contains('mobile-open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
     overlay.addEventListener('click', closeSidebar);
-    window.addEventListener('resize', () => { if (window.innerWidth > 991) closeSidebar(); });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 991) closeSidebar();
+    });
   }
 
   // Initialize
-  document.addEventListener('DOMContentLoaded', () => {
-    loadProfile();
-    loadSettings();
+  document.addEventListener('DOMContentLoaded', async () => {
+    await initSupabase();
     setupBurgerMenu();
-    
-    // Add dark mode listener for existing preference
-    const darkPref = localStorage.getItem('wme_setting_dark');
-    if (darkPref === 'true') toggleDarkMode(true);
   });
 </script>
 </body>

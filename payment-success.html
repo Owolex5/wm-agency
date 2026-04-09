@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful | WME Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .spinner {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+      <div id="loadingState" class="py-8">
+        <div class="w-16 h-16 border-4 border-gray-200 border-t-black rounded-full spinner mx-auto mb-4"></div>
+        <p class="text-gray-600">Verifying your payment...</p>
+      </div>
+      
+      <div id="successState" style="display: none;">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-check text-green-600 text-3xl"></i>
+        </div>
+        <h1 class="text-2xl font-bold mb-2">Payment Successful!</h1>
+        <p class="text-gray-600 mb-6">Your booking deposit has been confirmed.</p>
+        <div class="bg-green-50 rounded-lg p-4 mb-6">
+          <p class="text-sm text-green-800">✓ Booking confirmed</p>
+          <p class="text-sm text-green-800 mt-1">✓ +100 points added to your account</p>
+        </div>
+        <a href="bookings.html" class="inline-block bg-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-black/90 transition w-full">
+          View My Bookings
+        </a>
+      </div>
+      
+      <div id="errorState" style="display: none;">
+        <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-times text-red-600 text-3xl"></i>
+        </div>
+        <h1 class="text-2xl font-bold mb-2">Payment Pending</h1>
+        <p class="text-gray-600 mb-6">Your payment is being processed. You will receive an email confirmation shortly.</p>
+        <a href="app/bookings.html" class="inline-block bg-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-black/90 transition w-full">
+          Go to My Bookings
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://becpujqyjjlezgibmdfk.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_MA-ivarGoHmTWsVgoodPvA_bKq0Wihs';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function verifyPayment() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookingId = urlParams.get('booking_id');
+      
+      if (!bookingId) {
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('errorState').style.display = 'block';
+        return;
+      }
+      
+      try {
+        // Get booking details
+        const { data: booking, error } = await supabase
+          .from('bookings')
+          .select('*')
+          .eq('id', parseInt(bookingId))
+          .single();
+        
+        if (error) throw error;
+        
+        // If payment_id exists, check with NowPayments
+        if (booking.payment_id) {
+          const checkResponse = await fetch(`https://api.nowpayments.io/v1/payment/${booking.payment_id}`, {
+            headers: { 'x-api-key': '43YSWXS-H2B4W8T-QYGD3CH-4KF7S6Y' }
+          });
+          const paymentStatus = await checkResponse.json();
+          
+          if (paymentStatus.payment_status === 'finished') {
+            // Update booking to confirmed
+            await supabase
+              .from('bookings')
+              .update({ 
+                payment_status: 'paid', 
+                status: 'confirmed',
+                updated_at: new Date().toISOString()
+              })
+              .eq('id', booking.id);
+            
+            // Add points if user is logged in
+            if (booking.user_id) {
+              const { data: profile } = await supabase
+                .from('profiles')
+                .select('points')
+                .eq('id', booking.user_id)
+                .single();
+              
+              if (profile) {
+                await supabase
+                  .from('profiles')
+                  .update({ points: (profile.points || 0) + 100 })
+                  .eq('id', booking.user_id);
+                
+                await supabase
+                  .from('points_transactions')
+                  .insert({
+                    user_id: booking.user_id,
+                    points: 100,
+                    type: 'earn',
+                    source: 'booking_deposit',
+                    description: `Booking deposit for order #${booking.id}`
+                  });
+              }
+            }
+            
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('successState').style.display = 'block';
+          } else {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'block';
+          }
+        } else {
+          document.getElementById('loadingState').style.display = 'none';
+          document.getElementById('errorState').style.display = 'block';
+        }
+      } catch (err) {
+        console.error('Verification error:', err);
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('errorState').style.display = 'block';
+      }
+    }
+    
+    verifyPayment();
+  </script>
+</body>
+</html>
